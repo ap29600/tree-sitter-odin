@@ -64,3 +64,36 @@ a_somewhat_long_identifier := a
   (value_declare
     name: (identifier)
     value: (identifier)))
+
+
+=========================
+Procedure signatures
+=========================
+
+package pkgname
+
+foo :: #type proc (a: int, b : string = "") -> int
+foo :: #type proc () -> (int, type_of("hello"))
+
+---
+
+(source_file
+  (package_declaration
+    name: (package_name))
+  (value_declare
+    name: (identifier)
+    const: (proc_type
+      arg: (single_value_declare
+        name: (identifier)
+        type: (identifier))
+      arg: (single_value_declare
+        name: (identifier)
+        type: (identifier)
+        value: (string_literal))
+      returns: (identifier)))
+  (value_declare
+    name: (identifier)
+    const: (proc_type
+      returns: (identifier)
+      returns: (type_of 
+        (string_literal)))))
