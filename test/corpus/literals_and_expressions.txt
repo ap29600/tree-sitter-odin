@@ -1,0 +1,66 @@
+======================
+Empty package
+======================
+
+package pkgname
+
+---
+
+(source_file 
+  (package_declaration 
+    name: (package_name)))
+
+
+=======================
+Package imports
+=======================
+
+package pkgname
+
+import foo "core:foo"
+
+---
+
+(source_file 
+  (package_declaration 
+    name: (package_name))
+  (package_import
+    alias: (identifier)
+    path: (string_literal)))
+
+
+========================================
+Declaration and assignment expressions
+========================================
+
+package pkgname
+
+a: int
+b := "some \"escaped\" string"
+c : int = 10
+d, e :: 4, 5
+a_somewhat_long_identifier := a
+
+---
+
+(source_file 
+  (package_declaration 
+    name: (package_name))
+  (value_declare
+    name: (identifier)
+    type: (identifier))
+  (value_declare
+    name: (identifier)
+    value: (string_literal))
+  (value_declare
+    name: (identifier)
+    type: (identifier)
+    value: (int_literal))
+  (value_declare
+    name: (identifier)
+    name: (identifier)
+    const: (int_literal)
+    const: (int_literal))
+  (value_declare
+    name: (identifier)
+    value: (identifier)))
