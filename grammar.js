@@ -141,6 +141,8 @@ module.exports = grammar({
     [$._simple_type, $._expression],
     [$._simple_type, $._expression, $.qualified_type],
     [$.qualified_type, $._expression],
+    [$.const_declaration, $.var_declaration],
+    [$.const_declaration, $.var_declaration, $.range_clause],
     // [$.generic_type, $._expression],
     // [$.generic_type, $._simple_type],
     // [$.parameter_declaration, $.type_arguments],
@@ -193,7 +195,7 @@ module.exports = grammar({
     ),
 
     const_declaration: $ => prec.left(seq(
-      field('name', commaSep1($.identifier)), ':',
+      field('name', commaSep1(alias($.identifier, $.const_identifier))), ':',
       choice(
         seq(
           field('type', $._type),
@@ -216,7 +218,7 @@ module.exports = grammar({
 
     proc_literal: $ => prec.right(1, seq(
       field('type', $.proc_type),
-      field('body', optional($._raw_block))
+      field('body', choice(alias($._raw_block, $.block), alias('---', $.deinitialized))),
     )),
 
     parameter_list: $ => seq(
@@ -240,15 +242,9 @@ module.exports = grammar({
       field('type', $._type)
     ),
 
-    type_alias: $ => seq(
-      field('name', $._type_identifier),
-      '=',
-      field('type', $._type)
-    ),
-
     field_name_list: $ => commaSep1($._field_identifier),
 
-    expression_list: $ => commaSep1($._expression),
+    expression_list: $ => prec(1, commaSep1($._expression)),
 
     _type: $ => choice(
       $._simple_type,
@@ -263,7 +259,10 @@ module.exports = grammar({
       $.qualified_type,
       $.pointer_type,
       $.struct_type,
+      $.enum_type,
+      $.union_type,
       $.array_type,
+      $.dynamic_array_type,
       $.slice_type,
       $.map_type,
       $.proc_type,
@@ -282,10 +281,15 @@ module.exports = grammar({
 
     array_type: $ => seq(
       '[',
-      field('length', choice($._expression, alias('?', $.placeholder))),
+      field('length', choice($._expression, alias('?', $.operator))),
       ']',
       field('element', $._type)
     ),
+
+    dynamic_array_type: $ => prec(10, seq(
+      '[', alias('dynamic', $.operator), ']',
+      field('element', $._type)
+    )),
 
     slice_type: $ => seq(
       '[', ']', field('element', $._type)
@@ -312,6 +316,19 @@ module.exports = grammar({
       field('type', $._type),
     ),
 
+    union_type: $ => seq(
+      'union',
+      '{',
+      commaSep($._type),
+      '}',
+    ),
+
+    enum_type: $ => seq(
+      'enum', optional(field('underlying', $._type)),
+      '{',
+      commaSep(alias($.identifier, $.enum_variant)),
+      '}',
+    ),
 
     map_type: $ => seq(
       'map',
@@ -332,12 +349,12 @@ module.exports = grammar({
 
     block: $ => seq(optional($.label), $._raw_block),
    
-    _raw_block: $ => seq(
+    _raw_block: $ => prec(-1, seq(
       repeat($.compiler_directive),
       '{',
       optional($._statement_list),
       '}'
-    ),
+    )),
 
     _statement_list: $ => seq(
       $._statement,
@@ -362,13 +379,13 @@ module.exports = grammar({
 
     empty_statement: $ => ';',
 
-    _simple_statement: $ => choice(
+    _simple_statement: $ => prec(1, choice(
       $._declaration,
       $._expression,
       $.assignment_statement,
-    ),
+    )),
 
-    label: $ => seq(alias($.identifier, $.label_name), ':'),
+    label: $ => prec.dynamic(-1, seq(alias($.identifier, $.label_name), ':')),
 
     assignment_statement: $ => seq(
       field('left', $.expression_list),
@@ -428,7 +445,7 @@ module.exports = grammar({
 
     range_expression: $ => seq(field('left', $._expression), '..', field('right', $._expression)),
 
-    expression_switch_statement: $ => seq(
+    expression_switch_statement: $ => prec(1, seq(
       'switch',
       optional(seq(
         field('initializer', $._simple_statement),
@@ -438,7 +455,7 @@ module.exports = grammar({
       '{',
       repeat(choice($.expression_case, $.default_case)),
       '}'
-    ),
+    )),
 
     expression_case: $ => seq(
       'case',
@@ -494,7 +511,8 @@ module.exports = grammar({
       $.type_conversion_expression,
       $.identifier,
       // alias(choice('new', 'make'), $.identifier),
-      $.composite_literal,
+      //// TODO: make this take precedence over a selector expression in case of namespaced types
+      $.composite_literal, 
       $.proc_literal,
       $._string_literal,
       $.int_literal,
@@ -570,15 +588,17 @@ module.exports = grammar({
     )),
 
     composite_literal: $ => prec(PREC.composite_literal, seq(
-      field('type', choice(
+      optional(field('type', choice(
         $.map_type,
         $.slice_type,
         $.array_type,
+        $.dynamic_array_type,
+        $.map_type,
         $.struct_type,
         $._type_identifier,
         // $.generic_type,
         $.qualified_type
-      )),
+      ))),
       field('body', $.literal_value)
     )),
 
@@ -594,9 +614,9 @@ module.exports = grammar({
 
     keyed_element: $ => seq(
       choice(
-        seq($._expression, ':'),
-        seq($.literal_value, ':'),
-        prec(1, seq($._field_identifier, ':'))
+        seq($._expression, '='),
+        seq($.literal_value, '='),
+        prec(1, seq($._field_identifier, '='))
       ),
       choice(
         $._expression,

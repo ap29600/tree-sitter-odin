@@ -128,6 +128,14 @@
         "named": true
       },
       {
+        "type": "dynamic_array_type",
+        "named": true
+      },
+      {
+        "type": "enum_type",
+        "named": true
+      },
+      {
         "type": "map_type",
         "named": true
       },
@@ -157,6 +165,10 @@
       },
       {
         "type": "unambiguous_type",
+        "named": true
+      },
+      {
+        "type": "union_type",
         "named": true
       }
     ]
@@ -271,7 +283,7 @@
             "named": true
           },
           {
-            "type": "placeholder",
+            "type": "operator",
             "named": true
           }
         ]
@@ -504,10 +516,14 @@
       },
       "type": {
         "multiple": false,
-        "required": true,
+        "required": false,
         "types": [
           {
             "type": "array_type",
+            "named": true
+          },
+          {
+            "type": "dynamic_array_type",
             "named": true
           },
           {
@@ -547,7 +563,7 @@
             "named": false
           },
           {
-            "type": "identifier",
+            "type": "const_identifier",
             "named": true
           }
         ]
@@ -650,6 +666,32 @@
     }
   },
   {
+    "type": "dynamic_array_type",
+    "named": true,
+    "fields": {
+      "element": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "_type",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "operator",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "element",
     "named": true,
     "fields": {},
@@ -672,6 +714,32 @@
     "type": "empty_statement",
     "named": true,
     "fields": {}
+  },
+  {
+    "type": "enum_type",
+    "named": true,
+    "fields": {
+      "underlying": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "_type",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "enum_variant",
+          "named": true
+        }
+      ]
+    }
   },
   {
     "type": "expression_case",
@@ -1276,32 +1344,16 @@
     "named": true,
     "fields": {
       "body": {
-        "multiple": true,
-        "required": false,
+        "multiple": false,
+        "required": true,
         "types": [
           {
-            "type": "\n",
-            "named": false
-          },
-          {
-            "type": ";",
-            "named": false
-          },
-          {
-            "type": "_statement",
+            "type": "block",
             "named": true
           },
           {
-            "type": "compiler_directive",
+            "type": "deinitialized",
             "named": true
-          },
-          {
-            "type": "{",
-            "named": false
-          },
-          {
-            "type": "}",
-            "named": false
           }
         ]
       },
@@ -1760,6 +1812,21 @@
     }
   },
   {
+    "type": "union_type",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "_type",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "var_declaration",
     "named": true,
     "fields": {
@@ -1969,6 +2036,10 @@
     "named": true
   },
   {
+    "type": "const_identifier",
+    "named": true
+  },
+  {
     "type": "continue",
     "named": false
   },
@@ -1981,8 +2052,20 @@
     "named": false
   },
   {
+    "type": "deinitialized",
+    "named": true
+  },
+  {
     "type": "else",
     "named": false
+  },
+  {
+    "type": "enum",
+    "named": false
+  },
+  {
+    "type": "enum_variant",
+    "named": true
   },
   {
     "type": "escape_sequence",
@@ -2057,10 +2140,6 @@
     "named": true
   },
   {
-    "type": "placeholder",
-    "named": true
-  },
-  {
     "type": "proc",
     "named": false
   },
@@ -2099,6 +2178,10 @@
   {
     "type": "type_identifier",
     "named": true
+  },
+  {
+    "type": "union",
+    "named": false
   },
   {
     "type": "{",
