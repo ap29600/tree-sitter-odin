@@ -1,116 +1,820 @@
+
+/*
+ *  The MIT License (MIT)
+ *  
+ *  Copyright (c) 2022 Andrea Piseri
+ *  
+ *  Permission is hereby granted, free of charge, to any person obtaining a copy
+ *  of this software and associated documentation files (the "Software"), to deal
+ *  in the Software without restriction, including without limitation the rights
+ *  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ *  copies of the Software, and to permit persons to whom the Software is
+ *  furnished to do so, subject to the following conditions:
+ *  
+ *  The above copyright notice and this permission notice shall be included in all
+ *  copies or substantial portions of the Software.
+ *  
+ *  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ *  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ *  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ *  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ *  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ *  SOFTWARE.
+ */
+
+// Large portions of the code below are verbatim copies of code published by Max Brunsfeld 
+// and available at the link: https://github.com/tree-sitter/tree-sitter-go.
+// The license for it is included here:
+  
+/*
+ *  
+ *  The MIT License (MIT)
+ *  
+ *  Copyright (c) 2014 Max Brunsfeld
+ *  
+ *  Permission is hereby granted, free of charge, to any person obtaining a copy
+ *  of this software and associated documentation files (the "Software"), to deal
+ *  in the Software without restriction, including without limitation the rights
+ *  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ *  copies of the Software, and to permit persons to whom the Software is
+ *  furnished to do so, subject to the following conditions:
+ *  
+ *  The above copyright notice and this permission notice shall be included in all
+ *  copies or substantial portions of the Software.
+ *  
+ *  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ *  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ *  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ *  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ *  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ *  SOFTWARE.
+ *  
+ */
+
+
 const
-  decimal_digit = /[0-9]/,
-  decimals = token(seq(decimal_digit, repeat(choice(decimal_digit, '_')))),
+  PREC = {
+    primary: 7,
+    unary: 6,
+    multiplicative: 5,
+    additive: 4,
+    comparative: 3,
+    and: 2,
+    or: 1,
+    composite_literal: -1,
+  },
 
-  unicode_char = /./,
-  unicode_letter = /[a-zA-Zα-ωΑ-Ωµ]/,
-  unicode_digit = decimal_digit,
-  letter = choice(unicode_letter, '_'),
+  multiplicative_operators = ['*', '/', '%', '<<', '>>', '&', '&~'],
+  additive_operators = ['+', '-', '|', '~'],
+  comparative_operators = ['==', '!=', '<', '<=', '>', '>='],
+  assignment_operators = multiplicative_operators.concat(additive_operators).map(operator => operator + '=').concat('='),
 
-  newline = /\n/,
+  unicodeLetter = /\p{L}/,
+  unicodeDigit = /[0-9]/,
+  unicodeChar = /./,
+  unicodeValue = unicodeChar,
+  letter = choice(unicodeLetter, '_'),
 
+  newline = '\n',
+  terminator = choice(newline, ';'),
 
-  raw_string_literal = seq('`', repeat(choice(/[^\\`]|\\./, newline)), '`'),
-  string_literal = seq('"', /([^\\"]|\\.)*/ , '"'),
-  as_list = (elem) => (seq(elem, repeat(seq(',', elem))))
+  hexDigit = /[0-9a-fA-F]/,
+  octalDigit = /[0-7]/,
+  decimalDigit = /[0-9]/,
+  binaryDigit = /[01]/,
+
+  hexDigits = seq(hexDigit, repeat(seq(optional('_'), hexDigit))),
+  octalDigits = seq(octalDigit, repeat(seq(optional('_'), octalDigit))),
+  decimalDigits = seq(decimalDigit, repeat(seq(optional('_'), decimalDigit))),
+  binaryDigits = seq(binaryDigit, repeat(seq(optional('_'), binaryDigit))),
+
+  hexLiteral = seq('0', choice('x', 'X'), optional('_'), hexDigits),
+  octalLiteral = seq('0', choice('o', 'O'), optional('_'), octalDigits),
+  decimalLiteral = choice('0', seq(/[1-9]/, optional(seq(optional('_'), decimalDigits)))),
+  binaryLiteral = seq('0', choice('b', 'B'), optional('_'), binaryDigits),
+
+  intLiteral = choice(binaryLiteral, decimalLiteral, octalLiteral, hexLiteral),
+
+  decimalExponent = seq(choice('e', 'E'), optional(choice('+', '-')), decimalDigits),
+  decimalFloatLiteral = choice(
+    seq(decimalDigits, '.', optional(decimalDigits), optional(decimalExponent)),
+    seq(decimalDigits, decimalExponent),
+    seq('.', decimalDigits, optional(decimalExponent)),
+  ),
+
+  hexExponent = seq(choice('p', 'P'), optional(choice('+', '-')), decimalDigits),
+  hexMantissa = choice(
+    seq(optional('_'), hexDigits, '.', optional(hexDigits)),
+    seq(optional('_'), hexDigits),
+    seq('.', hexDigits),
+  ),
+  hexFloatLiteral = seq('0', choice('x', 'X'), hexMantissa, hexExponent),
+
+  floatLiteral = choice(decimalFloatLiteral, hexFloatLiteral),
+
+  imaginaryLiteral = seq(choice(decimalDigits, intLiteral, floatLiteral), 'i')
 
 module.exports = grammar({
   name: 'odin',
+
   extras: $ => [
-    /\s/,
-    $.line_comment,
-    $.multiline_comment,
+    $.comment,
+    /\s/
   ],
 
-  externals: $ => [
-    //$.multiline_comment,
+  inline: $ => [
+    $._type,
+    $._type_identifier,
+    $._field_identifier,
+    $._package_identifier,
+    $._top_level_declaration,
+    $._string_literal,
+  ],
+
+  word: $ => $.identifier,
+
+  conflicts: $ => [
+    [$._simple_type, $._expression],
+    [$._simple_type, $._expression, $.qualified_type],
+    [$.qualified_type, $._expression],
+    // [$.generic_type, $._expression],
+    // [$.generic_type, $._simple_type],
+    // [$.parameter_declaration, $.type_arguments],
+    [$.parameter_declaration, $._simple_type, $._expression],
+    // [$.parameter_declaration, $.generic_type, $._expression],
+    [$.parameter_declaration, $._expression],
+    // [$.func_literal, $.function_type],
+    // [$.function_type],
+    [$.parameter_declaration, $._simple_type],
+  ],
+
+  supertypes: $ => [
+    $._expression,
+    $._type,
+    $._simple_type,
+    $._statement,
+    $._simple_statement,
   ],
 
   rules: {
-    source_file: $ => seq($.package_declaration, repeat($._top_level_statement)),
+    source_file: $ => repeat(choice(
+      seq($._statement, terminator),
+      seq($._top_level_declaration, optional(terminator)),
+    )),
 
-    package_declaration: $ => seq('package', field('name', alias($.identifier, $.package_name))),
-
-    package_import: $ => seq ('import', optional(field('alias', $.identifier)), field('path', $.string_literal)),
-
-    _top_level_statement: $ => choice($.value_declare, $.package_import),
-
-    value_declare: $ => seq(
-      field('name', $._identifier_list), ':', 
-      choice(
-        field('type', $._type), 
-        seq(optional(field('type', $.identifier)), '=', field('value', $._expression_list)),
-        seq(optional(field('type', $.identifier)), ':', field('const', $._expression_list))
-      )
+    _top_level_declaration: $ => choice(
+      $.package_clause,
+      $.import_declaration
     ),
 
-    single_value_declare: $ => seq(
-      field('name', $.identifier), ':', 
-      choice(
-        field('type', $._type), 
-        seq(optional(field('type', $.identifier)), '=', field('value', $._expression)),
-        seq(optional(field('type', $.identifier)), ':', field('const', $._expression))
-      )
+    package_clause: $ => seq(
+      'package',
+      $._package_identifier
     ),
 
-    _expression_list: $ => seq($._expression, repeat(seq(',', $._expression))),
-    _expression: $ => prec(2, choice($._literal, $.proc_call, $.identifier, $._type)),
+    import_declaration: $ => seq(
+      'import',
+      optional(field('name', choice(
+        $.blank_identifier,
+        $._package_identifier
+      ))),
+      field('path', $._string_literal)
+    ),
+    blank_identifier: $ => '_',
 
-    proc_type: $ => seq('#type', $._proc_signature),
+    _declaration: $ => choice(
+      $.const_declaration,
+      // $.type_declaration,
+      $.var_declaration
+    ),
 
-    _proc_signature: $ => seq(
-      'proc', '(', 
-      repeat(field('arg', $._value_declare_list)),
-      ')', 
+    const_declaration: $ => prec.left(seq(
+      field('name', commaSep1($.identifier)), ':',
+      choice(
+        seq(
+          field('type', $._type),
+          optional(seq(':', field('value', commaSep1($._expression))))
+        ),
+        seq(':', field('value', commaSep1($._expression)))
+      )
+    )),
+
+    var_declaration : $ => prec(10, seq(
+      field('name', commaSep1($.identifier)), ':',
+      choice(
+        seq(
+          field('type', $._type),
+          optional(seq('=', field('value', commaSep1($._expression))))
+        ),
+        seq('=', field('value', commaSep1($._expression)))
+      )
+    )),
+
+    proc_literal: $ => prec.right(1, seq(
+      field('type', $.proc_type),
+      field('body', optional($.block))
+    )),
+
+    parameter_list: $ => seq(
+      '(',
       optional(seq(
-        '->', 
-        field('returns', choice(
-           $._type, 
-          seq('(', $._type_list ,')')
-        ))
+        commaSep1(choice($.parameter_declaration, $.variadic_parameter_declaration)),
+        optional(',')
+      )),
+      ')'
+    ),
+
+    parameter_declaration: $ => seq(
+      optional(seq(field('name', commaSep1($.identifier)), ':')),
+      field('type', $._type),
+      optional(seq('=', field('value', $._expression))),
+    ),
+
+    variadic_parameter_declaration: $ => seq(
+      '..',
+      field('name', optional(seq($.identifier, ':'))),
+      field('type', $._type)
+    ),
+
+    type_alias: $ => seq(
+      field('name', $._type_identifier),
+      '=',
+      field('type', $._type)
+    ),
+
+    field_name_list: $ => commaSep1($._field_identifier),
+
+    expression_list: $ => commaSep1($._expression),
+
+    _type: $ => choice(
+      $._simple_type,
+      prec.dynamic(-1, $.parenthesized_type)
+    ),
+
+    parenthesized_type: $ => seq('(', $._type, ')'),
+
+    _simple_type: $ => choice(
+      prec.dynamic(-1, $._type_identifier),
+      // $.generic_type,
+      $.qualified_type,
+      $.pointer_type,
+      $.struct_type,
+      $.array_type,
+      $.slice_type,
+      $.map_type,
+      $.channel_type,
+      $.proc_type,
+      $.unambiguous_type,
+    ),
+
+    unambiguous_type: $ => seq('#type', $._type),
+
+
+    // generic_type: $ => seq(
+    //   field('type', $._type_identifier),
+    //   field('type_arguments', $.type_arguments),
+    // ),
+
+    pointer_type: $ => prec(PREC.unary, seq('*', $._type)),
+
+    array_type: $ => seq(
+      '[',
+      field('length', $._expression),
+      ']',
+      field('element', $._type)
+    ),
+
+    implicit_length_array_type: $ => seq(
+      '[',
+      '...',
+      ']',
+      field('element', $._type)
+    ),
+
+    slice_type: $ => seq(
+      '[',
+      ']',
+      field('element', $._type)
+    ),
+
+    struct_type: $ => seq(
+      'struct',
+      $.field_declaration_list
+    ),
+
+    field_declaration_list: $ => seq(
+      '{',
+      optional(seq(
+        $.field_declaration,
+        repeat(seq(terminator, $.field_declaration)),
+        optional(terminator)
+      )),
+      '}'
+    ),
+
+    field_declaration: $ => seq(
+      choice(
+        seq(
+          field('name', commaSep1($._field_identifier)),
+          field('type', $._type)
+        ),
+        seq(
+          optional('*'),
+          field('type', choice(
+            $._type_identifier,
+            $.qualified_type
+          ))
+        )
+      ),
+      field('tag', optional($._string_literal))
+    ),
+
+
+    map_type: $ => seq(
+      'map',
+      '[',
+      field('key', $._type),
+      ']',
+      field('value', $._type)
+    ),
+
+    channel_type: $ => choice(
+      seq('chan', field('value', $._type)),
+      seq('chan', '<-', field('value', $._type)),
+      prec(PREC.unary, seq('<-', 'chan', field('value', $._type)))
+    ),
+
+    proc_type: $ => seq(
+      'proc',
+      field('parameters', $.parameter_list),
+      field('result', optional(seq('->', choice($.parameter_list, $._simple_type))))
+    ),
+
+    block: $ => seq(
+      '{',
+      optional($._statement_list),
+      '}'
+    ),
+
+    _statement_list: $ => seq(
+      $._statement,
+      repeat(seq(terminator, $._statement)),
+     ),
+
+    _statement: $ => choice(
+      $._declaration,
+      $._simple_statement,
+      $.return_statement,
+      $.defer_statement,
+      $.if_statement,
+      $.for_statement,
+      $.expression_switch_statement,
+      $.type_switch_statement,
+      $.fallthrough_statement,
+      $.break_statement,
+      $.continue_statement,
+      $.block,
+      $.empty_statement
+    ),
+
+    empty_statement: $ => ';',
+
+    _simple_statement: $ => choice(
+      $._expression,
+      $.send_statement,
+      $.inc_statement,
+      $.dec_statement,
+      $.assignment_statement,
+      // $.short_var_declaration
+    ),
+
+    send_statement: $ => seq(
+      field('channel', $._expression),
+      '<-',
+      field('value', $._expression)
+    ),
+
+    receive_statement: $ => seq(
+      optional(seq(
+        field('left', $.expression_list),
+        choice('=', ':=')
+      )),
+      field('right', $._expression)
+    ),
+
+    inc_statement: $ => seq(
+      $._expression,
+      '++'
+    ),
+
+    dec_statement: $ => seq(
+      $._expression,
+      '--'
+    ),
+
+    assignment_statement: $ => seq(
+      field('left', $.expression_list),
+      field('operator', choice(...assignment_operators)),
+      field('right', $.expression_list)
+    ),
+
+    // labeled_statement: $ => seq(
+    //   field('label', alias($.identifier, $.label_name)),
+    //   ':',
+    //   $._statement
+    // ),
+
+    // empty_labeled_statement: $ => seq(
+    //   field('label', alias($.identifier, $.label_name)),
+    //   ':'
+    // ),
+
+    // This is a hack to prevent `fallthrough_statement` from being parsed as
+    // a single token. For consistency with `break_statement` etc it should
+    // be parsed as a parent node that *contains* a `fallthrough` token.
+    fallthrough_statement: $ => prec.left('fallthrough'),
+
+    break_statement: $ => seq('break', optional(alias($.identifier, $.label_name))),
+
+    continue_statement: $ => seq('continue', optional(alias($.identifier, $.label_name))),
+
+    return_statement: $ => seq('return', optional($.expression_list)),
+
+    defer_statement: $ => seq('defer', $._expression),
+
+    if_statement: $ => seq(
+      'if',
+      optional(seq(
+        field('initializer', $._simple_statement),
+        ';'
+      )),
+      field('condition', $._expression),
+      field('consequence', $.block),
+      optional(seq(
+        'else',
+        field('alternative', choice($.block, $.if_statement))
       ))
     ),
 
-    _type_list: $ => as_list($._type),
-    _value_declare_list: $ => as_list($.single_value_declare),
-
-    type: $ => $._type,
-    _type: $ => prec(1, choice($.identifier, $.type_of, $.proc_type)),
-    type_of: $ => seq('type_of', '(', $._expression, ')'),
-
-    _literal: $ => choice(
-      $.string_literal, 
-      $.raw_string_literal, 
-      $.int_literal
+    for_statement: $ => seq(
+      'for',
+      optional(choice($._expression, $.for_clause, $.range_clause)),
+      field('body', $.block)
     ),
 
-    proc_call: $ => seq( field('proc', $._expression), '(', field('arg', $._expression_list), ')'),
-    
-    identifier: $ => token(seq(letter, repeat(choice(letter, unicode_digit)))),
-    _identifier_list: $ => seq($.identifier, repeat(seq(',', $.identifier))),
+    for_clause: $ => seq(
+      field('initializer', optional($._simple_statement)),
+      ';',
+      field('condition', optional($._expression)),
+      ';',
+      field('update', optional($._simple_statement))
+    ),
 
+    range_clause: $ => seq(
+      optional(seq(
+        field('left', $.expression_list),
+        choice('=', ':=')
+      )),
+      'range',
+      field('right', $._expression)
+    ),
 
-    //
-    // literals
-    //
-    string_literal: $ => string_literal,
-    raw_string_literal: $ => raw_string_literal,
-    int_literal: $ => token(decimals),
+    expression_switch_statement: $ => seq(
+      'switch',
+      optional(seq(
+        field('initializer', $._simple_statement),
+        ';'
+      )),
+      field('value', optional($._expression)),
+      '{',
+      repeat(choice($.expression_case, $.default_case)),
+      '}'
+    ),
 
+    expression_case: $ => seq(
+      'case',
+      field('value', $.expression_list),
+      ':',
+      optional($._statement_list)
+    ),
 
+    default_case: $ => seq(
+      'default',
+      ':',
+      optional($._statement_list)
+    ),
 
-    //
-    // comments
-    //
-    line_comment: $ => token(seq('//', /.*/)),
-    multiline_comment: $ => seq('/*', $._mutlitline_comment_tail),
-    _mutlitline_comment_tail: $ => seq( 
-      repeat(choice(/[^/*]/, '\n')),  // scan up to the first *, / or \n
+    type_switch_statement: $ => seq(
+      'switch',
+      $._type_switch_header,
+      '{',
+      repeat(choice($.type_case, $.default_case)),
+      '}'
+    ),
+
+    _type_switch_header: $ => seq(
+      optional(seq(
+        field('initializer', $._simple_statement),
+        ';'
+      )),
+      optional(seq(field('alias', $.expression_list), ':=')),
+      field('value', $._expression),
+      '.',
+      '(',
+      'type',
+      ')'
+    ),
+
+    type_case: $ => seq(
+      'case',
+      field('type', commaSep1($._type)),
+      ':',
+      optional($._statement_list)
+    ),
+
+    select_statement: $ => seq(
+      'select',
+      '{',
+      repeat(choice($.communication_case, $.default_case)),
+      '}'
+    ),
+
+    communication_case: $ => seq(
+      'case',
+      field('communication', choice($.send_statement, $.receive_statement)),
+      ':',
+      optional($._statement_list)
+    ),
+
+    _expression: $ => choice(
+      $.dereference_expression,
+      $.unary_expression,
+      $.binary_expression,
+      $.selector_expression,
+      $.index_expression,
+      $.slice_expression,
+      $.call_expression,
+      $.type_assertion_expression,
+      $.type_conversion_expression,
+      $.identifier,
+      // alias(choice('new', 'make'), $.identifier),
+      $.composite_literal,
+      $.proc_literal,
+      $._string_literal,
+      $.int_literal,
+      $.float_literal,
+      $.imaginary_literal,
+      $.rune_literal,
+      $.nil,
+      $.true,
+      $.false,
+      $.parenthesized_expression,
+      prec(-10, $._type), // assign a type literal only if completely unambiguous
+    ),
+
+    parenthesized_expression: $ => seq(
+      '(',
+      $._expression,
+      ')'
+    ),
+
+    call_expression: $ => prec(PREC.primary, seq(
+      field('function', $._expression),
+      field('arguments', $.argument_list)
+    )),
+
+    variadic_argument: $ => prec.right(seq(
+      '..',
+      $._expression
+    )),
+
+    // special_argument_list: $ => seq(
+    //   '(',
+    //   $._type,
+    //   repeat(seq(',', $._expression)),
+    //   optional(','),
+    //   ')'
+    // ),
+
+    argument_list: $ => seq(
+      '(',
+      optional(seq(
+        choice($._expression, $.variadic_argument),
+        repeat(seq(',', choice($._expression, $.variadic_argument))),
+        optional(',')
+      )),
+      ')'
+    ),
+
+    selector_expression: $ => prec(PREC.primary, seq(
+      field('operand', $._expression),
+      '.',
+      field('field', $._field_identifier)
+    )),
+
+    index_expression: $ => prec(PREC.primary, seq(
+      field('operand', $._expression),
+      '[',
+      field('index', $._expression),
+      ']'
+    )),
+
+    slice_expression: $ => prec(PREC.primary, seq(
+      field('operand', $._expression),
+      '[',
       choice(
-        seq(/\/[^*]|\*[^/]/, $._mutlitline_comment_tail),  // false positive, continue
-        seq($.multiline_comment, $._mutlitline_comment_tail), // found a nested comment
-        '*/' // end the current comment
+        seq(
+          field('start', optional($._expression)),
+          ':',
+          field('end', optional($._expression))
+        ),
+        seq(
+          field('start', optional($._expression)),
+          ':',
+          field('end', $._expression),
+          ':',
+          field('capacity', $._expression)
+        )
+      ),
+      ']'
+    )),
+
+    type_assertion_expression: $ => prec(PREC.primary, seq(
+      field('operand', $._expression),
+      '.',
+      '(',
+      field('type', $._type),
+      ')'
+    )),
+
+    type_conversion_expression: $ => prec.dynamic(-1, seq(
+      field('type', $._type),
+      '(',
+      field('operand', $._expression),
+      ')'
+    )),
+
+    composite_literal: $ => prec(PREC.composite_literal, seq(
+      field('type', choice(
+        $.map_type,
+        $.slice_type,
+        $.array_type,
+        $.implicit_length_array_type,
+        $.struct_type,
+        $._type_identifier,
+        // $.generic_type,
+        $.qualified_type
+      )),
+      field('body', $.literal_value)
+    )),
+
+    literal_value: $ => seq(
+      '{',
+      optional(seq(
+        choice($.element, $.keyed_element),
+        repeat(seq(',', choice($.element, $.keyed_element))),
+        optional(',')
+      )),
+      '}'
+    ),
+
+    keyed_element: $ => seq(
+      choice(
+        seq($._expression, ':'),
+        seq($.literal_value, ':'),
+        prec(1, seq($._field_identifier, ':'))
+      ),
+      choice(
+        $._expression,
+        $.literal_value
       )
     ),
-  },
+
+    element: $ => choice(
+      $._expression,
+      $.literal_value
+    ),
+
+    unary_expression: $ => prec(PREC.unary, seq(
+      field('operator', choice('+', '-', '!', '~', '&')),
+      field('operand', $._expression)
+    )),
+
+    dereference_expression: $ => prec(PREC.primary, seq(
+      field('operand', $._expression), '^'
+    )),
+
+    binary_expression: $ => {
+      const table = [
+        [PREC.multiplicative, choice(...multiplicative_operators)],
+        [PREC.additive, choice(...additive_operators)],
+        [PREC.comparative, choice(...comparative_operators)],
+        [PREC.and, '&&'],
+        [PREC.or, '||'],
+      ];
+
+      return choice(...table.map(([precedence, operator]) =>
+        prec.left(precedence, seq(
+          field('left', $._expression),
+          field('operator', operator),
+          field('right', $._expression)
+        ))
+      ));
+    },
+
+    qualified_type: $ => prec(10, seq(
+      field('package', $._package_identifier),
+      '.',
+      field('name', $._type_identifier)
+    )),
+
+    identifier: $ => token(seq(
+      letter,
+      repeat(choice(letter, unicodeDigit))
+    )),
+
+    _type_identifier: $ => alias($.identifier, $.type_identifier),
+    _field_identifier: $ => alias($.identifier, $.field_identifier),
+    _package_identifier: $ => alias($.identifier, $.package_identifier),
+
+    _string_literal: $ => choice(
+      $.raw_string_literal,
+      $.interpreted_string_literal
+    ),
+
+    raw_string_literal: $ => token(seq(
+      '`',
+      repeat(/[^`]/),
+      '`'
+    )),
+
+    interpreted_string_literal: $ => seq(
+      '"',
+      repeat(choice(
+        token.immediate(prec(1, /[^"\n\\]+/)),
+        $.escape_sequence
+      )),
+      '"'
+    ),
+
+    escape_sequence: $ => token.immediate(seq(
+      '\\',
+      choice(
+        /[^xuU]/,
+        /\d{2,3}/,
+        /x[0-9a-fA-F]{2,}/,
+        /u[0-9a-fA-F]{4}/,
+        /U[0-9a-fA-F]{8}/
+      )
+    )),
+
+    int_literal: $ => token(intLiteral),
+
+    float_literal: $ => token(floatLiteral),
+
+    imaginary_literal: $ => token(imaginaryLiteral),
+
+    rune_literal: $ => token(seq(
+      "'",
+      choice(
+        /[^'\\]/,
+        seq(
+          '\\',
+          choice(
+            seq('x', hexDigit, hexDigit),
+            seq(octalDigit, octalDigit, octalDigit),
+            seq('u', hexDigit, hexDigit, hexDigit, hexDigit),
+            seq('U', hexDigit, hexDigit, hexDigit, hexDigit, hexDigit, hexDigit, hexDigit, hexDigit),
+            seq(choice('a', 'b', 'f', 'n', 'r', 't', 'v', '\\', "'", '"'))
+          )
+        )
+      ),
+      "'"
+    )),
+
+    nil: $ => 'nil',
+    true: $ => 'true',
+    false: $ => 'false',
+    iota: $ => 'iota',
+
+    // http://stackoverflow.com/questions/13014947/regex-to-match-a-c-style-multiline-comment/36328890#36328890
+    comment: $ => token(choice(
+      seq('//', /.*/),
+      seq(
+        '/*',
+        /[^*]*\*+([^/*][^*]*\*+)*/,
+        '/'
+      )
+    ))
+  }
 })
+
+function commaSep1(rule) {
+  return seq(rule, repeat(seq(',', rule)))
+}
+
+function commaSep(rule) {
+  return optional(commaSep1(rule))
+}

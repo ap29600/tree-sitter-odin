@@ -7,8 +7,8 @@ package pkgname
 ---
 
 (source_file 
-  (package_declaration 
-    name: (package_name)))
+  (package_clause
+    (package_identifier)))
 
 
 =======================
@@ -18,15 +18,18 @@ Package imports
 package pkgname
 
 import foo "core:foo"
+import "core:bar"
 
 ---
 
 (source_file 
-  (package_declaration 
-    name: (package_name))
-  (package_import
-    alias: (identifier)
-    path: (string_literal)))
+  (package_clause
+    (package_identifier))
+  (import_declaration
+    name: (package_identifier)
+    path: (interpreted_string_literal))
+  (import_declaration
+    path: (interpreted_string_literal)))
 
 
 ========================================
@@ -44,24 +47,26 @@ a_somewhat_long_identifier := a
 ---
 
 (source_file 
-  (package_declaration 
-    name: (package_name))
-  (value_declare
+  (package_clause
+    (package_identifier))
+  (var_declaration
     name: (identifier)
-    type: (identifier))
-  (value_declare
+    type: (type_identifier))
+  (var_declaration
     name: (identifier)
-    value: (string_literal))
-  (value_declare
+    value: (interpreted_string_literal 
+    (escape_sequence) 
+    (escape_sequence)))
+  (var_declaration
     name: (identifier)
-    type: (identifier)
+    type: (type_identifier)
     value: (int_literal))
-  (value_declare
+  (const_declaration
     name: (identifier)
     name: (identifier)
-    const: (int_literal)
-    const: (int_literal))
-  (value_declare
+    value: (int_literal)
+    value: (int_literal))
+  (var_declaration
     name: (identifier)
     value: (identifier)))
 
@@ -73,27 +78,31 @@ Procedure signatures
 package pkgname
 
 foo :: #type proc (a: int, b : string = "") -> int
-foo :: #type proc () -> (int, type_of("hello"))
+foo :: #type proc () -> (int, int)
 
 ---
 
 (source_file
-  (package_declaration
-    name: (package_name))
-  (value_declare
+  (package_clause
+    (package_identifier))
+  (const_declaration
     name: (identifier)
-    const: (proc_type
-      arg: (single_value_declare
-        name: (identifier)
-        type: (identifier))
-      arg: (single_value_declare
-        name: (identifier)
-        type: (identifier)
-        value: (string_literal))
-      returns: (identifier)))
-  (value_declare
+    value: (unambiguous_type
+     (proc_type
+       parameters: (parameter_list
+           (parameter_declaration
+             name: (identifier)
+             type: (type_identifier))
+           (parameter_declaration
+             name: (identifier)
+             type: (type_identifier)
+             value: (interpreted_string_literal)))
+       result: (type_identifier))))
+  (const_declaration
     name: (identifier)
-    const: (proc_type
-      returns: (identifier)
-      returns: (type_of 
-        (string_literal)))))
+    value: (unambiguous_type
+     (proc_type
+       parameters: (parameter_list)
+       result: (parameter_list
+         (parameter_declaration type: (type_identifier))
+         (parameter_declaration type: (type_identifier)))))))
