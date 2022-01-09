@@ -1,22 +1,14 @@
 package foo
 
-import foo "core:foo"
-import "core:slice"
+import "foobar"
 
-s := "hi\"  hello\" " 
+// a comment
 
-/* multiline 
-comment */
+a :: #type proc (int)->int
 
-v := `this is a multiline
-string literal
-`
-c : int : 100_000
+foo :: proc "c" (a: int = 45) -> int #no_bounds_check {
 
-a, b := 4, 5
-
-a := function(4, 3, "hi")
-
-f :: proc (c: int) -> int {
-  return c
+  return a
 }
+
+f.g
