@@ -5,6 +5,7 @@
 "enum"      @keyword
 "proc"      @keyword
 "for"       @keyword
+"switch"       @keyword
 "if"        @keyword
 "return"    @keyword
 "package"   @keyword

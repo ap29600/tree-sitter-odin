@@ -1718,10 +1718,10 @@
     "fields": {
       "alias": {
         "multiple": false,
-        "required": false,
+        "required": true,
         "types": [
           {
-            "type": "expression_list",
+            "type": "identifier",
             "named": true
           }
         ]
@@ -1749,7 +1749,7 @@
     },
     "children": {
       "multiple": true,
-      "required": false,
+      "required": true,
       "types": [
         {
           "type": "default_case",
@@ -1757,6 +1757,10 @@
         },
         {
           "type": "label",
+          "named": true
+        },
+        {
+          "type": "operator",
           "named": true
         },
         {
@@ -1984,10 +1988,6 @@
     "named": false
   },
   {
-    "type": ":=",
-    "named": false
-  },
-  {
     "type": ";",
     "named": false
   },
@@ -2170,10 +2170,6 @@
   {
     "type": "true",
     "named": true
-  },
-  {
-    "type": "type",
-    "named": false
   },
   {
     "type": "type_identifier",

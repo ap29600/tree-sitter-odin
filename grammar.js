@@ -479,18 +479,14 @@ module.exports = grammar({
       '}'
     ),
 
-    _type_switch_header: $ => seq(
+    _type_switch_header: $ => prec(10, seq(
       optional(seq(
         field('initializer', $._simple_statement),
         ';'
       )),
-      optional(seq(field('alias', $.expression_list), ':=')),
+      seq(field('alias', $.identifier), alias('in', $.operator)),
       field('value', $._expression),
-      '.',
-      '(',
-      'type',
-      ')'
-    ),
+    )),
 
     type_case: $ => seq(
       'case',
