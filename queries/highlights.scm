@@ -1,15 +1,18 @@
-"map"       @keyword
-"union"     @keyword
-"cast"      @keyword
-"transmute" @keyword
-"enum"      @keyword
-"proc"      @keyword
-"for"       @keyword
-"switch"       @keyword
-"if"        @keyword
-"return"    @keyword
-"package"   @keyword
-"import"    @keyword
+; "map"       @keyword
+; "union"     @keyword
+; "cast"      @keyword
+; "transmute" @keyword
+; "enum"      @keyword
+"proc"        @keyword
+; "for"         @keyword
+; "switch"    @keyword
+; "if"          @keyword
+; "do"          @keyword
+; "else"        @keyword
+; "return"    @keyword
+"package"     @keyword
+"import"      @keyword
+(keyword)     @keyword
 
 (int_literal)   @number
 (float_literal) @number
@@ -24,7 +27,8 @@
 (ERROR) @error
 
 (type_identifier)    @type
-(package_identifier) @constant
+(package_identifier) @namespace
+(label_identifier)   @label
 
 (interpreted_string_literal) @string
 (raw_string_literal) @string
@@ -33,7 +37,7 @@
 (comment) @comment
 (const_identifier) @constant
 
-(field_identifier) @field
+; (field_identifier) @field
 
 (compiler_directive) @attribute
 (calling_convention) @attribute

@@ -1,28 +1,27 @@
-======================
+================================================================================
 Empty package
-======================
+================================================================================
 
 package pkgname
 
----
+--------------------------------------------------------------------------------
 
-(source_file 
+(source_file
   (package_clause
     (package_identifier)))
 
-
-=======================
+================================================================================
 Package imports
-=======================
+================================================================================
 
 package pkgname
 
 import foo "core:foo"
 import "core:bar"
 
----
+--------------------------------------------------------------------------------
 
-(source_file 
+(source_file
   (package_clause
     (package_identifier))
   (import_declaration
@@ -31,10 +30,9 @@ import "core:bar"
   (import_declaration
     path: (interpreted_string_literal)))
 
-
-========================================
+================================================================================
 Declaration and assignment expressions
-========================================
+================================================================================
 
 package pkgname
 
@@ -44,65 +42,37 @@ c : int = 10
 d, e :: 4, 5
 a_somewhat_long_identifier := a
 
----
-
-(source_file 
-  (package_clause
-    (package_identifier))
-  (var_declaration
-    name: (identifier)
-    type: (type_identifier))
-  (var_declaration
-    name: (identifier)
-    value: (interpreted_string_literal 
-    (escape_sequence) 
-    (escape_sequence)))
-  (var_declaration
-    name: (identifier)
-    type: (type_identifier)
-    value: (int_literal))
-  (const_declaration
-    name: (identifier)
-    name: (identifier)
-    value: (int_literal)
-    value: (int_literal))
-  (var_declaration
-    name: (identifier)
-    value: (identifier)))
-
-
-=========================
-Procedure signatures
-=========================
-
-package pkgname
-
-foo :: #type proc (a: int, b : string = "") -> int
-foo :: #type proc () -> (int, int)
-
----
+--------------------------------------------------------------------------------
 
 (source_file
   (package_clause
     (package_identifier))
-  (const_declaration
+  (var_declaration
     name: (identifier)
-    value: (unambiguous_type
-     (proc_type
-       parameters: (parameter_list
-           (parameter_declaration
-             name: (identifier)
-             type: (type_identifier))
-           (parameter_declaration
-             name: (identifier)
-             type: (type_identifier)
-             value: (interpreted_string_literal)))
-       result: (type_identifier))))
-  (const_declaration
+    (operator)
+    type: (type_identifier))
+  (var_declaration
     name: (identifier)
-    value: (unambiguous_type
-     (proc_type
-       parameters: (parameter_list)
-       result: (parameter_list
-         (parameter_declaration type: (type_identifier))
-         (parameter_declaration type: (type_identifier)))))))
+    (operator)
+    (operator)
+    value: (interpreted_string_literal
+      (escape_sequence)
+      (escape_sequence)))
+  (var_declaration
+    name: (identifier)
+    (operator)
+    type: (type_identifier)
+    (operator)
+    value: (int_literal))
+  (const_declaration
+    name: (const_identifier)
+    name: (const_identifier)
+    (operator)
+    (operator)
+    value: (int_literal)
+    value: (int_literal))
+  (var_declaration
+    name: (identifier)
+    (operator)
+    (operator)
+    value: (identifier)))
