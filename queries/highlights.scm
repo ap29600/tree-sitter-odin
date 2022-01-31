@@ -43,3 +43,4 @@
 (calling_convention) @attribute
 
 (identifier) @variable
+(pragma_identifier) @attribute
