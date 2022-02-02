@@ -868,6 +868,10 @@
           "named": true
         },
         {
+          "type": "identifier",
+          "named": true
+        },
+        {
           "type": "if_statement",
           "named": true
         },
@@ -1292,6 +1296,10 @@
           "named": true
         },
         {
+          "type": "identifier",
+          "named": true
+        },
+        {
           "type": "if_statement",
           "named": true
         },
@@ -1640,6 +1648,10 @@
             "named": true
           },
           {
+            "type": "identifier",
+            "named": true
+          },
+          {
             "type": "if_statement",
             "named": true
           },
@@ -1857,6 +1869,10 @@
           },
           {
             "type": "for_statement",
+            "named": true
+          },
+          {
+            "type": "identifier",
             "named": true
           },
           {
@@ -2223,6 +2239,10 @@
           },
           {
             "type": "for_statement",
+            "named": true
+          },
+          {
+            "type": "identifier",
             "named": true
           },
           {
@@ -3440,10 +3460,6 @@
         "required": true,
         "types": [
           {
-            "type": "$",
-            "named": false
-          },
-          {
             "type": ",",
             "named": false
           },
@@ -3453,6 +3469,14 @@
           },
           {
             "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "keyword",
+            "named": true
+          },
+          {
+            "type": "operator",
             "named": true
           }
         ]
@@ -4096,10 +4120,6 @@
             "named": false
           },
           {
-            "type": "->",
-            "named": false
-          },
-          {
             "type": "array_type",
             "named": true
           },
@@ -4125,6 +4145,10 @@
           },
           {
             "type": "namespaced_type",
+            "named": true
+          },
+          {
+            "type": "operator",
             "named": true
           },
           {
@@ -4322,10 +4346,6 @@
             "named": false
           },
           {
-            "type": "->",
-            "named": false
-          },
-          {
             "type": "array_type",
             "named": true
           },
@@ -4351,6 +4371,10 @@
           },
           {
             "type": "namespaced_type",
+            "named": true
+          },
+          {
+            "type": "operator",
             "named": true
           },
           {
@@ -6304,10 +6328,6 @@
   },
   {
     "type": "---",
-    "named": false
-  },
-  {
-    "type": "->",
     "named": false
   },
   {
