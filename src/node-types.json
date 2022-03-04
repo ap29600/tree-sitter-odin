@@ -34,6 +34,10 @@
             "named": true
           },
           {
+            "type": "bit_set_type",
+            "named": true
+          },
+          {
             "type": "compiler_directive",
             "named": true
           },
@@ -109,6 +113,10 @@
           },
           {
             "type": "binary_expression",
+            "named": true
+          },
+          {
+            "type": "bit_set_type",
             "named": true
           },
           {
@@ -294,6 +302,10 @@
             "named": true
           },
           {
+            "type": "bit_set_type",
+            "named": true
+          },
+          {
             "type": "compiler_directive",
             "named": true
           },
@@ -453,6 +465,10 @@
           },
           {
             "type": "binary_expression",
+            "named": true
+          },
+          {
+            "type": "bit_set_type",
             "named": true
           },
           {
@@ -640,6 +656,10 @@
             "named": true
           },
           {
+            "type": "bit_set_type",
+            "named": true
+          },
+          {
             "type": "compiler_directive",
             "named": true
           },
@@ -808,6 +828,10 @@
             "named": true
           },
           {
+            "type": "bit_set_type",
+            "named": true
+          },
+          {
             "type": "compiler_directive",
             "named": true
           },
@@ -941,6 +965,198 @@
           }
         ]
       }
+    }
+  },
+  {
+    "type": "bit_set_type",
+    "named": true,
+    "fields": {
+      "arguments": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "initializer_list",
+            "named": true
+          }
+        ]
+      },
+      "backing": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "$",
+            "named": false
+          },
+          {
+            "type": "(",
+            "named": false
+          },
+          {
+            "type": ")",
+            "named": false
+          },
+          {
+            "type": "array_type",
+            "named": true
+          },
+          {
+            "type": "bit_set_type",
+            "named": true
+          },
+          {
+            "type": "compiler_directive",
+            "named": true
+          },
+          {
+            "type": "dynamic_array_type",
+            "named": true
+          },
+          {
+            "type": "enum_type",
+            "named": true
+          },
+          {
+            "type": "initializer_list",
+            "named": true
+          },
+          {
+            "type": "keyword",
+            "named": true
+          },
+          {
+            "type": "map_type",
+            "named": true
+          },
+          {
+            "type": "namespaced_type",
+            "named": true
+          },
+          {
+            "type": "pointer_type",
+            "named": true
+          },
+          {
+            "type": "proc_type",
+            "named": true
+          },
+          {
+            "type": "slice_type",
+            "named": true
+          },
+          {
+            "type": "struct_type",
+            "named": true
+          },
+          {
+            "type": "type_identifier",
+            "named": true
+          },
+          {
+            "type": "union_type",
+            "named": true
+          }
+        ]
+      },
+      "element": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "$",
+            "named": false
+          },
+          {
+            "type": "(",
+            "named": false
+          },
+          {
+            "type": ")",
+            "named": false
+          },
+          {
+            "type": "array_type",
+            "named": true
+          },
+          {
+            "type": "bit_set_type",
+            "named": true
+          },
+          {
+            "type": "compiler_directive",
+            "named": true
+          },
+          {
+            "type": "dynamic_array_type",
+            "named": true
+          },
+          {
+            "type": "enum_type",
+            "named": true
+          },
+          {
+            "type": "initializer_list",
+            "named": true
+          },
+          {
+            "type": "keyword",
+            "named": true
+          },
+          {
+            "type": "map_type",
+            "named": true
+          },
+          {
+            "type": "namespaced_type",
+            "named": true
+          },
+          {
+            "type": "pointer_type",
+            "named": true
+          },
+          {
+            "type": "proc_type",
+            "named": true
+          },
+          {
+            "type": "slice_type",
+            "named": true
+          },
+          {
+            "type": "struct_type",
+            "named": true
+          },
+          {
+            "type": "type_identifier",
+            "named": true
+          },
+          {
+            "type": "union_type",
+            "named": true
+          }
+        ]
+      },
+      "range": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "range_expression",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "keyword",
+          "named": true
+        }
+      ]
     }
   },
   {
@@ -1119,6 +1335,10 @@
           "named": true
         },
         {
+          "type": "bit_set_type",
+          "named": true
+        },
+        {
           "type": "compiler_directive",
           "named": true
         },
@@ -1281,6 +1501,10 @@
           "named": true
         },
         {
+          "type": "bit_set_type",
+          "named": true
+        },
+        {
           "type": "compiler_directive",
           "named": true
         },
@@ -1345,6 +1569,10 @@
           },
           {
             "type": "array_type",
+            "named": true
+          },
+          {
+            "type": "bit_set_type",
             "named": true
           },
           {
@@ -1450,6 +1678,10 @@
             "named": true
           },
           {
+            "type": "bit_set_type",
+            "named": true
+          },
+          {
             "type": "compiler_directive",
             "named": true
           },
@@ -1529,6 +1761,10 @@
           },
           {
             "type": "binary_expression",
+            "named": true
+          },
+          {
+            "type": "bit_set_type",
             "named": true
           },
           {
@@ -1802,6 +2038,10 @@
             "named": true
           },
           {
+            "type": "bit_set_type",
+            "named": true
+          },
+          {
             "type": "compiler_directive",
             "named": true
           },
@@ -1904,6 +2144,10 @@
           },
           {
             "type": "array_type",
+            "named": true
+          },
+          {
+            "type": "bit_set_type",
             "named": true
           },
           {
@@ -2054,6 +2298,10 @@
           },
           {
             "type": "binary_expression",
+            "named": true
+          },
+          {
+            "type": "bit_set_type",
             "named": true
           },
           {
@@ -2246,6 +2494,10 @@
           },
           {
             "type": "binary_expression",
+            "named": true
+          },
+          {
+            "type": "bit_set_type",
             "named": true
           },
           {
@@ -2505,6 +2757,10 @@
             "named": true
           },
           {
+            "type": "bit_set_type",
+            "named": true
+          },
+          {
             "type": "compiler_directive",
             "named": true
           },
@@ -2730,6 +2986,10 @@
           "named": true
         },
         {
+          "type": "bit_set_type",
+          "named": true
+        },
+        {
           "type": "compiler_directive",
           "named": true
         },
@@ -2896,6 +3156,10 @@
           },
           {
             "type": "binary_expression",
+            "named": true
+          },
+          {
+            "type": "bit_set_type",
             "named": true
           },
           {
@@ -3241,6 +3505,10 @@
             "named": true
           },
           {
+            "type": "bit_set_type",
+            "named": true
+          },
+          {
             "type": "compiler_directive",
             "named": true
           },
@@ -3396,6 +3664,10 @@
           },
           {
             "type": "binary_expression",
+            "named": true
+          },
+          {
+            "type": "bit_set_type",
             "named": true
           },
           {
@@ -3557,6 +3829,10 @@
             "named": true
           },
           {
+            "type": "bit_set_type",
+            "named": true
+          },
+          {
             "type": "compiler_directive",
             "named": true
           },
@@ -3712,6 +3988,10 @@
           },
           {
             "type": "binary_expression",
+            "named": true
+          },
+          {
+            "type": "bit_set_type",
             "named": true
           },
           {
@@ -3885,6 +4165,10 @@
         },
         {
           "type": "binary_expression",
+          "named": true
+        },
+        {
+          "type": "bit_set_type",
           "named": true
         },
         {
@@ -4072,6 +4356,10 @@
             "named": true
           },
           {
+            "type": "bit_set_type",
+            "named": true
+          },
+          {
             "type": "compiler_directive",
             "named": true
           },
@@ -4143,6 +4431,10 @@
           },
           {
             "type": "array_type",
+            "named": true
+          },
+          {
+            "type": "bit_set_type",
             "named": true
           },
           {
@@ -4285,6 +4577,10 @@
           },
           {
             "type": "binary_expression",
+            "named": true
+          },
+          {
+            "type": "bit_set_type",
             "named": true
           },
           {
@@ -4509,6 +4805,10 @@
             "named": true
           },
           {
+            "type": "bit_set_type",
+            "named": true
+          },
+          {
             "type": "compiler_directive",
             "named": true
           },
@@ -4588,6 +4888,10 @@
           },
           {
             "type": "binary_expression",
+            "named": true
+          },
+          {
+            "type": "bit_set_type",
             "named": true
           },
           {
@@ -4750,6 +5054,10 @@
           "named": true
         },
         {
+          "type": "bit_set_type",
+          "named": true
+        },
+        {
           "type": "compiler_directive",
           "named": true
         },
@@ -4836,6 +5144,10 @@
           },
           {
             "type": "array_type",
+            "named": true
+          },
+          {
+            "type": "bit_set_type",
             "named": true
           },
           {
@@ -4929,6 +5241,10 @@
         },
         {
           "type": "binary_expression",
+          "named": true
+        },
+        {
+          "type": "bit_set_type",
           "named": true
         },
         {
@@ -5102,6 +5418,10 @@
           },
           {
             "type": "binary_expression",
+            "named": true
+          },
+          {
+            "type": "bit_set_type",
             "named": true
           },
           {
@@ -5307,6 +5627,10 @@
             "named": true
           },
           {
+            "type": "bit_set_type",
+            "named": true
+          },
+          {
             "type": "compiler_directive",
             "named": true
           },
@@ -5379,6 +5703,10 @@
         },
         {
           "type": "binary_expression",
+          "named": true
+        },
+        {
+          "type": "bit_set_type",
           "named": true
         },
         {
@@ -5561,6 +5889,10 @@
             "named": true
           },
           {
+            "type": "bit_set_type",
+            "named": true
+          },
+          {
             "type": "compiler_directive",
             "named": true
           },
@@ -5674,6 +6006,10 @@
           },
           {
             "type": "binary_expression",
+            "named": true
+          },
+          {
+            "type": "bit_set_type",
             "named": true
           },
           {
@@ -5832,6 +6168,10 @@
           },
           {
             "type": "binary_expression",
+            "named": true
+          },
+          {
+            "type": "bit_set_type",
             "named": true
           },
           {
@@ -6023,6 +6363,10 @@
             "named": true
           },
           {
+            "type": "bit_set_type",
+            "named": true
+          },
+          {
             "type": "compiler_directive",
             "named": true
           },
@@ -6207,6 +6551,10 @@
             "named": true
           },
           {
+            "type": "bit_set_type",
+            "named": true
+          },
+          {
             "type": "compiler_directive",
             "named": true
           },
@@ -6362,6 +6710,10 @@
           },
           {
             "type": "binary_expression",
+            "named": true
+          },
+          {
+            "type": "bit_set_type",
             "named": true
           },
           {
@@ -6535,6 +6887,10 @@
             "named": true
           },
           {
+            "type": "bit_set_type",
+            "named": true
+          },
+          {
             "type": "compiler_directive",
             "named": true
           },
@@ -6642,6 +6998,10 @@
       "types": [
         {
           "type": "array_type",
+          "named": true
+        },
+        {
+          "type": "bit_set_type",
           "named": true
         },
         {
@@ -6753,6 +7113,10 @@
           },
           {
             "type": "binary_expression",
+            "named": true
+          },
+          {
+            "type": "bit_set_type",
             "named": true
           },
           {
@@ -7028,6 +7392,10 @@
             "named": true
           },
           {
+            "type": "bit_set_type",
+            "named": true
+          },
+          {
             "type": "compiler_directive",
             "named": true
           },
@@ -7186,6 +7554,10 @@
             "named": true
           },
           {
+            "type": "bit_set_type",
+            "named": true
+          },
+          {
             "type": "compiler_directive",
             "named": true
           },
@@ -7341,6 +7713,10 @@
           },
           {
             "type": "binary_expression",
+            "named": true
+          },
+          {
+            "type": "bit_set_type",
             "named": true
           },
           {
@@ -7521,6 +7897,10 @@
           "named": true
         },
         {
+          "type": "bit_set_type",
+          "named": true
+        },
+        {
           "type": "compiler_directive",
           "named": true
         },
@@ -7687,6 +8067,10 @@
           },
           {
             "type": "binary_expression",
+            "named": true
+          },
+          {
+            "type": "bit_set_type",
             "named": true
           },
           {
@@ -7859,6 +8243,10 @@
           "named": true
         },
         {
+          "type": "bit_set_type",
+          "named": true
+        },
+        {
           "type": "compiler_directive",
           "named": true
         },
@@ -7958,6 +8346,10 @@
             "named": true
           },
           {
+            "type": "bit_set_type",
+            "named": true
+          },
+          {
             "type": "compiler_directive",
             "named": true
           },
@@ -8037,6 +8429,10 @@
           },
           {
             "type": "binary_expression",
+            "named": true
+          },
+          {
+            "type": "bit_set_type",
             "named": true
           },
           {

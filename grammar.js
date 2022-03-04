@@ -289,6 +289,7 @@ module.exports = grammar({
         seq(optional('$'), $._type_identifier),
         $.map_type,
         $.pointer_type,
+        $.bit_set_type,
         $.slice_type,
         $.array_type,
         $.dynamic_array_type,
@@ -305,6 +306,17 @@ module.exports = grammar({
 
     pointer_type: $ => seq(
       alias('^', $.operator), field('element', $._type),
+    ),
+	
+    bit_set_type: $ => seq(
+      alias('bit_set', $.keyword),
+	  '[',
+        choice(
+          field('element', $._type),
+          field('range', $.range_expression),
+	    ),
+        optional(seq(';', field('backing', $._type))),
+      ']'
     ),
 
     slice_type: $ => seq(
