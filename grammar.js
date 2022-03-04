@@ -603,8 +603,8 @@ module.exports = grammar({
     },
 
     range_expression: $ => seq(
-      field('start', $._expression), 
-      alias(choice('..', '..<', '..='), $.operator), 
+      field('start', $._expression),
+      alias(choice('..', '..<', '..='), $.operator),
       field('end', $._expression)
     ),
 
@@ -619,13 +619,13 @@ module.exports = grammar({
     )),
 
     proc_directive: $ => '#force_inline',
-    type_directive: $ => choice('#type', '#soa'),
+    type_directive: $ => choice('#type', '#soa', seq('#relative', '(', $._type, ')')),
     union_directive: $ => '#no_nil',
     for_directive: $ => '#unroll',
     block_directive: $ => choice('#no_bounds_check', '#bounds_check'),
     struct_directive: $ => choice('#raw_union', '#packed'),
 
-  
+
     _label_identifier: $ => alias($.identifier, $.label_identifier),
     _type_identifier: $ => alias($.identifier, $.type_identifier),
     _pragma_identifier: $ => alias($.identifier, $.pragma_identifier),

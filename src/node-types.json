@@ -1260,7 +1260,76 @@
   {
     "type": "compiler_directive",
     "named": true,
-    "fields": {}
+    "fields": {
+      "arguments": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "initializer_list",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "array_type",
+          "named": true
+        },
+        {
+          "type": "compiler_directive",
+          "named": true
+        },
+        {
+          "type": "dynamic_array_type",
+          "named": true
+        },
+        {
+          "type": "enum_type",
+          "named": true
+        },
+        {
+          "type": "keyword",
+          "named": true
+        },
+        {
+          "type": "map_type",
+          "named": true
+        },
+        {
+          "type": "namespaced_type",
+          "named": true
+        },
+        {
+          "type": "pointer_type",
+          "named": true
+        },
+        {
+          "type": "proc_type",
+          "named": true
+        },
+        {
+          "type": "slice_type",
+          "named": true
+        },
+        {
+          "type": "struct_type",
+          "named": true
+        },
+        {
+          "type": "type_identifier",
+          "named": true
+        },
+        {
+          "type": "union_type",
+          "named": true
+        }
+      ]
+    }
   },
   {
     "type": "compound_literal",
@@ -8138,6 +8207,10 @@
   },
   {
     "type": "#raw_union",
+    "named": false
+  },
+  {
+    "type": "#relative",
     "named": false
   },
   {
