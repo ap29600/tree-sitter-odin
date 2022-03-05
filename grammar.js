@@ -324,7 +324,12 @@ module.exports = grammar({
     ),
 
     array_type: $ => seq(
-      '[', field('length', choice($._expression, alias('?', $.operator))), ']', field('element', $._type),
+	  optional(alias('#partial', $.compiler_directive)),
+      '[',
+	  choice(
+		  field('length', choice($._expression, alias('?', $.operator))),
+	  ),
+	  ']', field('element', $._type),
     ),
 
     dynamic_array_type: $ => seq(
@@ -557,6 +562,7 @@ module.exports = grammar({
 
     switch_statement: $ => prec.right(seq(
       optional(field('label', seq($._label_identifier, ':'))),
+      optional(alias('#partial', $.compiler_directive)),
       alias('switch', $.keyword), optional(seq(
         field('initializer', $._statement),
         ';',

@@ -257,6 +257,16 @@
           }
         ]
       }
+    },
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "compiler_directive",
+          "named": true
+        }
+      ]
     }
   },
   {
@@ -7343,9 +7353,13 @@
       }
     },
     "children": {
-      "multiple": false,
+      "multiple": true,
       "required": true,
       "types": [
+        {
+          "type": "compiler_directive",
+          "named": true
+        },
         {
           "type": "keyword",
           "named": true
