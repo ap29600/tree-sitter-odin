@@ -100,11 +100,11 @@ const
   intLiteral = choice(binaryLiteral, decimalLiteral, octalLiteral, hexLiteral),
 
   decimalExponent = seq(choice('e', 'E'), optional(choice('+', '-')), decimalDigits),
-  decimalFloatLiteral = prec(-1, choice(
+  decimalFloatLiteral = choice(
     seq(decimalDigits, '.', optional(decimalDigits), optional(decimalExponent)),
     seq(decimalDigits, decimalExponent),
     seq('.', decimalDigits, optional(decimalExponent)),
-  )),
+  ),
 
   hexExponent = seq(choice('p', 'P'), optional(choice('+', '-')), decimalDigits),
   hexMantissa = choice(
@@ -290,6 +290,7 @@ module.exports = grammar({
         $.map_type,
         $.pointer_type,
         $.bit_set_type,
+        $.matrix_type,
         $.slice_type,
         $.array_type,
         $.dynamic_array_type,
@@ -317,6 +318,10 @@ module.exports = grammar({
 	    ),
         optional(seq(';', field('backing', $._type))),
       ']'
+    ),
+
+    matrix_type: $ => seq(
+      alias('matrix', $.keyword), '[',$._expression, ',', $._expression, ']', field('element', $._type),
     ),
 
     slice_type: $ => seq(
@@ -350,6 +355,7 @@ module.exports = grammar({
 
     struct_type: $ => seq(
       alias('struct', $.keyword),
+      optional(field('parameters', $.parameter_list)),
       '{',
       commaSep(seq( commaSep1($.identifier), ':', $._type )), 
       optional(','),
