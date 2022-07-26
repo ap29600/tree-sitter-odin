@@ -42,10 +42,6 @@
             "named": true
           },
           {
-            "type": "dynamic_array_type",
-            "named": true
-          },
-          {
             "type": "enum_type",
             "named": true
           },
@@ -66,10 +62,6 @@
             "named": true
           },
           {
-            "type": "namespaced_type",
-            "named": true
-          },
-          {
             "type": "pointer_type",
             "named": true
           },
@@ -78,7 +70,7 @@
             "named": true
           },
           {
-            "type": "slice_type",
+            "type": "selector_expression",
             "named": true
           },
           {
@@ -95,9 +87,9 @@
           }
         ]
       },
-      "length": {
+      "size": {
         "multiple": true,
-        "required": true,
+        "required": false,
         "types": [
           {
             "type": "$",
@@ -132,23 +124,11 @@
             "named": true
           },
           {
-            "type": "dynamic_array_type",
-            "named": true
-          },
-          {
             "type": "enum_type",
             "named": true
           },
           {
-            "type": "enum_variant",
-            "named": true
-          },
-          {
             "type": "false",
-            "named": true
-          },
-          {
-            "type": "field_access",
             "named": true
           },
           {
@@ -180,6 +160,10 @@
             "named": true
           },
           {
+            "type": "left_unary_expression",
+            "named": true
+          },
+          {
             "type": "map_type",
             "named": true
           },
@@ -188,23 +172,11 @@
             "named": true
           },
           {
-            "type": "namespaced_identifier",
-            "named": true
-          },
-          {
-            "type": "namespaced_type",
-            "named": true
-          },
-          {
             "type": "nil",
             "named": true
           },
           {
             "type": "operator",
-            "named": true
-          },
-          {
-            "type": "or_return_expression",
             "named": true
           },
           {
@@ -228,11 +200,15 @@
             "named": true
           },
           {
+            "type": "right_unary_expression",
+            "named": true
+          },
+          {
             "type": "rune_literal",
             "named": true
           },
           {
-            "type": "slice_type",
+            "type": "selector_expression",
             "named": true
           },
           {
@@ -253,10 +229,6 @@
           },
           {
             "type": "type_identifier",
-            "named": true
-          },
-          {
-            "type": "unary_expression",
             "named": true
           },
           {
@@ -332,23 +304,11 @@
             "named": true
           },
           {
-            "type": "dynamic_array_type",
-            "named": true
-          },
-          {
             "type": "enum_type",
             "named": true
           },
           {
-            "type": "enum_variant",
-            "named": true
-          },
-          {
             "type": "false",
-            "named": true
-          },
-          {
-            "type": "field_access",
             "named": true
           },
           {
@@ -380,6 +340,10 @@
             "named": true
           },
           {
+            "type": "left_unary_expression",
+            "named": true
+          },
+          {
             "type": "map_type",
             "named": true
           },
@@ -388,19 +352,7 @@
             "named": true
           },
           {
-            "type": "namespaced_identifier",
-            "named": true
-          },
-          {
-            "type": "namespaced_type",
-            "named": true
-          },
-          {
             "type": "nil",
-            "named": true
-          },
-          {
-            "type": "or_return_expression",
             "named": true
           },
           {
@@ -424,11 +376,15 @@
             "named": true
           },
           {
+            "type": "right_unary_expression",
+            "named": true
+          },
+          {
             "type": "rune_literal",
             "named": true
           },
           {
-            "type": "slice_type",
+            "type": "selector_expression",
             "named": true
           },
           {
@@ -449,10 +405,6 @@
           },
           {
             "type": "type_identifier",
-            "named": true
-          },
-          {
-            "type": "unary_expression",
             "named": true
           },
           {
@@ -502,23 +454,11 @@
             "named": true
           },
           {
-            "type": "dynamic_array_type",
-            "named": true
-          },
-          {
             "type": "enum_type",
             "named": true
           },
           {
-            "type": "enum_variant",
-            "named": true
-          },
-          {
             "type": "false",
-            "named": true
-          },
-          {
-            "type": "field_access",
             "named": true
           },
           {
@@ -550,6 +490,10 @@
             "named": true
           },
           {
+            "type": "left_unary_expression",
+            "named": true
+          },
+          {
             "type": "map_type",
             "named": true
           },
@@ -558,19 +502,7 @@
             "named": true
           },
           {
-            "type": "namespaced_identifier",
-            "named": true
-          },
-          {
-            "type": "namespaced_type",
-            "named": true
-          },
-          {
             "type": "nil",
-            "named": true
-          },
-          {
-            "type": "or_return_expression",
             "named": true
           },
           {
@@ -594,11 +526,15 @@
             "named": true
           },
           {
+            "type": "right_unary_expression",
+            "named": true
+          },
+          {
             "type": "rune_literal",
             "named": true
           },
           {
-            "type": "slice_type",
+            "type": "selector_expression",
             "named": true
           },
           {
@@ -619,10 +555,6 @@
           },
           {
             "type": "type_identifier",
-            "named": true
-          },
-          {
-            "type": "unary_expression",
             "named": true
           },
           {
@@ -694,23 +626,11 @@
             "named": true
           },
           {
-            "type": "dynamic_array_type",
-            "named": true
-          },
-          {
             "type": "enum_type",
             "named": true
           },
           {
-            "type": "enum_variant",
-            "named": true
-          },
-          {
             "type": "false",
-            "named": true
-          },
-          {
-            "type": "field_access",
             "named": true
           },
           {
@@ -742,6 +662,10 @@
             "named": true
           },
           {
+            "type": "left_unary_expression",
+            "named": true
+          },
+          {
             "type": "map_type",
             "named": true
           },
@@ -750,19 +674,7 @@
             "named": true
           },
           {
-            "type": "namespaced_identifier",
-            "named": true
-          },
-          {
-            "type": "namespaced_type",
-            "named": true
-          },
-          {
             "type": "nil",
-            "named": true
-          },
-          {
-            "type": "or_return_expression",
             "named": true
           },
           {
@@ -786,11 +698,15 @@
             "named": true
           },
           {
+            "type": "right_unary_expression",
+            "named": true
+          },
+          {
             "type": "rune_literal",
             "named": true
           },
           {
-            "type": "slice_type",
+            "type": "selector_expression",
             "named": true
           },
           {
@@ -811,10 +727,6 @@
           },
           {
             "type": "type_identifier",
-            "named": true
-          },
-          {
-            "type": "unary_expression",
             "named": true
           },
           {
@@ -870,23 +782,11 @@
             "named": true
           },
           {
-            "type": "dynamic_array_type",
-            "named": true
-          },
-          {
             "type": "enum_type",
             "named": true
           },
           {
-            "type": "enum_variant",
-            "named": true
-          },
-          {
             "type": "false",
-            "named": true
-          },
-          {
-            "type": "field_access",
             "named": true
           },
           {
@@ -918,6 +818,10 @@
             "named": true
           },
           {
+            "type": "left_unary_expression",
+            "named": true
+          },
+          {
             "type": "map_type",
             "named": true
           },
@@ -926,19 +830,7 @@
             "named": true
           },
           {
-            "type": "namespaced_identifier",
-            "named": true
-          },
-          {
-            "type": "namespaced_type",
-            "named": true
-          },
-          {
             "type": "nil",
-            "named": true
-          },
-          {
-            "type": "or_return_expression",
             "named": true
           },
           {
@@ -962,11 +854,15 @@
             "named": true
           },
           {
+            "type": "right_unary_expression",
+            "named": true
+          },
+          {
             "type": "rune_literal",
             "named": true
           },
           {
-            "type": "slice_type",
+            "type": "selector_expression",
             "named": true
           },
           {
@@ -987,10 +883,6 @@
           },
           {
             "type": "type_identifier",
-            "named": true
-          },
-          {
-            "type": "unary_expression",
             "named": true
           },
           {
@@ -1044,10 +936,6 @@
             "named": true
           },
           {
-            "type": "dynamic_array_type",
-            "named": true
-          },
-          {
             "type": "enum_type",
             "named": true
           },
@@ -1068,10 +956,6 @@
             "named": true
           },
           {
-            "type": "namespaced_type",
-            "named": true
-          },
-          {
             "type": "pointer_type",
             "named": true
           },
@@ -1080,7 +964,7 @@
             "named": true
           },
           {
-            "type": "slice_type",
+            "type": "selector_expression",
             "named": true
           },
           {
@@ -1126,10 +1010,6 @@
             "named": true
           },
           {
-            "type": "dynamic_array_type",
-            "named": true
-          },
-          {
             "type": "enum_type",
             "named": true
           },
@@ -1150,10 +1030,6 @@
             "named": true
           },
           {
-            "type": "namespaced_type",
-            "named": true
-          },
-          {
             "type": "pointer_type",
             "named": true
           },
@@ -1162,7 +1038,7 @@
             "named": true
           },
           {
-            "type": "slice_type",
+            "type": "selector_expression",
             "named": true
           },
           {
@@ -1389,23 +1265,11 @@
           "named": true
         },
         {
-          "type": "dynamic_array_type",
-          "named": true
-        },
-        {
           "type": "enum_type",
           "named": true
         },
         {
-          "type": "enum_variant",
-          "named": true
-        },
-        {
           "type": "false",
-          "named": true
-        },
-        {
-          "type": "field_access",
           "named": true
         },
         {
@@ -1433,6 +1297,10 @@
           "named": true
         },
         {
+          "type": "left_unary_expression",
+          "named": true
+        },
+        {
           "type": "map_type",
           "named": true
         },
@@ -1441,23 +1309,11 @@
           "named": true
         },
         {
-          "type": "namespaced_identifier",
-          "named": true
-        },
-        {
-          "type": "namespaced_type",
-          "named": true
-        },
-        {
           "type": "nil",
           "named": true
         },
         {
           "type": "operator",
-          "named": true
-        },
-        {
-          "type": "or_return_expression",
           "named": true
         },
         {
@@ -1485,11 +1341,15 @@
           "named": true
         },
         {
+          "type": "right_unary_expression",
+          "named": true
+        },
+        {
           "type": "rune_literal",
           "named": true
         },
         {
-          "type": "slice_type",
+          "type": "selector_expression",
           "named": true
         },
         {
@@ -1510,10 +1370,6 @@
         },
         {
           "type": "type_identifier",
-          "named": true
-        },
-        {
-          "type": "unary_expression",
           "named": true
         },
         {
@@ -1555,10 +1411,6 @@
           "named": true
         },
         {
-          "type": "dynamic_array_type",
-          "named": true
-        },
-        {
           "type": "enum_type",
           "named": true
         },
@@ -1575,10 +1427,6 @@
           "named": true
         },
         {
-          "type": "namespaced_type",
-          "named": true
-        },
-        {
           "type": "pointer_type",
           "named": true
         },
@@ -1587,7 +1435,7 @@
           "named": true
         },
         {
-          "type": "slice_type",
+          "type": "selector_expression",
           "named": true
         },
         {
@@ -1626,10 +1474,6 @@
             "named": true
           },
           {
-            "type": "dynamic_array_type",
-            "named": true
-          },
-          {
             "type": "enum_type",
             "named": true
           },
@@ -1646,15 +1490,11 @@
             "named": true
           },
           {
-            "type": "namespaced_type",
-            "named": true
-          },
-          {
             "type": "pointer_type",
             "named": true
           },
           {
-            "type": "slice_type",
+            "type": "selector_expression",
             "named": true
           },
           {
@@ -1740,10 +1580,6 @@
             "named": true
           },
           {
-            "type": "dynamic_array_type",
-            "named": true
-          },
-          {
             "type": "enum_type",
             "named": true
           },
@@ -1764,10 +1600,6 @@
             "named": true
           },
           {
-            "type": "namespaced_type",
-            "named": true
-          },
-          {
             "type": "pointer_type",
             "named": true
           },
@@ -1776,7 +1608,7 @@
             "named": true
           },
           {
-            "type": "slice_type",
+            "type": "selector_expression",
             "named": true
           },
           {
@@ -1834,23 +1666,11 @@
             "named": true
           },
           {
-            "type": "dynamic_array_type",
-            "named": true
-          },
-          {
             "type": "enum_type",
             "named": true
           },
           {
-            "type": "enum_variant",
-            "named": true
-          },
-          {
             "type": "false",
-            "named": true
-          },
-          {
-            "type": "field_access",
             "named": true
           },
           {
@@ -1882,6 +1702,10 @@
             "named": true
           },
           {
+            "type": "left_unary_expression",
+            "named": true
+          },
+          {
             "type": "map_type",
             "named": true
           },
@@ -1890,19 +1714,7 @@
             "named": true
           },
           {
-            "type": "namespaced_identifier",
-            "named": true
-          },
-          {
-            "type": "namespaced_type",
-            "named": true
-          },
-          {
             "type": "nil",
-            "named": true
-          },
-          {
-            "type": "or_return_expression",
             "named": true
           },
           {
@@ -1926,11 +1738,15 @@
             "named": true
           },
           {
+            "type": "right_unary_expression",
+            "named": true
+          },
+          {
             "type": "rune_literal",
             "named": true
           },
           {
-            "type": "slice_type",
+            "type": "selector_expression",
             "named": true
           },
           {
@@ -1951,10 +1767,6 @@
           },
           {
             "type": "type_identifier",
-            "named": true
-          },
-          {
-            "type": "unary_expression",
             "named": true
           },
           {
@@ -2066,114 +1878,6 @@
     }
   },
   {
-    "type": "dynamic_array_type",
-    "named": true,
-    "fields": {
-      "arguments": {
-        "multiple": false,
-        "required": false,
-        "types": [
-          {
-            "type": "initializer_list",
-            "named": true
-          }
-        ]
-      },
-      "element": {
-        "multiple": true,
-        "required": true,
-        "types": [
-          {
-            "type": "$",
-            "named": false
-          },
-          {
-            "type": "(",
-            "named": false
-          },
-          {
-            "type": ")",
-            "named": false
-          },
-          {
-            "type": "array_type",
-            "named": true
-          },
-          {
-            "type": "bit_set_type",
-            "named": true
-          },
-          {
-            "type": "compiler_directive",
-            "named": true
-          },
-          {
-            "type": "dynamic_array_type",
-            "named": true
-          },
-          {
-            "type": "enum_type",
-            "named": true
-          },
-          {
-            "type": "initializer_list",
-            "named": true
-          },
-          {
-            "type": "keyword",
-            "named": true
-          },
-          {
-            "type": "map_type",
-            "named": true
-          },
-          {
-            "type": "matrix_type",
-            "named": true
-          },
-          {
-            "type": "namespaced_type",
-            "named": true
-          },
-          {
-            "type": "pointer_type",
-            "named": true
-          },
-          {
-            "type": "proc_type",
-            "named": true
-          },
-          {
-            "type": "slice_type",
-            "named": true
-          },
-          {
-            "type": "struct_type",
-            "named": true
-          },
-          {
-            "type": "type_identifier",
-            "named": true
-          },
-          {
-            "type": "union_type",
-            "named": true
-          }
-        ]
-      }
-    },
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "keyword",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
     "type": "empty_statement",
     "named": true,
     "fields": {}
@@ -2221,10 +1925,6 @@
             "named": true
           },
           {
-            "type": "dynamic_array_type",
-            "named": true
-          },
-          {
             "type": "enum_type",
             "named": true
           },
@@ -2245,10 +1945,6 @@
             "named": true
           },
           {
-            "type": "namespaced_type",
-            "named": true
-          },
-          {
             "type": "pointer_type",
             "named": true
           },
@@ -2257,7 +1953,7 @@
             "named": true
           },
           {
-            "type": "slice_type",
+            "type": "selector_expression",
             "named": true
           },
           {
@@ -2294,224 +1990,6 @@
           "named": true
         }
       ]
-    }
-  },
-  {
-    "type": "enum_variant",
-    "named": true,
-    "fields": {
-      "enum": {
-        "multiple": false,
-        "required": false,
-        "types": [
-          {
-            "type": "type_identifier",
-            "named": true
-          }
-        ]
-      },
-      "variant": {
-        "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": "const_identifier",
-            "named": true
-          }
-        ]
-      }
-    }
-  },
-  {
-    "type": "field_access",
-    "named": true,
-    "fields": {
-      "arguments": {
-        "multiple": false,
-        "required": false,
-        "types": [
-          {
-            "type": "initializer_list",
-            "named": true
-          }
-        ]
-      },
-      "field": {
-        "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": "identifier",
-            "named": true
-          }
-        ]
-      },
-      "parent": {
-        "multiple": true,
-        "required": true,
-        "types": [
-          {
-            "type": "$",
-            "named": false
-          },
-          {
-            "type": "(",
-            "named": false
-          },
-          {
-            "type": ")",
-            "named": false
-          },
-          {
-            "type": "array_type",
-            "named": true
-          },
-          {
-            "type": "binary_expression",
-            "named": true
-          },
-          {
-            "type": "bit_set_type",
-            "named": true
-          },
-          {
-            "type": "compiler_directive",
-            "named": true
-          },
-          {
-            "type": "compound_literal",
-            "named": true
-          },
-          {
-            "type": "dynamic_array_type",
-            "named": true
-          },
-          {
-            "type": "enum_type",
-            "named": true
-          },
-          {
-            "type": "enum_variant",
-            "named": true
-          },
-          {
-            "type": "false",
-            "named": true
-          },
-          {
-            "type": "field_access",
-            "named": true
-          },
-          {
-            "type": "float_literal",
-            "named": true
-          },
-          {
-            "type": "identifier",
-            "named": true
-          },
-          {
-            "type": "index_expression",
-            "named": true
-          },
-          {
-            "type": "initializer_list",
-            "named": true
-          },
-          {
-            "type": "int_literal",
-            "named": true
-          },
-          {
-            "type": "interpreted_string_literal",
-            "named": true
-          },
-          {
-            "type": "keyword",
-            "named": true
-          },
-          {
-            "type": "map_type",
-            "named": true
-          },
-          {
-            "type": "matrix_type",
-            "named": true
-          },
-          {
-            "type": "namespaced_identifier",
-            "named": true
-          },
-          {
-            "type": "namespaced_type",
-            "named": true
-          },
-          {
-            "type": "nil",
-            "named": true
-          },
-          {
-            "type": "or_return_expression",
-            "named": true
-          },
-          {
-            "type": "pointer_type",
-            "named": true
-          },
-          {
-            "type": "proc_call",
-            "named": true
-          },
-          {
-            "type": "proc_literal",
-            "named": true
-          },
-          {
-            "type": "proc_type",
-            "named": true
-          },
-          {
-            "type": "raw_string_literal",
-            "named": true
-          },
-          {
-            "type": "rune_literal",
-            "named": true
-          },
-          {
-            "type": "slice_type",
-            "named": true
-          },
-          {
-            "type": "struct_type",
-            "named": true
-          },
-          {
-            "type": "ternary_expression",
-            "named": true
-          },
-          {
-            "type": "true",
-            "named": true
-          },
-          {
-            "type": "type_conversion",
-            "named": true
-          },
-          {
-            "type": "type_identifier",
-            "named": true
-          },
-          {
-            "type": "unary_expression",
-            "named": true
-          },
-          {
-            "type": "union_type",
-            "named": true
-          }
-        ]
-      }
     }
   },
   {
@@ -2583,23 +2061,11 @@
             "named": true
           },
           {
-            "type": "dynamic_array_type",
-            "named": true
-          },
-          {
             "type": "enum_type",
             "named": true
           },
           {
-            "type": "enum_variant",
-            "named": true
-          },
-          {
             "type": "false",
-            "named": true
-          },
-          {
-            "type": "field_access",
             "named": true
           },
           {
@@ -2631,6 +2097,10 @@
             "named": true
           },
           {
+            "type": "left_unary_expression",
+            "named": true
+          },
+          {
             "type": "map_type",
             "named": true
           },
@@ -2639,19 +2109,7 @@
             "named": true
           },
           {
-            "type": "namespaced_identifier",
-            "named": true
-          },
-          {
-            "type": "namespaced_type",
-            "named": true
-          },
-          {
             "type": "nil",
-            "named": true
-          },
-          {
-            "type": "or_return_expression",
             "named": true
           },
           {
@@ -2675,11 +2133,15 @@
             "named": true
           },
           {
+            "type": "right_unary_expression",
+            "named": true
+          },
+          {
             "type": "rune_literal",
             "named": true
           },
           {
-            "type": "slice_type",
+            "type": "selector_expression",
             "named": true
           },
           {
@@ -2700,10 +2162,6 @@
           },
           {
             "type": "type_identifier",
-            "named": true
-          },
-          {
-            "type": "unary_expression",
             "named": true
           },
           {
@@ -2847,23 +2305,11 @@
             "named": true
           },
           {
-            "type": "dynamic_array_type",
-            "named": true
-          },
-          {
             "type": "enum_type",
             "named": true
           },
           {
-            "type": "enum_variant",
-            "named": true
-          },
-          {
             "type": "false",
-            "named": true
-          },
-          {
-            "type": "field_access",
             "named": true
           },
           {
@@ -2895,6 +2341,10 @@
             "named": true
           },
           {
+            "type": "left_unary_expression",
+            "named": true
+          },
+          {
             "type": "map_type",
             "named": true
           },
@@ -2903,19 +2353,7 @@
             "named": true
           },
           {
-            "type": "namespaced_identifier",
-            "named": true
-          },
-          {
-            "type": "namespaced_type",
-            "named": true
-          },
-          {
             "type": "nil",
-            "named": true
-          },
-          {
-            "type": "or_return_expression",
             "named": true
           },
           {
@@ -2943,11 +2381,15 @@
             "named": true
           },
           {
+            "type": "right_unary_expression",
+            "named": true
+          },
+          {
             "type": "rune_literal",
             "named": true
           },
           {
-            "type": "slice_type",
+            "type": "selector_expression",
             "named": true
           },
           {
@@ -2968,10 +2410,6 @@
           },
           {
             "type": "type_identifier",
-            "named": true
-          },
-          {
-            "type": "unary_expression",
             "named": true
           },
           {
@@ -3080,23 +2518,11 @@
           "named": true
         },
         {
-          "type": "dynamic_array_type",
-          "named": true
-        },
-        {
           "type": "enum_type",
           "named": true
         },
         {
-          "type": "enum_variant",
-          "named": true
-        },
-        {
           "type": "false",
-          "named": true
-        },
-        {
-          "type": "field_access",
           "named": true
         },
         {
@@ -3124,6 +2550,10 @@
           "named": true
         },
         {
+          "type": "left_unary_expression",
+          "named": true
+        },
+        {
           "type": "map_type",
           "named": true
         },
@@ -3132,19 +2562,7 @@
           "named": true
         },
         {
-          "type": "namespaced_identifier",
-          "named": true
-        },
-        {
-          "type": "namespaced_type",
-          "named": true
-        },
-        {
           "type": "nil",
-          "named": true
-        },
-        {
-          "type": "or_return_expression",
           "named": true
         },
         {
@@ -3168,11 +2586,15 @@
           "named": true
         },
         {
+          "type": "right_unary_expression",
+          "named": true
+        },
+        {
           "type": "rune_literal",
           "named": true
         },
         {
-          "type": "slice_type",
+          "type": "selector_expression",
           "named": true
         },
         {
@@ -3193,10 +2615,6 @@
         },
         {
           "type": "type_identifier",
-          "named": true
-        },
-        {
-          "type": "unary_expression",
           "named": true
         },
         {
@@ -3257,23 +2675,11 @@
             "named": true
           },
           {
-            "type": "dynamic_array_type",
-            "named": true
-          },
-          {
             "type": "enum_type",
             "named": true
           },
           {
-            "type": "enum_variant",
-            "named": true
-          },
-          {
             "type": "false",
-            "named": true
-          },
-          {
-            "type": "field_access",
             "named": true
           },
           {
@@ -3305,6 +2711,10 @@
             "named": true
           },
           {
+            "type": "left_unary_expression",
+            "named": true
+          },
+          {
             "type": "map_type",
             "named": true
           },
@@ -3313,19 +2723,7 @@
             "named": true
           },
           {
-            "type": "namespaced_identifier",
-            "named": true
-          },
-          {
-            "type": "namespaced_type",
-            "named": true
-          },
-          {
             "type": "nil",
-            "named": true
-          },
-          {
-            "type": "or_return_expression",
             "named": true
           },
           {
@@ -3349,11 +2747,15 @@
             "named": true
           },
           {
+            "type": "right_unary_expression",
+            "named": true
+          },
+          {
             "type": "rune_literal",
             "named": true
           },
           {
-            "type": "slice_type",
+            "type": "selector_expression",
             "named": true
           },
           {
@@ -3374,10 +2776,6 @@
           },
           {
             "type": "type_identifier",
-            "named": true
-          },
-          {
-            "type": "unary_expression",
             "named": true
           },
           {
@@ -3607,23 +3005,11 @@
             "named": true
           },
           {
-            "type": "dynamic_array_type",
-            "named": true
-          },
-          {
             "type": "enum_type",
             "named": true
           },
           {
-            "type": "enum_variant",
-            "named": true
-          },
-          {
             "type": "false",
-            "named": true
-          },
-          {
-            "type": "field_access",
             "named": true
           },
           {
@@ -3655,6 +3041,10 @@
             "named": true
           },
           {
+            "type": "left_unary_expression",
+            "named": true
+          },
+          {
             "type": "map_type",
             "named": true
           },
@@ -3663,19 +3053,7 @@
             "named": true
           },
           {
-            "type": "namespaced_identifier",
-            "named": true
-          },
-          {
-            "type": "namespaced_type",
-            "named": true
-          },
-          {
             "type": "nil",
-            "named": true
-          },
-          {
-            "type": "or_return_expression",
             "named": true
           },
           {
@@ -3699,11 +3077,15 @@
             "named": true
           },
           {
+            "type": "right_unary_expression",
+            "named": true
+          },
+          {
             "type": "rune_literal",
             "named": true
           },
           {
-            "type": "slice_type",
+            "type": "selector_expression",
             "named": true
           },
           {
@@ -3724,10 +3106,6 @@
           },
           {
             "type": "type_identifier",
-            "named": true
-          },
-          {
-            "type": "unary_expression",
             "named": true
           },
           {
@@ -3753,6 +3131,10 @@
             "named": false
           },
           {
+            "type": ",",
+            "named": false
+          },
+          {
             "type": "array_type",
             "named": true
           },
@@ -3773,23 +3155,11 @@
             "named": true
           },
           {
-            "type": "dynamic_array_type",
-            "named": true
-          },
-          {
             "type": "enum_type",
             "named": true
           },
           {
-            "type": "enum_variant",
-            "named": true
-          },
-          {
             "type": "false",
-            "named": true
-          },
-          {
-            "type": "field_access",
             "named": true
           },
           {
@@ -3821,6 +3191,10 @@
             "named": true
           },
           {
+            "type": "left_unary_expression",
+            "named": true
+          },
+          {
             "type": "map_type",
             "named": true
           },
@@ -3829,19 +3203,7 @@
             "named": true
           },
           {
-            "type": "namespaced_identifier",
-            "named": true
-          },
-          {
-            "type": "namespaced_type",
-            "named": true
-          },
-          {
             "type": "nil",
-            "named": true
-          },
-          {
-            "type": "or_return_expression",
             "named": true
           },
           {
@@ -3865,11 +3227,15 @@
             "named": true
           },
           {
+            "type": "right_unary_expression",
+            "named": true
+          },
+          {
             "type": "rune_literal",
             "named": true
           },
           {
-            "type": "slice_type",
+            "type": "selector_expression",
             "named": true
           },
           {
@@ -3890,10 +3256,6 @@
           },
           {
             "type": "type_identifier",
-            "named": true
-          },
-          {
-            "type": "unary_expression",
             "named": true
           },
           {
@@ -3939,23 +3301,11 @@
             "named": true
           },
           {
-            "type": "dynamic_array_type",
-            "named": true
-          },
-          {
             "type": "enum_type",
             "named": true
           },
           {
-            "type": "enum_variant",
-            "named": true
-          },
-          {
             "type": "false",
-            "named": true
-          },
-          {
-            "type": "field_access",
             "named": true
           },
           {
@@ -3987,6 +3337,10 @@
             "named": true
           },
           {
+            "type": "left_unary_expression",
+            "named": true
+          },
+          {
             "type": "map_type",
             "named": true
           },
@@ -3995,19 +3349,7 @@
             "named": true
           },
           {
-            "type": "namespaced_identifier",
-            "named": true
-          },
-          {
-            "type": "namespaced_type",
-            "named": true
-          },
-          {
             "type": "nil",
-            "named": true
-          },
-          {
-            "type": "or_return_expression",
             "named": true
           },
           {
@@ -4031,11 +3373,15 @@
             "named": true
           },
           {
+            "type": "right_unary_expression",
+            "named": true
+          },
+          {
             "type": "rune_literal",
             "named": true
           },
           {
-            "type": "slice_type",
+            "type": "selector_expression",
             "named": true
           },
           {
@@ -4056,10 +3402,6 @@
           },
           {
             "type": "type_identifier",
-            "named": true
-          },
-          {
-            "type": "unary_expression",
             "named": true
           },
           {
@@ -4105,23 +3447,11 @@
             "named": true
           },
           {
-            "type": "dynamic_array_type",
-            "named": true
-          },
-          {
             "type": "enum_type",
             "named": true
           },
           {
-            "type": "enum_variant",
-            "named": true
-          },
-          {
             "type": "false",
-            "named": true
-          },
-          {
-            "type": "field_access",
             "named": true
           },
           {
@@ -4153,6 +3483,10 @@
             "named": true
           },
           {
+            "type": "left_unary_expression",
+            "named": true
+          },
+          {
             "type": "map_type",
             "named": true
           },
@@ -4161,19 +3495,7 @@
             "named": true
           },
           {
-            "type": "namespaced_identifier",
-            "named": true
-          },
-          {
-            "type": "namespaced_type",
-            "named": true
-          },
-          {
             "type": "nil",
-            "named": true
-          },
-          {
-            "type": "or_return_expression",
             "named": true
           },
           {
@@ -4197,11 +3519,15 @@
             "named": true
           },
           {
+            "type": "right_unary_expression",
+            "named": true
+          },
+          {
             "type": "rune_literal",
             "named": true
           },
           {
-            "type": "slice_type",
+            "type": "selector_expression",
             "named": true
           },
           {
@@ -4222,10 +3548,6 @@
           },
           {
             "type": "type_identifier",
-            "named": true
-          },
-          {
-            "type": "unary_expression",
             "named": true
           },
           {
@@ -4286,23 +3608,11 @@
           "named": true
         },
         {
-          "type": "dynamic_array_type",
-          "named": true
-        },
-        {
           "type": "enum_type",
           "named": true
         },
         {
-          "type": "enum_variant",
-          "named": true
-        },
-        {
           "type": "false",
-          "named": true
-        },
-        {
-          "type": "field_access",
           "named": true
         },
         {
@@ -4330,6 +3640,10 @@
           "named": true
         },
         {
+          "type": "left_unary_expression",
+          "named": true
+        },
+        {
           "type": "map_type",
           "named": true
         },
@@ -4338,19 +3652,7 @@
           "named": true
         },
         {
-          "type": "namespaced_identifier",
-          "named": true
-        },
-        {
-          "type": "namespaced_type",
-          "named": true
-        },
-        {
           "type": "nil",
-          "named": true
-        },
-        {
-          "type": "or_return_expression",
           "named": true
         },
         {
@@ -4374,15 +3676,19 @@
           "named": true
         },
         {
+          "type": "right_unary_expression",
+          "named": true
+        },
+        {
           "type": "rune_literal",
           "named": true
         },
         {
-          "type": "single_assignment",
+          "type": "selector_expression",
           "named": true
         },
         {
-          "type": "slice_type",
+          "type": "single_assignment",
           "named": true
         },
         {
@@ -4406,10 +3712,6 @@
           "named": true
         },
         {
-          "type": "unary_expression",
-          "named": true
-        },
-        {
           "type": "union_type",
           "named": true
         }
@@ -4429,6 +3731,178 @@
           "named": true
         }
       ]
+    }
+  },
+  {
+    "type": "left_unary_expression",
+    "named": true,
+    "fields": {
+      "arguments": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "initializer_list",
+            "named": true
+          }
+        ]
+      },
+      "operand": {
+        "multiple": true,
+        "required": true,
+        "types": [
+          {
+            "type": "$",
+            "named": false
+          },
+          {
+            "type": "(",
+            "named": false
+          },
+          {
+            "type": ")",
+            "named": false
+          },
+          {
+            "type": "array_type",
+            "named": true
+          },
+          {
+            "type": "binary_expression",
+            "named": true
+          },
+          {
+            "type": "bit_set_type",
+            "named": true
+          },
+          {
+            "type": "compiler_directive",
+            "named": true
+          },
+          {
+            "type": "compound_literal",
+            "named": true
+          },
+          {
+            "type": "enum_type",
+            "named": true
+          },
+          {
+            "type": "false",
+            "named": true
+          },
+          {
+            "type": "float_literal",
+            "named": true
+          },
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "index_expression",
+            "named": true
+          },
+          {
+            "type": "initializer_list",
+            "named": true
+          },
+          {
+            "type": "int_literal",
+            "named": true
+          },
+          {
+            "type": "interpreted_string_literal",
+            "named": true
+          },
+          {
+            "type": "keyword",
+            "named": true
+          },
+          {
+            "type": "left_unary_expression",
+            "named": true
+          },
+          {
+            "type": "map_type",
+            "named": true
+          },
+          {
+            "type": "matrix_type",
+            "named": true
+          },
+          {
+            "type": "nil",
+            "named": true
+          },
+          {
+            "type": "pointer_type",
+            "named": true
+          },
+          {
+            "type": "proc_call",
+            "named": true
+          },
+          {
+            "type": "proc_literal",
+            "named": true
+          },
+          {
+            "type": "proc_type",
+            "named": true
+          },
+          {
+            "type": "raw_string_literal",
+            "named": true
+          },
+          {
+            "type": "right_unary_expression",
+            "named": true
+          },
+          {
+            "type": "rune_literal",
+            "named": true
+          },
+          {
+            "type": "selector_expression",
+            "named": true
+          },
+          {
+            "type": "struct_type",
+            "named": true
+          },
+          {
+            "type": "ternary_expression",
+            "named": true
+          },
+          {
+            "type": "true",
+            "named": true
+          },
+          {
+            "type": "type_conversion",
+            "named": true
+          },
+          {
+            "type": "type_identifier",
+            "named": true
+          },
+          {
+            "type": "union_type",
+            "named": true
+          }
+        ]
+      },
+      "operator": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "operator",
+            "named": true
+          }
+        ]
+      }
     }
   },
   {
@@ -4474,10 +3948,6 @@
             "named": true
           },
           {
-            "type": "dynamic_array_type",
-            "named": true
-          },
-          {
             "type": "enum_type",
             "named": true
           },
@@ -4498,10 +3968,6 @@
             "named": true
           },
           {
-            "type": "namespaced_type",
-            "named": true
-          },
-          {
             "type": "pointer_type",
             "named": true
           },
@@ -4510,7 +3976,7 @@
             "named": true
           },
           {
-            "type": "slice_type",
+            "type": "selector_expression",
             "named": true
           },
           {
@@ -4556,10 +4022,6 @@
             "named": true
           },
           {
-            "type": "dynamic_array_type",
-            "named": true
-          },
-          {
             "type": "enum_type",
             "named": true
           },
@@ -4580,10 +4042,6 @@
             "named": true
           },
           {
-            "type": "namespaced_type",
-            "named": true
-          },
-          {
             "type": "pointer_type",
             "named": true
           },
@@ -4592,7 +4050,7 @@
             "named": true
           },
           {
-            "type": "slice_type",
+            "type": "selector_expression",
             "named": true
           },
           {
@@ -4664,10 +4122,6 @@
             "named": true
           },
           {
-            "type": "dynamic_array_type",
-            "named": true
-          },
-          {
             "type": "enum_type",
             "named": true
           },
@@ -4688,10 +4142,6 @@
             "named": true
           },
           {
-            "type": "namespaced_type",
-            "named": true
-          },
-          {
             "type": "pointer_type",
             "named": true
           },
@@ -4700,7 +4150,7 @@
             "named": true
           },
           {
-            "type": "slice_type",
+            "type": "selector_expression",
             "named": true
           },
           {
@@ -4743,23 +4193,11 @@
           "named": true
         },
         {
-          "type": "dynamic_array_type",
-          "named": true
-        },
-        {
           "type": "enum_type",
           "named": true
         },
         {
-          "type": "enum_variant",
-          "named": true
-        },
-        {
           "type": "false",
-          "named": true
-        },
-        {
-          "type": "field_access",
           "named": true
         },
         {
@@ -4787,6 +4225,10 @@
           "named": true
         },
         {
+          "type": "left_unary_expression",
+          "named": true
+        },
+        {
           "type": "map_type",
           "named": true
         },
@@ -4795,19 +4237,7 @@
           "named": true
         },
         {
-          "type": "namespaced_identifier",
-          "named": true
-        },
-        {
-          "type": "namespaced_type",
-          "named": true
-        },
-        {
           "type": "nil",
-          "named": true
-        },
-        {
-          "type": "or_return_expression",
           "named": true
         },
         {
@@ -4831,11 +4261,15 @@
           "named": true
         },
         {
+          "type": "right_unary_expression",
+          "named": true
+        },
+        {
           "type": "rune_literal",
           "named": true
         },
         {
-          "type": "slice_type",
+          "type": "selector_expression",
           "named": true
         },
         {
@@ -4859,241 +4293,7 @@
           "named": true
         },
         {
-          "type": "unary_expression",
-          "named": true
-        },
-        {
           "type": "union_type",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "namespaced_identifier",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "identifier",
-          "named": true
-        },
-        {
-          "type": "package_identifier",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "namespaced_type",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "package_identifier",
-          "named": true
-        },
-        {
-          "type": "type_identifier",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "or_return_expression",
-    "named": true,
-    "fields": {
-      "arguments": {
-        "multiple": false,
-        "required": false,
-        "types": [
-          {
-            "type": "initializer_list",
-            "named": true
-          }
-        ]
-      },
-      "operand": {
-        "multiple": true,
-        "required": true,
-        "types": [
-          {
-            "type": "$",
-            "named": false
-          },
-          {
-            "type": "(",
-            "named": false
-          },
-          {
-            "type": ")",
-            "named": false
-          },
-          {
-            "type": "array_type",
-            "named": true
-          },
-          {
-            "type": "binary_expression",
-            "named": true
-          },
-          {
-            "type": "bit_set_type",
-            "named": true
-          },
-          {
-            "type": "compiler_directive",
-            "named": true
-          },
-          {
-            "type": "compound_literal",
-            "named": true
-          },
-          {
-            "type": "dynamic_array_type",
-            "named": true
-          },
-          {
-            "type": "enum_type",
-            "named": true
-          },
-          {
-            "type": "enum_variant",
-            "named": true
-          },
-          {
-            "type": "false",
-            "named": true
-          },
-          {
-            "type": "field_access",
-            "named": true
-          },
-          {
-            "type": "float_literal",
-            "named": true
-          },
-          {
-            "type": "identifier",
-            "named": true
-          },
-          {
-            "type": "index_expression",
-            "named": true
-          },
-          {
-            "type": "initializer_list",
-            "named": true
-          },
-          {
-            "type": "int_literal",
-            "named": true
-          },
-          {
-            "type": "interpreted_string_literal",
-            "named": true
-          },
-          {
-            "type": "keyword",
-            "named": true
-          },
-          {
-            "type": "map_type",
-            "named": true
-          },
-          {
-            "type": "matrix_type",
-            "named": true
-          },
-          {
-            "type": "namespaced_identifier",
-            "named": true
-          },
-          {
-            "type": "namespaced_type",
-            "named": true
-          },
-          {
-            "type": "nil",
-            "named": true
-          },
-          {
-            "type": "or_return_expression",
-            "named": true
-          },
-          {
-            "type": "pointer_type",
-            "named": true
-          },
-          {
-            "type": "proc_call",
-            "named": true
-          },
-          {
-            "type": "proc_literal",
-            "named": true
-          },
-          {
-            "type": "proc_type",
-            "named": true
-          },
-          {
-            "type": "raw_string_literal",
-            "named": true
-          },
-          {
-            "type": "rune_literal",
-            "named": true
-          },
-          {
-            "type": "slice_type",
-            "named": true
-          },
-          {
-            "type": "struct_type",
-            "named": true
-          },
-          {
-            "type": "ternary_expression",
-            "named": true
-          },
-          {
-            "type": "true",
-            "named": true
-          },
-          {
-            "type": "type_conversion",
-            "named": true
-          },
-          {
-            "type": "type_identifier",
-            "named": true
-          },
-          {
-            "type": "unary_expression",
-            "named": true
-          },
-          {
-            "type": "union_type",
-            "named": true
-          }
-        ]
-      }
-    },
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "operator",
           "named": true
         }
       ]
@@ -5183,10 +4383,6 @@
             "named": true
           },
           {
-            "type": "dynamic_array_type",
-            "named": true
-          },
-          {
             "type": "enum_type",
             "named": true
           },
@@ -5207,10 +4403,6 @@
             "named": true
           },
           {
-            "type": "namespaced_type",
-            "named": true
-          },
-          {
             "type": "operator",
             "named": true
           },
@@ -5223,7 +4415,7 @@
             "named": true
           },
           {
-            "type": "slice_type",
+            "type": "selector_expression",
             "named": true
           },
           {
@@ -5277,23 +4469,11 @@
             "named": true
           },
           {
-            "type": "dynamic_array_type",
-            "named": true
-          },
-          {
             "type": "enum_type",
             "named": true
           },
           {
-            "type": "enum_variant",
-            "named": true
-          },
-          {
             "type": "false",
-            "named": true
-          },
-          {
-            "type": "field_access",
             "named": true
           },
           {
@@ -5325,6 +4505,10 @@
             "named": true
           },
           {
+            "type": "left_unary_expression",
+            "named": true
+          },
+          {
             "type": "map_type",
             "named": true
           },
@@ -5333,19 +4517,7 @@
             "named": true
           },
           {
-            "type": "namespaced_identifier",
-            "named": true
-          },
-          {
-            "type": "namespaced_type",
-            "named": true
-          },
-          {
             "type": "nil",
-            "named": true
-          },
-          {
-            "type": "or_return_expression",
             "named": true
           },
           {
@@ -5369,11 +4541,15 @@
             "named": true
           },
           {
+            "type": "right_unary_expression",
+            "named": true
+          },
+          {
             "type": "rune_literal",
             "named": true
           },
           {
-            "type": "slice_type",
+            "type": "selector_expression",
             "named": true
           },
           {
@@ -5394,10 +4570,6 @@
           },
           {
             "type": "type_identifier",
-            "named": true
-          },
-          {
-            "type": "unary_expression",
             "named": true
           },
           {
@@ -5440,10 +4612,6 @@
           "named": true
         },
         {
-          "type": "dynamic_array_type",
-          "named": true
-        },
-        {
           "type": "enum_type",
           "named": true
         },
@@ -5460,10 +4628,6 @@
           "named": true
         },
         {
-          "type": "namespaced_type",
-          "named": true
-        },
-        {
           "type": "parameter_declaration",
           "named": true
         },
@@ -5476,7 +4640,7 @@
           "named": true
         },
         {
-          "type": "slice_type",
+          "type": "selector_expression",
           "named": true
         },
         {
@@ -5537,10 +4701,6 @@
             "named": true
           },
           {
-            "type": "dynamic_array_type",
-            "named": true
-          },
-          {
             "type": "enum_type",
             "named": true
           },
@@ -5561,10 +4721,6 @@
             "named": true
           },
           {
-            "type": "namespaced_type",
-            "named": true
-          },
-          {
             "type": "pointer_type",
             "named": true
           },
@@ -5573,7 +4729,7 @@
             "named": true
           },
           {
-            "type": "slice_type",
+            "type": "selector_expression",
             "named": true
           },
           {
@@ -5642,23 +4798,11 @@
           "named": true
         },
         {
-          "type": "dynamic_array_type",
-          "named": true
-        },
-        {
           "type": "enum_type",
           "named": true
         },
         {
-          "type": "enum_variant",
-          "named": true
-        },
-        {
           "type": "false",
-          "named": true
-        },
-        {
-          "type": "field_access",
           "named": true
         },
         {
@@ -5686,6 +4830,10 @@
           "named": true
         },
         {
+          "type": "left_unary_expression",
+          "named": true
+        },
+        {
           "type": "map_type",
           "named": true
         },
@@ -5694,19 +4842,7 @@
           "named": true
         },
         {
-          "type": "namespaced_identifier",
-          "named": true
-        },
-        {
-          "type": "namespaced_type",
-          "named": true
-        },
-        {
           "type": "nil",
-          "named": true
-        },
-        {
-          "type": "or_return_expression",
           "named": true
         },
         {
@@ -5734,11 +4870,15 @@
           "named": true
         },
         {
+          "type": "right_unary_expression",
+          "named": true
+        },
+        {
           "type": "rune_literal",
           "named": true
         },
         {
-          "type": "slice_type",
+          "type": "selector_expression",
           "named": true
         },
         {
@@ -5759,10 +4899,6 @@
         },
         {
           "type": "type_identifier",
-          "named": true
-        },
-        {
-          "type": "unary_expression",
           "named": true
         },
         {
@@ -5823,23 +4959,11 @@
             "named": true
           },
           {
-            "type": "dynamic_array_type",
-            "named": true
-          },
-          {
             "type": "enum_type",
             "named": true
           },
           {
-            "type": "enum_variant",
-            "named": true
-          },
-          {
             "type": "false",
-            "named": true
-          },
-          {
-            "type": "field_access",
             "named": true
           },
           {
@@ -5871,6 +4995,10 @@
             "named": true
           },
           {
+            "type": "left_unary_expression",
+            "named": true
+          },
+          {
             "type": "map_type",
             "named": true
           },
@@ -5879,19 +5007,7 @@
             "named": true
           },
           {
-            "type": "namespaced_identifier",
-            "named": true
-          },
-          {
-            "type": "namespaced_type",
-            "named": true
-          },
-          {
             "type": "nil",
-            "named": true
-          },
-          {
-            "type": "or_return_expression",
             "named": true
           },
           {
@@ -5915,11 +5031,15 @@
             "named": true
           },
           {
+            "type": "right_unary_expression",
+            "named": true
+          },
+          {
             "type": "rune_literal",
             "named": true
           },
           {
-            "type": "slice_type",
+            "type": "selector_expression",
             "named": true
           },
           {
@@ -5940,10 +5060,6 @@
           },
           {
             "type": "type_identifier",
-            "named": true
-          },
-          {
-            "type": "unary_expression",
             "named": true
           },
           {
@@ -6029,10 +5145,6 @@
             "named": true
           },
           {
-            "type": "dynamic_array_type",
-            "named": true
-          },
-          {
             "type": "enum_type",
             "named": true
           },
@@ -6053,10 +5165,6 @@
             "named": true
           },
           {
-            "type": "namespaced_type",
-            "named": true
-          },
-          {
             "type": "operator",
             "named": true
           },
@@ -6073,7 +5181,7 @@
             "named": true
           },
           {
-            "type": "slice_type",
+            "type": "selector_expression",
             "named": true
           },
           {
@@ -6120,23 +5228,11 @@
           "named": true
         },
         {
-          "type": "dynamic_array_type",
-          "named": true
-        },
-        {
           "type": "enum_type",
           "named": true
         },
         {
-          "type": "enum_variant",
-          "named": true
-        },
-        {
           "type": "false",
-          "named": true
-        },
-        {
-          "type": "field_access",
           "named": true
         },
         {
@@ -6164,6 +5260,10 @@
           "named": true
         },
         {
+          "type": "left_unary_expression",
+          "named": true
+        },
+        {
           "type": "map_type",
           "named": true
         },
@@ -6172,19 +5272,7 @@
           "named": true
         },
         {
-          "type": "namespaced_identifier",
-          "named": true
-        },
-        {
-          "type": "namespaced_type",
-          "named": true
-        },
-        {
           "type": "nil",
-          "named": true
-        },
-        {
-          "type": "or_return_expression",
           "named": true
         },
         {
@@ -6208,11 +5296,15 @@
           "named": true
         },
         {
+          "type": "right_unary_expression",
+          "named": true
+        },
+        {
           "type": "rune_literal",
           "named": true
         },
         {
-          "type": "slice_type",
+          "type": "selector_expression",
           "named": true
         },
         {
@@ -6233,10 +5325,6 @@
         },
         {
           "type": "type_identifier",
-          "named": true
-        },
-        {
-          "type": "unary_expression",
           "named": true
         },
         {
@@ -6299,10 +5387,6 @@
             "named": true
           },
           {
-            "type": "dynamic_array_type",
-            "named": true
-          },
-          {
             "type": "enum_type",
             "named": true
           },
@@ -6323,10 +5407,6 @@
             "named": true
           },
           {
-            "type": "namespaced_type",
-            "named": true
-          },
-          {
             "type": "operator",
             "named": true
           },
@@ -6343,7 +5423,7 @@
             "named": true
           },
           {
-            "type": "slice_type",
+            "type": "selector_expression",
             "named": true
           },
           {
@@ -6427,23 +5507,11 @@
             "named": true
           },
           {
-            "type": "dynamic_array_type",
-            "named": true
-          },
-          {
             "type": "enum_type",
             "named": true
           },
           {
-            "type": "enum_variant",
-            "named": true
-          },
-          {
             "type": "false",
-            "named": true
-          },
-          {
-            "type": "field_access",
             "named": true
           },
           {
@@ -6475,6 +5543,10 @@
             "named": true
           },
           {
+            "type": "left_unary_expression",
+            "named": true
+          },
+          {
             "type": "map_type",
             "named": true
           },
@@ -6483,19 +5555,7 @@
             "named": true
           },
           {
-            "type": "namespaced_identifier",
-            "named": true
-          },
-          {
-            "type": "namespaced_type",
-            "named": true
-          },
-          {
             "type": "nil",
-            "named": true
-          },
-          {
-            "type": "or_return_expression",
             "named": true
           },
           {
@@ -6519,11 +5579,15 @@
             "named": true
           },
           {
+            "type": "right_unary_expression",
+            "named": true
+          },
+          {
             "type": "rune_literal",
             "named": true
           },
           {
-            "type": "slice_type",
+            "type": "selector_expression",
             "named": true
           },
           {
@@ -6544,10 +5608,6 @@
           },
           {
             "type": "type_identifier",
-            "named": true
-          },
-          {
-            "type": "unary_expression",
             "named": true
           },
           {
@@ -6593,23 +5653,11 @@
             "named": true
           },
           {
-            "type": "dynamic_array_type",
-            "named": true
-          },
-          {
             "type": "enum_type",
             "named": true
           },
           {
-            "type": "enum_variant",
-            "named": true
-          },
-          {
             "type": "false",
-            "named": true
-          },
-          {
-            "type": "field_access",
             "named": true
           },
           {
@@ -6641,6 +5689,10 @@
             "named": true
           },
           {
+            "type": "left_unary_expression",
+            "named": true
+          },
+          {
             "type": "map_type",
             "named": true
           },
@@ -6649,19 +5701,7 @@
             "named": true
           },
           {
-            "type": "namespaced_identifier",
-            "named": true
-          },
-          {
-            "type": "namespaced_type",
-            "named": true
-          },
-          {
             "type": "nil",
-            "named": true
-          },
-          {
-            "type": "or_return_expression",
             "named": true
           },
           {
@@ -6685,11 +5725,15 @@
             "named": true
           },
           {
+            "type": "right_unary_expression",
+            "named": true
+          },
+          {
             "type": "rune_literal",
             "named": true
           },
           {
-            "type": "slice_type",
+            "type": "selector_expression",
             "named": true
           },
           {
@@ -6710,10 +5754,6 @@
           },
           {
             "type": "type_identifier",
-            "named": true
-          },
-          {
-            "type": "unary_expression",
             "named": true
           },
           {
@@ -6789,23 +5829,11 @@
             "named": true
           },
           {
-            "type": "dynamic_array_type",
-            "named": true
-          },
-          {
             "type": "enum_type",
             "named": true
           },
           {
-            "type": "enum_variant",
-            "named": true
-          },
-          {
             "type": "false",
-            "named": true
-          },
-          {
-            "type": "field_access",
             "named": true
           },
           {
@@ -6837,6 +5865,10 @@
             "named": true
           },
           {
+            "type": "left_unary_expression",
+            "named": true
+          },
+          {
             "type": "map_type",
             "named": true
           },
@@ -6845,19 +5877,7 @@
             "named": true
           },
           {
-            "type": "namespaced_identifier",
-            "named": true
-          },
-          {
-            "type": "namespaced_type",
-            "named": true
-          },
-          {
             "type": "nil",
-            "named": true
-          },
-          {
-            "type": "or_return_expression",
             "named": true
           },
           {
@@ -6881,11 +5901,15 @@
             "named": true
           },
           {
+            "type": "right_unary_expression",
+            "named": true
+          },
+          {
             "type": "rune_literal",
             "named": true
           },
           {
-            "type": "slice_type",
+            "type": "selector_expression",
             "named": true
           },
           {
@@ -6909,10 +5933,6 @@
             "named": true
           },
           {
-            "type": "unary_expression",
-            "named": true
-          },
-          {
             "type": "union_type",
             "named": true
           }
@@ -6928,6 +5948,350 @@
           "named": true
         }
       ]
+    }
+  },
+  {
+    "type": "right_unary_expression",
+    "named": true,
+    "fields": {
+      "arguments": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "initializer_list",
+            "named": true
+          }
+        ]
+      },
+      "operand": {
+        "multiple": true,
+        "required": true,
+        "types": [
+          {
+            "type": "$",
+            "named": false
+          },
+          {
+            "type": "(",
+            "named": false
+          },
+          {
+            "type": ")",
+            "named": false
+          },
+          {
+            "type": "array_type",
+            "named": true
+          },
+          {
+            "type": "binary_expression",
+            "named": true
+          },
+          {
+            "type": "bit_set_type",
+            "named": true
+          },
+          {
+            "type": "compiler_directive",
+            "named": true
+          },
+          {
+            "type": "compound_literal",
+            "named": true
+          },
+          {
+            "type": "enum_type",
+            "named": true
+          },
+          {
+            "type": "false",
+            "named": true
+          },
+          {
+            "type": "float_literal",
+            "named": true
+          },
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "index_expression",
+            "named": true
+          },
+          {
+            "type": "initializer_list",
+            "named": true
+          },
+          {
+            "type": "int_literal",
+            "named": true
+          },
+          {
+            "type": "interpreted_string_literal",
+            "named": true
+          },
+          {
+            "type": "keyword",
+            "named": true
+          },
+          {
+            "type": "left_unary_expression",
+            "named": true
+          },
+          {
+            "type": "map_type",
+            "named": true
+          },
+          {
+            "type": "matrix_type",
+            "named": true
+          },
+          {
+            "type": "nil",
+            "named": true
+          },
+          {
+            "type": "pointer_type",
+            "named": true
+          },
+          {
+            "type": "proc_call",
+            "named": true
+          },
+          {
+            "type": "proc_literal",
+            "named": true
+          },
+          {
+            "type": "proc_type",
+            "named": true
+          },
+          {
+            "type": "raw_string_literal",
+            "named": true
+          },
+          {
+            "type": "right_unary_expression",
+            "named": true
+          },
+          {
+            "type": "rune_literal",
+            "named": true
+          },
+          {
+            "type": "selector_expression",
+            "named": true
+          },
+          {
+            "type": "struct_type",
+            "named": true
+          },
+          {
+            "type": "ternary_expression",
+            "named": true
+          },
+          {
+            "type": "true",
+            "named": true
+          },
+          {
+            "type": "type_conversion",
+            "named": true
+          },
+          {
+            "type": "type_identifier",
+            "named": true
+          },
+          {
+            "type": "union_type",
+            "named": true
+          }
+        ]
+      },
+      "operator": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "operator",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "selector_expression",
+    "named": true,
+    "fields": {
+      "arguments": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "initializer_list",
+            "named": true
+          }
+        ]
+      },
+      "field": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      },
+      "parent": {
+        "multiple": true,
+        "required": true,
+        "types": [
+          {
+            "type": "$",
+            "named": false
+          },
+          {
+            "type": "(",
+            "named": false
+          },
+          {
+            "type": ")",
+            "named": false
+          },
+          {
+            "type": "array_type",
+            "named": true
+          },
+          {
+            "type": "binary_expression",
+            "named": true
+          },
+          {
+            "type": "bit_set_type",
+            "named": true
+          },
+          {
+            "type": "compiler_directive",
+            "named": true
+          },
+          {
+            "type": "compound_literal",
+            "named": true
+          },
+          {
+            "type": "enum_type",
+            "named": true
+          },
+          {
+            "type": "false",
+            "named": true
+          },
+          {
+            "type": "float_literal",
+            "named": true
+          },
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "index_expression",
+            "named": true
+          },
+          {
+            "type": "initializer_list",
+            "named": true
+          },
+          {
+            "type": "int_literal",
+            "named": true
+          },
+          {
+            "type": "interpreted_string_literal",
+            "named": true
+          },
+          {
+            "type": "keyword",
+            "named": true
+          },
+          {
+            "type": "left_unary_expression",
+            "named": true
+          },
+          {
+            "type": "map_type",
+            "named": true
+          },
+          {
+            "type": "matrix_type",
+            "named": true
+          },
+          {
+            "type": "nil",
+            "named": true
+          },
+          {
+            "type": "pointer_type",
+            "named": true
+          },
+          {
+            "type": "proc_call",
+            "named": true
+          },
+          {
+            "type": "proc_literal",
+            "named": true
+          },
+          {
+            "type": "proc_type",
+            "named": true
+          },
+          {
+            "type": "raw_string_literal",
+            "named": true
+          },
+          {
+            "type": "right_unary_expression",
+            "named": true
+          },
+          {
+            "type": "rune_literal",
+            "named": true
+          },
+          {
+            "type": "selector_expression",
+            "named": true
+          },
+          {
+            "type": "struct_type",
+            "named": true
+          },
+          {
+            "type": "ternary_expression",
+            "named": true
+          },
+          {
+            "type": "true",
+            "named": true
+          },
+          {
+            "type": "type_conversion",
+            "named": true
+          },
+          {
+            "type": "type_identifier",
+            "named": true
+          },
+          {
+            "type": "union_type",
+            "named": true
+          }
+        ]
+      }
     }
   },
   {
@@ -6981,23 +6345,11 @@
             "named": true
           },
           {
-            "type": "dynamic_array_type",
-            "named": true
-          },
-          {
             "type": "enum_type",
             "named": true
           },
           {
-            "type": "enum_variant",
-            "named": true
-          },
-          {
             "type": "false",
-            "named": true
-          },
-          {
-            "type": "field_access",
             "named": true
           },
           {
@@ -7029,6 +6381,10 @@
             "named": true
           },
           {
+            "type": "left_unary_expression",
+            "named": true
+          },
+          {
             "type": "map_type",
             "named": true
           },
@@ -7037,19 +6393,7 @@
             "named": true
           },
           {
-            "type": "namespaced_identifier",
-            "named": true
-          },
-          {
-            "type": "namespaced_type",
-            "named": true
-          },
-          {
             "type": "nil",
-            "named": true
-          },
-          {
-            "type": "or_return_expression",
             "named": true
           },
           {
@@ -7073,11 +6417,15 @@
             "named": true
           },
           {
+            "type": "right_unary_expression",
+            "named": true
+          },
+          {
             "type": "rune_literal",
             "named": true
           },
           {
-            "type": "slice_type",
+            "type": "selector_expression",
             "named": true
           },
           {
@@ -7098,10 +6446,6 @@
           },
           {
             "type": "type_identifier",
-            "named": true
-          },
-          {
-            "type": "unary_expression",
             "named": true
           },
           {
@@ -7147,23 +6491,11 @@
             "named": true
           },
           {
-            "type": "dynamic_array_type",
-            "named": true
-          },
-          {
             "type": "enum_type",
             "named": true
           },
           {
-            "type": "enum_variant",
-            "named": true
-          },
-          {
             "type": "false",
-            "named": true
-          },
-          {
-            "type": "field_access",
             "named": true
           },
           {
@@ -7195,6 +6527,10 @@
             "named": true
           },
           {
+            "type": "left_unary_expression",
+            "named": true
+          },
+          {
             "type": "map_type",
             "named": true
           },
@@ -7203,19 +6539,7 @@
             "named": true
           },
           {
-            "type": "namespaced_identifier",
-            "named": true
-          },
-          {
-            "type": "namespaced_type",
-            "named": true
-          },
-          {
             "type": "nil",
-            "named": true
-          },
-          {
-            "type": "or_return_expression",
             "named": true
           },
           {
@@ -7239,11 +6563,15 @@
             "named": true
           },
           {
+            "type": "right_unary_expression",
+            "named": true
+          },
+          {
             "type": "rune_literal",
             "named": true
           },
           {
-            "type": "slice_type",
+            "type": "selector_expression",
             "named": true
           },
           {
@@ -7260,108 +6588,6 @@
           },
           {
             "type": "type_conversion",
-            "named": true
-          },
-          {
-            "type": "type_identifier",
-            "named": true
-          },
-          {
-            "type": "unary_expression",
-            "named": true
-          },
-          {
-            "type": "union_type",
-            "named": true
-          }
-        ]
-      }
-    }
-  },
-  {
-    "type": "slice_type",
-    "named": true,
-    "fields": {
-      "arguments": {
-        "multiple": false,
-        "required": false,
-        "types": [
-          {
-            "type": "initializer_list",
-            "named": true
-          }
-        ]
-      },
-      "element": {
-        "multiple": true,
-        "required": true,
-        "types": [
-          {
-            "type": "$",
-            "named": false
-          },
-          {
-            "type": "(",
-            "named": false
-          },
-          {
-            "type": ")",
-            "named": false
-          },
-          {
-            "type": "array_type",
-            "named": true
-          },
-          {
-            "type": "bit_set_type",
-            "named": true
-          },
-          {
-            "type": "compiler_directive",
-            "named": true
-          },
-          {
-            "type": "dynamic_array_type",
-            "named": true
-          },
-          {
-            "type": "enum_type",
-            "named": true
-          },
-          {
-            "type": "initializer_list",
-            "named": true
-          },
-          {
-            "type": "keyword",
-            "named": true
-          },
-          {
-            "type": "map_type",
-            "named": true
-          },
-          {
-            "type": "matrix_type",
-            "named": true
-          },
-          {
-            "type": "namespaced_type",
-            "named": true
-          },
-          {
-            "type": "pointer_type",
-            "named": true
-          },
-          {
-            "type": "proc_type",
-            "named": true
-          },
-          {
-            "type": "slice_type",
-            "named": true
-          },
-          {
-            "type": "struct_type",
             "named": true
           },
           {
@@ -7449,10 +6675,6 @@
           "named": true
         },
         {
-          "type": "dynamic_array_type",
-          "named": true
-        },
-        {
           "type": "enum_type",
           "named": true
         },
@@ -7473,10 +6695,6 @@
           "named": true
         },
         {
-          "type": "namespaced_type",
-          "named": true
-        },
-        {
           "type": "pointer_type",
           "named": true
         },
@@ -7485,7 +6703,7 @@
           "named": true
         },
         {
-          "type": "slice_type",
+          "type": "selector_expression",
           "named": true
         },
         {
@@ -7572,23 +6790,11 @@
             "named": true
           },
           {
-            "type": "dynamic_array_type",
-            "named": true
-          },
-          {
             "type": "enum_type",
             "named": true
           },
           {
-            "type": "enum_variant",
-            "named": true
-          },
-          {
             "type": "false",
-            "named": true
-          },
-          {
-            "type": "field_access",
             "named": true
           },
           {
@@ -7620,6 +6826,10 @@
             "named": true
           },
           {
+            "type": "left_unary_expression",
+            "named": true
+          },
+          {
             "type": "map_type",
             "named": true
           },
@@ -7628,19 +6838,7 @@
             "named": true
           },
           {
-            "type": "namespaced_identifier",
-            "named": true
-          },
-          {
-            "type": "namespaced_type",
-            "named": true
-          },
-          {
             "type": "nil",
-            "named": true
-          },
-          {
-            "type": "or_return_expression",
             "named": true
           },
           {
@@ -7664,11 +6862,15 @@
             "named": true
           },
           {
+            "type": "right_unary_expression",
+            "named": true
+          },
+          {
             "type": "rune_literal",
             "named": true
           },
           {
-            "type": "slice_type",
+            "type": "selector_expression",
             "named": true
           },
           {
@@ -7689,10 +6891,6 @@
           },
           {
             "type": "type_identifier",
-            "named": true
-          },
-          {
-            "type": "unary_expression",
             "named": true
           },
           {
@@ -7856,23 +7054,11 @@
             "named": true
           },
           {
-            "type": "dynamic_array_type",
-            "named": true
-          },
-          {
             "type": "enum_type",
             "named": true
           },
           {
-            "type": "enum_variant",
-            "named": true
-          },
-          {
             "type": "false",
-            "named": true
-          },
-          {
-            "type": "field_access",
             "named": true
           },
           {
@@ -7904,6 +7090,10 @@
             "named": true
           },
           {
+            "type": "left_unary_expression",
+            "named": true
+          },
+          {
             "type": "map_type",
             "named": true
           },
@@ -7912,19 +7102,7 @@
             "named": true
           },
           {
-            "type": "namespaced_identifier",
-            "named": true
-          },
-          {
-            "type": "namespaced_type",
-            "named": true
-          },
-          {
             "type": "nil",
-            "named": true
-          },
-          {
-            "type": "or_return_expression",
             "named": true
           },
           {
@@ -7948,11 +7126,15 @@
             "named": true
           },
           {
+            "type": "right_unary_expression",
+            "named": true
+          },
+          {
             "type": "rune_literal",
             "named": true
           },
           {
-            "type": "slice_type",
+            "type": "selector_expression",
             "named": true
           },
           {
@@ -7973,10 +7155,6 @@
           },
           {
             "type": "type_identifier",
-            "named": true
-          },
-          {
-            "type": "unary_expression",
             "named": true
           },
           {
@@ -8022,23 +7200,11 @@
             "named": true
           },
           {
-            "type": "dynamic_array_type",
-            "named": true
-          },
-          {
             "type": "enum_type",
             "named": true
           },
           {
-            "type": "enum_variant",
-            "named": true
-          },
-          {
             "type": "false",
-            "named": true
-          },
-          {
-            "type": "field_access",
             "named": true
           },
           {
@@ -8070,6 +7236,10 @@
             "named": true
           },
           {
+            "type": "left_unary_expression",
+            "named": true
+          },
+          {
             "type": "map_type",
             "named": true
           },
@@ -8078,19 +7248,7 @@
             "named": true
           },
           {
-            "type": "namespaced_identifier",
-            "named": true
-          },
-          {
-            "type": "namespaced_type",
-            "named": true
-          },
-          {
             "type": "nil",
-            "named": true
-          },
-          {
-            "type": "or_return_expression",
             "named": true
           },
           {
@@ -8114,11 +7272,15 @@
             "named": true
           },
           {
+            "type": "right_unary_expression",
+            "named": true
+          },
+          {
             "type": "rune_literal",
             "named": true
           },
           {
-            "type": "slice_type",
+            "type": "selector_expression",
             "named": true
           },
           {
@@ -8139,10 +7301,6 @@
           },
           {
             "type": "type_identifier",
-            "named": true
-          },
-          {
-            "type": "unary_expression",
             "named": true
           },
           {
@@ -8188,23 +7346,11 @@
             "named": true
           },
           {
-            "type": "dynamic_array_type",
-            "named": true
-          },
-          {
             "type": "enum_type",
             "named": true
           },
           {
-            "type": "enum_variant",
-            "named": true
-          },
-          {
             "type": "false",
-            "named": true
-          },
-          {
-            "type": "field_access",
             "named": true
           },
           {
@@ -8236,6 +7382,10 @@
             "named": true
           },
           {
+            "type": "left_unary_expression",
+            "named": true
+          },
+          {
             "type": "map_type",
             "named": true
           },
@@ -8244,19 +7394,7 @@
             "named": true
           },
           {
-            "type": "namespaced_identifier",
-            "named": true
-          },
-          {
-            "type": "namespaced_type",
-            "named": true
-          },
-          {
             "type": "nil",
-            "named": true
-          },
-          {
-            "type": "or_return_expression",
             "named": true
           },
           {
@@ -8280,11 +7418,15 @@
             "named": true
           },
           {
+            "type": "right_unary_expression",
+            "named": true
+          },
+          {
             "type": "rune_literal",
             "named": true
           },
           {
-            "type": "slice_type",
+            "type": "selector_expression",
             "named": true
           },
           {
@@ -8305,10 +7447,6 @@
           },
           {
             "type": "type_identifier",
-            "named": true
-          },
-          {
-            "type": "unary_expression",
             "named": true
           },
           {
@@ -8373,23 +7511,11 @@
           "named": true
         },
         {
-          "type": "dynamic_array_type",
-          "named": true
-        },
-        {
           "type": "enum_type",
           "named": true
         },
         {
-          "type": "enum_variant",
-          "named": true
-        },
-        {
           "type": "false",
-          "named": true
-        },
-        {
-          "type": "field_access",
           "named": true
         },
         {
@@ -8417,6 +7543,10 @@
           "named": true
         },
         {
+          "type": "left_unary_expression",
+          "named": true
+        },
+        {
           "type": "map_type",
           "named": true
         },
@@ -8425,19 +7555,7 @@
           "named": true
         },
         {
-          "type": "namespaced_identifier",
-          "named": true
-        },
-        {
-          "type": "namespaced_type",
-          "named": true
-        },
-        {
           "type": "nil",
-          "named": true
-        },
-        {
-          "type": "or_return_expression",
           "named": true
         },
         {
@@ -8461,11 +7579,15 @@
           "named": true
         },
         {
+          "type": "right_unary_expression",
+          "named": true
+        },
+        {
           "type": "rune_literal",
           "named": true
         },
         {
-          "type": "slice_type",
+          "type": "selector_expression",
           "named": true
         },
         {
@@ -8489,206 +7611,10 @@
           "named": true
         },
         {
-          "type": "unary_expression",
-          "named": true
-        },
-        {
           "type": "union_type",
           "named": true
         }
       ]
-    }
-  },
-  {
-    "type": "unary_expression",
-    "named": true,
-    "fields": {
-      "arguments": {
-        "multiple": false,
-        "required": false,
-        "types": [
-          {
-            "type": "initializer_list",
-            "named": true
-          }
-        ]
-      },
-      "operand": {
-        "multiple": true,
-        "required": true,
-        "types": [
-          {
-            "type": "$",
-            "named": false
-          },
-          {
-            "type": "(",
-            "named": false
-          },
-          {
-            "type": ")",
-            "named": false
-          },
-          {
-            "type": "array_type",
-            "named": true
-          },
-          {
-            "type": "binary_expression",
-            "named": true
-          },
-          {
-            "type": "bit_set_type",
-            "named": true
-          },
-          {
-            "type": "compiler_directive",
-            "named": true
-          },
-          {
-            "type": "compound_literal",
-            "named": true
-          },
-          {
-            "type": "dynamic_array_type",
-            "named": true
-          },
-          {
-            "type": "enum_type",
-            "named": true
-          },
-          {
-            "type": "enum_variant",
-            "named": true
-          },
-          {
-            "type": "false",
-            "named": true
-          },
-          {
-            "type": "field_access",
-            "named": true
-          },
-          {
-            "type": "float_literal",
-            "named": true
-          },
-          {
-            "type": "identifier",
-            "named": true
-          },
-          {
-            "type": "index_expression",
-            "named": true
-          },
-          {
-            "type": "initializer_list",
-            "named": true
-          },
-          {
-            "type": "int_literal",
-            "named": true
-          },
-          {
-            "type": "interpreted_string_literal",
-            "named": true
-          },
-          {
-            "type": "keyword",
-            "named": true
-          },
-          {
-            "type": "map_type",
-            "named": true
-          },
-          {
-            "type": "matrix_type",
-            "named": true
-          },
-          {
-            "type": "namespaced_identifier",
-            "named": true
-          },
-          {
-            "type": "namespaced_type",
-            "named": true
-          },
-          {
-            "type": "nil",
-            "named": true
-          },
-          {
-            "type": "or_return_expression",
-            "named": true
-          },
-          {
-            "type": "pointer_type",
-            "named": true
-          },
-          {
-            "type": "proc_call",
-            "named": true
-          },
-          {
-            "type": "proc_literal",
-            "named": true
-          },
-          {
-            "type": "proc_type",
-            "named": true
-          },
-          {
-            "type": "raw_string_literal",
-            "named": true
-          },
-          {
-            "type": "rune_literal",
-            "named": true
-          },
-          {
-            "type": "slice_type",
-            "named": true
-          },
-          {
-            "type": "struct_type",
-            "named": true
-          },
-          {
-            "type": "ternary_expression",
-            "named": true
-          },
-          {
-            "type": "true",
-            "named": true
-          },
-          {
-            "type": "type_conversion",
-            "named": true
-          },
-          {
-            "type": "type_identifier",
-            "named": true
-          },
-          {
-            "type": "unary_expression",
-            "named": true
-          },
-          {
-            "type": "union_type",
-            "named": true
-          }
-        ]
-      },
-      "operator": {
-        "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": "operator",
-            "named": true
-          }
-        ]
-      }
     }
   },
   {
@@ -8723,10 +7649,6 @@
           "named": true
         },
         {
-          "type": "dynamic_array_type",
-          "named": true
-        },
-        {
           "type": "enum_type",
           "named": true
         },
@@ -8743,10 +7665,6 @@
           "named": true
         },
         {
-          "type": "namespaced_type",
-          "named": true
-        },
-        {
           "type": "pointer_type",
           "named": true
         },
@@ -8755,7 +7673,7 @@
           "named": true
         },
         {
-          "type": "slice_type",
+          "type": "selector_expression",
           "named": true
         },
         {
@@ -8830,10 +7748,6 @@
             "named": true
           },
           {
-            "type": "dynamic_array_type",
-            "named": true
-          },
-          {
             "type": "enum_type",
             "named": true
           },
@@ -8854,10 +7768,6 @@
             "named": true
           },
           {
-            "type": "namespaced_type",
-            "named": true
-          },
-          {
             "type": "pointer_type",
             "named": true
           },
@@ -8866,7 +7776,7 @@
             "named": true
           },
           {
-            "type": "slice_type",
+            "type": "selector_expression",
             "named": true
           },
           {
@@ -8924,23 +7834,11 @@
             "named": true
           },
           {
-            "type": "dynamic_array_type",
-            "named": true
-          },
-          {
             "type": "enum_type",
             "named": true
           },
           {
-            "type": "enum_variant",
-            "named": true
-          },
-          {
             "type": "false",
-            "named": true
-          },
-          {
-            "type": "field_access",
             "named": true
           },
           {
@@ -8972,6 +7870,10 @@
             "named": true
           },
           {
+            "type": "left_unary_expression",
+            "named": true
+          },
+          {
             "type": "map_type",
             "named": true
           },
@@ -8980,19 +7882,7 @@
             "named": true
           },
           {
-            "type": "namespaced_identifier",
-            "named": true
-          },
-          {
-            "type": "namespaced_type",
-            "named": true
-          },
-          {
             "type": "nil",
-            "named": true
-          },
-          {
-            "type": "or_return_expression",
             "named": true
           },
           {
@@ -9016,11 +7906,15 @@
             "named": true
           },
           {
+            "type": "right_unary_expression",
+            "named": true
+          },
+          {
             "type": "rune_literal",
             "named": true
           },
           {
-            "type": "slice_type",
+            "type": "selector_expression",
             "named": true
           },
           {
@@ -9041,10 +7935,6 @@
           },
           {
             "type": "type_identifier",
-            "named": true
-          },
-          {
-            "type": "unary_expression",
             "named": true
           },
           {

@@ -152,13 +152,9 @@ module.exports = grammar({
     [$.empty_statement, $._for_clause],
     [$.single_assignment, $.assignment_statement],
     [$.initializer_list, $.assignment_statement],
-    [$.namespaced_type, $.namespaced_identifier, $.enum_variant, $._expression, $._simple_type],
-    [$.namespaced_type, $.namespaced_identifier, $.enum_variant],
-    [$.namespaced_type, $._simple_type],
     [$._expression, $.compound_literal],
     [$.assignment_statement, $.proc_call],
     [$.index_expression, $.assignment_statement],
-    [$.or_return_expression, $.assignment_statement],
     [$.block, $.block_statement],
     [$.block, $.compound_literal],
     [$.for_statement, $.block_statement],
@@ -167,17 +163,10 @@ module.exports = grammar({
     [$.return_statement, $._expression],
     [$.return_statement, $.proc_call],
     [$.return_statement, $.index_expression],
-    [$.return_statement, $.or_return_expression],
     [$.return_statement, $.ternary_expression],
+    [$._simple_type],
+    [$._expression],
   ],
-
-  // supertypes: $ => [
-  //   $._expression,
-  //   $._type,
-  //   $._simple_type,
-  //   $._statement,
-  //   $._simple_statement,
-  // ],
 
   rules: {
     source_file: $ => seq(
@@ -256,7 +245,7 @@ module.exports = grammar({
       $.const_declaration,
     ),
 
-    var_declaration: $ => prec.right(seq(
+    var_declaration: $ => prec.right(1, seq(
       field('name', commaSep1($.identifier)), alias(':', $.operator),
       choice(
         field('type', $._type),
@@ -285,15 +274,13 @@ module.exports = grammar({
     _simple_type: $ => seq(
       optional(alias('distinct', $.keyword)),
       choice(
-        $.namespaced_type,
+        $.selector_expression,
         seq(optional('$'), $._type_identifier),
         $.map_type,
         $.pointer_type,
         $.bit_set_type,
         $.matrix_type,
-        $.slice_type,
         $.array_type,
-        $.dynamic_array_type,
         $.struct_type,
         $.enum_type,
         $.union_type,
@@ -305,9 +292,9 @@ module.exports = grammar({
       '(', optional(field('arguments', $.initializer_list)), ')',
     ),
 
-    pointer_type: $ => seq(
+    pointer_type: $ => prec(1, seq(
       alias('^', $.operator), field('element', $._type),
-    ),
+    )),
 	
     bit_set_type: $ => seq(
       alias('bit_set', $.keyword),
@@ -320,38 +307,35 @@ module.exports = grammar({
       ']'
     ),
 
-    matrix_type: $ => seq(
+    matrix_type: $ => prec(1, seq(
       alias('matrix', $.keyword), '[',$._expression, ',', $._expression, ']', field('element', $._type),
-    ),
+    )),
 
-    slice_type: $ => seq(
-      '[', ']', field('element', $._type),
-    ),
-
-    array_type: $ => seq(
+    array_type: $ => prec(1, seq(
 	  optional(alias('#partial', $.compiler_directive)),
       '[',
-	  choice(
-		  field('length', choice($._expression, alias('?', $.operator))),
-	  ),
+	  optional(field(
+        'size',
+        choice(
+          $._expression,
+          alias('?', $.operator),
+          alias('dynamic', $.keyword),
+        )
+      )),
 	  ']', field('element', $._type),
-    ),
-
-    dynamic_array_type: $ => seq(
-      '[', alias('dynamic', $.keyword), ']', field('element', $._type),
-    ),
+    )),
 
     union_type: $ => seq(
       alias('union', $.keyword),
       '{', commaSep($._type), '}',
     ),
 
-    enum_type: $ => seq(
+    enum_type: $ => prec(1, seq(
       alias('enum', $.keyword), optional(field('backing', $._type)),
       '{',
       optional(field('variants', $.initializer_list)),
       '}',
-    ),
+    )),
 
     struct_type: $ => seq(
       alias('struct', $.keyword),
@@ -366,11 +350,11 @@ module.exports = grammar({
       $._package_identifier, '.', $._type_identifier,
     ),
 
-    map_type: $ => seq(
+    map_type: $ => prec(1, seq(
       alias('map', $.keyword),
       '[', field('key', $._type), ']',
       field('value', $._type),
-    ),
+    )),
 
     _expression: $ => choice(
       $._string_literal,
@@ -381,22 +365,21 @@ module.exports = grammar({
       $.float_literal,
       prec.dynamic(1, $.compound_literal),
       $.identifier,
-      $.unary_expression,
+      $.left_unary_expression,
+      $.right_unary_expression,
       $.binary_expression,
       $.ternary_expression,
       $.type_conversion,
       $._parenthesized_expression,
       $.index_expression,
-      $.field_access,
-      $.or_return_expression,
-      $.namespaced_identifier,
-      $.enum_variant,
+      $.selector_expression,
+      // $.enum_variant,
       $.proc_literal,
       $.proc_call,
       prec.dynamic(-10,  $._type),
     ),
 
-    field_access: $ => prec.left(op_prec.r_unary, seq(
+    selector_expression: $ => prec.left(op_prec.r_unary, seq(
       field('parent', $._expression), '.', field('field', $.identifier),
     )),
 
@@ -433,26 +416,16 @@ module.exports = grammar({
       field('operand', $._expression),
       '[',
       choice(
-        field('index', $._expression), 
+        field('index', commaSep1($._expression)),
         seq(
-          optional(field('start', $._expression)), 
-          alias(':', $.operator), 
+          optional(field('start', $._expression)),
+          alias(':', $.operator),
           optional(field('end', $._expression))
         ),
       ),
       ']',
     ),
 
-    or_return_expression: $ => seq(
-      field('operand', $._expression),
-      alias('or_return', $.operator),
-    ),
-
-    or_else_expression: $ => prec.right(seq(
-      field('lhs', $._expression),
-      alias('or_else', $.operator),
-      field('rhs', $._expression),
-    )),
 
     _parenthesized_expression: $ => seq(
       '(', $._expression, ')',
@@ -478,15 +451,15 @@ module.exports = grammar({
       )),
     ),
 
-    _proc_type: $ => seq(
+    _proc_type: $ => prec(1, seq(
       optional(alias($.proc_directive, $.compiler_directive)),
       'proc',
       optional($._calling_convention),
       field('parameters', $.parameter_list),
       field('result', optional(seq(alias('->', $.operator), choice($.parameter_list, $._type))))
-    ),
+    )),
 
-    parameter_list: $ => seq(
+    parameter_list: $ => prec(1, seq(
       '(',
       commaSep(seq(
         choice(
@@ -495,9 +468,9 @@ module.exports = grammar({
         ),
       )),
       ')'
-    ),
+    )),
 
-    parameter_declaration: $ => seq(
+    parameter_declaration: $ => prec(1, seq(
       field('name', seq(
         commaSep1(seq(
           optional(alias('using', $.keyword)),
@@ -511,21 +484,17 @@ module.exports = grammar({
         optional(seq(alias('/', $.operator), $._type))
       )),
       optional(seq('=', field('value', $._expression))),
-    ),
+    )),
 
     _calling_convention: $ => alias($.interpreted_string_literal,$.calling_convention),
 
-    namespaced_identifier: $ => seq(
-      $._package_identifier, '.', $.identifier
-    ),
-
-    proc_call: $ => seq(
-      field('procedure', $._expression), 
+    proc_call: $ => prec(op_prec.r_unary, seq(
+      field('procedure', $._expression),
       '(', optional(field('arguments', $.initializer_list)), ')',
-    ),
+    )),
 
     initializer_list: $ => seq(
-      commaSep1(choice($._expression, $.single_assignment)), 
+      commaSep1(choice($._expression, $.single_assignment)),
       optional(','),
     ),
 
@@ -603,13 +572,19 @@ module.exports = grammar({
       field('range', choice($._expression, $.range_expression)),
     )),
 
-    unary_expression: $ => prec(op_prec.l_unary, seq(
+    right_unary_expression: $ => prec(op_prec.r_unary, seq(
+      field('operand', $._expression),
+      field('operator', alias(choice('^', 'or_return'), $.operator)),
+    )),
+
+    left_unary_expression: $ => prec(op_prec.l_unary, seq(
       field('operator', alias(choice('+', '-', '~', '&', '!'), $.operator)), 
       field('operand', $._expression),
     )),
 
     binary_expression: $ => { 
       const table = [
+        [op_prec.r_unary, 'or_else'],
         [op_prec.multiplicative, choice(...multiplicative_operators)],
         [op_prec.membership, choice('in', 'not_in')],
         [op_prec.additive, choice(...additive_operators)],
