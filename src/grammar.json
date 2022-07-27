@@ -3163,18 +3163,6 @@
             ]
           },
           {
-            "type": "CHOICE",
-            "members": [
-              {
-                "type": "SYMBOL",
-                "name": "compiler_directive"
-              },
-              {
-                "type": "BLANK"
-              }
-            ]
-          },
-          {
             "type": "ALIAS",
             "content": {
               "type": "STRING",
@@ -3202,18 +3190,6 @@
                     "name": "_range_clause"
                   }
                 ]
-              },
-              {
-                "type": "BLANK"
-              }
-            ]
-          },
-          {
-            "type": "CHOICE",
-            "members": [
-              {
-                "type": "SYMBOL",
-                "name": "compiler_directive"
               },
               {
                 "type": "BLANK"
@@ -4034,66 +4010,52 @@
       }
     },
     "compiler_directive": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "SEQ",
-          "members": [
-            {
-              "type": "STRING",
-              "value": "#relative"
-            },
-            {
-              "type": "STRING",
-              "value": "("
-            },
-            {
-              "type": "SYMBOL",
-              "name": "_expression"
-            },
-            {
-              "type": "STRING",
-              "value": ")"
-            }
-          ]
-        },
-        {
-          "type": "STRING",
-          "value": "#force_inline"
-        },
-        {
-          "type": "STRING",
-          "value": "#soa"
-        },
-        {
-          "type": "STRING",
-          "value": "#no_nil"
-        },
-        {
-          "type": "STRING",
-          "value": "#bounds_check"
-        },
-        {
-          "type": "STRING",
-          "value": "#no_bounds_check"
-        },
-        {
-          "type": "STRING",
-          "value": "#raw_union"
-        },
-        {
-          "type": "STRING",
-          "value": "#packed"
-        },
-        {
-          "type": "STRING",
-          "value": "#unroll"
-        },
-        {
-          "type": "STRING",
-          "value": "#type"
-        }
-      ]
+      "type": "TOKEN",
+      "content": {
+        "type": "CHOICE",
+        "members": [
+          {
+            "type": "STRING",
+            "value": "#force_inline"
+          },
+          {
+            "type": "STRING",
+            "value": "#soa"
+          },
+          {
+            "type": "STRING",
+            "value": "#no_nil"
+          },
+          {
+            "type": "STRING",
+            "value": "#bounds_check"
+          },
+          {
+            "type": "STRING",
+            "value": "#no_bounds_check"
+          },
+          {
+            "type": "STRING",
+            "value": "#raw_union"
+          },
+          {
+            "type": "STRING",
+            "value": "#packed"
+          },
+          {
+            "type": "STRING",
+            "value": "#unroll"
+          },
+          {
+            "type": "STRING",
+            "value": "#type"
+          },
+          {
+            "type": "PATTERN",
+            "value": "#relative\\s*\\([^)]*\\)"
+          }
+        ]
+      }
     },
     "_label_identifier": {
       "type": "ALIAS",
@@ -6508,6 +6470,10 @@
     {
       "type": "SYMBOL",
       "name": "comment"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "compiler_directive"
     },
     {
       "type": "PATTERN",

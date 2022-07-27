@@ -125,6 +125,7 @@ module.exports = grammar({
 
   extras: $ => [
     $.comment,
+    $.compiler_directive,
     /\s/
   ],
 
@@ -601,20 +602,20 @@ module.exports = grammar({
       repeat(choice(letter, unicodeDigit))
     )),
 
-    // compiler_directive: $ => choice(
-    //     ...['relative'].map(directive => seq('#' + directive, '(', $._expression, ')')),
-    //     ...[
-    //         'force_inline',
-    //         'soa',
-    //         'no_nil',
-    //         'bounds_check',
-    //         'no_bounds_check',
-    //         'raw_union',
-    //         'packed',
-    //         'unroll',
-    //         'type'
-    //     ].map(directive => '#' + directive)
-    // ),
+    compiler_directive: $ => token(choice(
+      '#force_inline',
+      '#soa',
+      '#no_nil',
+      '#bounds_check',
+      '#no_bounds_check',
+      '#raw_union',
+      '#packed',
+      '#unroll',
+      '#type',
+      // FIXME: parentheses can't be matched with a grammar rule because a 'token' can't contain non-terminal symbols,
+      // although a regex won't be able to correctly match nested parentheses.
+      /#relative\s*\([^)]*\)/,
+    )),
 
     _label_identifier: $ => alias($.identifier, $.label_identifier),
     _type_identifier: $ => alias($.identifier, $.type_identifier),
