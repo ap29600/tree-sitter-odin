@@ -44,16 +44,3 @@
 
 (identifier) @variable
 (pragma_identifier) @attribute
-
-
-(parameter_declaration type:(selector_expression field:(identifier) @type))
-(var_declaration type:(selector_expression field:(identifier) @type))
-(const_declaration type:(selector_expression field:(identifier) @type))
-
-(pointer_type element:(selector_expression field:(identifier) @type))
-(matrix_type element:(selector_expression field:(identifier) @type))
-(array_type element:(selector_expression field:(identifier) @type))
-(compound_literal type:(selector_expression field:(identifier) @type))
-
-(proc_call procedure:(identifier) @function)
-(proc_call procedure:(selector_expression field:(identifier) @function))
