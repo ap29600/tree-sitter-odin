@@ -2990,37 +2990,77 @@
                 "type": "SEQ",
                 "members": [
                   {
-                    "type": "FIELD",
-                    "name": "initializer",
-                    "content": {
-                      "type": "SYMBOL",
-                      "name": "_simple_statement"
-                    }
+                    "type": "CHOICE",
+                    "members": [
+                      {
+                        "type": "SEQ",
+                        "members": [
+                          {
+                            "type": "FIELD",
+                            "name": "initializer",
+                            "content": {
+                              "type": "SYMBOL",
+                              "name": "_simple_statement"
+                            }
+                          },
+                          {
+                            "type": "STRING",
+                            "value": ";"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "BLANK"
+                      }
+                    ]
                   },
                   {
-                    "type": "STRING",
-                    "value": ";"
+                    "type": "CHOICE",
+                    "members": [
+                      {
+                        "type": "FIELD",
+                        "name": "expression",
+                        "content": {
+                          "type": "SYMBOL",
+                          "name": "_expression"
+                        }
+                      },
+                      {
+                        "type": "BLANK"
+                      }
+                    ]
                   }
                 ]
               },
               {
-                "type": "BLANK"
-              }
-            ]
-          },
-          {
-            "type": "CHOICE",
-            "members": [
-              {
-                "type": "FIELD",
-                "name": "expression",
-                "content": {
-                  "type": "SYMBOL",
-                  "name": "_expression"
-                }
-              },
-              {
-                "type": "BLANK"
+                "type": "SEQ",
+                "members": [
+                  {
+                    "type": "FIELD",
+                    "name": "bind",
+                    "content": {
+                      "type": "SYMBOL",
+                      "name": "identifier"
+                    }
+                  },
+                  {
+                    "type": "ALIAS",
+                    "content": {
+                      "type": "STRING",
+                      "value": "in"
+                    },
+                    "named": true,
+                    "value": "keyword"
+                  },
+                  {
+                    "type": "FIELD",
+                    "name": "expression",
+                    "content": {
+                      "type": "SYMBOL",
+                      "name": "_expression"
+                    }
+                  }
+                ]
               }
             ]
           },

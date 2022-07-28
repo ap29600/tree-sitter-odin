@@ -522,11 +522,21 @@ module.exports = grammar({
 
     switch_statement: $ => prec.right(1, seq(
       optional(field('label', seq($._label_identifier, ':'))),
-      alias('switch', $.keyword), optional(seq(
-        field('initializer', $._simple_statement),
-        ';',
-      )),
-      optional(field('expression', $._expression)),
+      alias('switch', $.keyword),
+      choice(
+          seq(
+              optional(seq(
+                field('initializer', $._simple_statement),
+                ';',
+              )),
+              optional(field('expression', $._expression)),
+          ),
+          seq(
+              field('bind', $.identifier),
+              alias('in', $.keyword),
+              field('expression',$._expression),
+          ),
+      ),
       field('body', choice(
           seq(alias('do', $.keyword), $._statement, optional(terminator)),
           seq('{', list(terminator, optional(choice($._statement, $.case_statement))), '}'),
