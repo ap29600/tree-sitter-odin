@@ -62,6 +62,21 @@ const
                           .map(operator => operator + '=')
                           .concat('='),
 
+  cartesian = (...a) => a.reduce((a, b) => a.flatMap(d => b.map(e => [d, e].flat()))).map(parts => parts.join('')),
+
+  builtin_types = [
+      'int',
+      'uint',
+      'string',
+      'cstring',
+      'i8',
+      'u8',
+      ...cartesian(['i', 'u'], ['16', '32', '64', '128'], ['', 'le', 'be']),
+      ...cartesian(['f'], ['16', '32', '64'], ['', 'le', 'be']),
+      ...cartesian(['complex'], ['32', '64', '128']),
+      ...cartesian(['quaternion'], ['64', '128', '256']),
+  ],
+
   op_prec = {
     control_flow: 11,
     r_unary: 10,
@@ -269,6 +284,7 @@ module.exports = grammar({
     ),
 
     _simple_type: $ => choice(
+      alias(choice(...builtin_types), $.type_identifier),
       $.selector_expression,
       $._type_identifier,
       $.map_type,
