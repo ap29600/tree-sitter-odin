@@ -1,28 +1,12 @@
-; "map"       @keyword
-; "union"     @keyword
-; "cast"      @keyword
-; "transmute" @keyword
-; "enum"      @keyword
-"proc"        @keyword
-; "for"         @keyword
-; "switch"    @keyword
-; "if"          @keyword
-; "do"          @keyword
-; "else"        @keyword
-; "return"    @keyword
-"package"     @keyword
-"import"      @keyword
-(keyword)     @keyword
+(keyword) @keyword
+(operator) @operator
 
 (int_literal)   @number
 (float_literal) @number
 (rune_literal)  @number
-
-(operator) @operator
-
-(true) @boolean
-(false) @boolean
+(bool_literal) @boolean
 (nil) @constant.builtin
+
 
 (ERROR) @error
 
@@ -37,7 +21,6 @@
 (comment) @comment
 (const_identifier) @constant
 
-; (field_identifier) @field
 
 (compiler_directive) @attribute
 (calling_convention) @attribute

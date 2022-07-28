@@ -38,15 +38,15 @@
             "named": true
           },
           {
+            "type": "bool_literal",
+            "named": true
+          },
+          {
             "type": "compound_literal",
             "named": true
           },
           {
             "type": "enum_type",
-            "named": true
-          },
-          {
-            "type": "false",
             "named": true
           },
           {
@@ -138,10 +138,6 @@
             "named": true
           },
           {
-            "type": "true",
-            "named": true
-          },
-          {
             "type": "type_conversion",
             "named": true
           },
@@ -189,10 +185,6 @@
           },
           {
             "type": "matrix_type",
-            "named": true
-          },
-          {
-            "type": "operator",
             "named": true
           },
           {
@@ -266,15 +258,15 @@
             "named": true
           },
           {
+            "type": "bool_literal",
+            "named": true
+          },
+          {
             "type": "compound_literal",
             "named": true
           },
           {
             "type": "enum_type",
-            "named": true
-          },
-          {
-            "type": "false",
             "named": true
           },
           {
@@ -318,10 +310,6 @@
             "named": true
           },
           {
-            "type": "operator",
-            "named": true
-          },
-          {
             "type": "pointer_type",
             "named": true
           },
@@ -359,10 +347,6 @@
           },
           {
             "type": "ternary_expression",
-            "named": true
-          },
-          {
-            "type": "true",
             "named": true
           },
           {
@@ -408,15 +392,15 @@
             "named": true
           },
           {
+            "type": "bool_literal",
+            "named": true
+          },
+          {
             "type": "compound_literal",
             "named": true
           },
           {
             "type": "enum_type",
-            "named": true
-          },
-          {
-            "type": "false",
             "named": true
           },
           {
@@ -460,10 +444,6 @@
             "named": true
           },
           {
-            "type": "operator",
-            "named": true
-          },
-          {
             "type": "pointer_type",
             "named": true
           },
@@ -501,10 +481,6 @@
           },
           {
             "type": "ternary_expression",
-            "named": true
-          },
-          {
-            "type": "true",
             "named": true
           },
           {
@@ -572,15 +548,15 @@
             "named": true
           },
           {
+            "type": "bool_literal",
+            "named": true
+          },
+          {
             "type": "compound_literal",
             "named": true
           },
           {
             "type": "enum_type",
-            "named": true
-          },
-          {
-            "type": "false",
             "named": true
           },
           {
@@ -624,10 +600,6 @@
             "named": true
           },
           {
-            "type": "operator",
-            "named": true
-          },
-          {
             "type": "pointer_type",
             "named": true
           },
@@ -665,10 +637,6 @@
           },
           {
             "type": "ternary_expression",
-            "named": true
-          },
-          {
-            "type": "true",
             "named": true
           },
           {
@@ -720,15 +688,15 @@
             "named": true
           },
           {
+            "type": "bool_literal",
+            "named": true
+          },
+          {
             "type": "compound_literal",
             "named": true
           },
           {
             "type": "enum_type",
-            "named": true
-          },
-          {
-            "type": "false",
             "named": true
           },
           {
@@ -772,10 +740,6 @@
             "named": true
           },
           {
-            "type": "operator",
-            "named": true
-          },
-          {
             "type": "pointer_type",
             "named": true
           },
@@ -813,10 +777,6 @@
           },
           {
             "type": "ternary_expression",
-            "named": true
-          },
-          {
-            "type": "true",
             "named": true
           },
           {
@@ -886,10 +846,6 @@
             "named": true
           },
           {
-            "type": "operator",
-            "named": true
-          },
-          {
             "type": "pointer_type",
             "named": true
           },
@@ -940,15 +896,15 @@
             "named": true
           },
           {
+            "type": "bool_literal",
+            "named": true
+          },
+          {
             "type": "compound_literal",
             "named": true
           },
           {
             "type": "enum_type",
-            "named": true
-          },
-          {
-            "type": "false",
             "named": true
           },
           {
@@ -992,10 +948,6 @@
             "named": true
           },
           {
-            "type": "operator",
-            "named": true
-          },
-          {
             "type": "pointer_type",
             "named": true
           },
@@ -1036,10 +988,6 @@
             "named": true
           },
           {
-            "type": "true",
-            "named": true
-          },
-          {
             "type": "type_conversion",
             "named": true
           },
@@ -1054,7 +1002,7 @@
         ]
       },
       "type": {
-        "multiple": true,
+        "multiple": false,
         "required": false,
         "types": [
           {
@@ -1075,10 +1023,6 @@
           },
           {
             "type": "matrix_type",
-            "named": true
-          },
-          {
-            "type": "operator",
             "named": true
           },
           {
@@ -1151,10 +1095,6 @@
           "named": true
         },
         {
-          "type": "case_statement",
-          "named": true
-        },
-        {
           "type": "const_declaration",
           "named": true
         },
@@ -1163,7 +1103,7 @@
           "named": true
         },
         {
-          "type": "empty_statement",
+          "type": "defer_statement",
           "named": true
         },
         {
@@ -1171,15 +1111,7 @@
           "named": true
         },
         {
-          "type": "identifier",
-          "named": true
-        },
-        {
           "type": "if_statement",
-          "named": true
-        },
-        {
-          "type": "keyword",
           "named": true
         },
         {
@@ -1199,11 +1131,20 @@
           "named": true
         },
         {
+          "type": "using_statement",
+          "named": true
+        },
+        {
           "type": "var_declaration",
           "named": true
         }
       ]
     }
+  },
+  {
+    "type": "bool_literal",
+    "named": true,
+    "fields": {}
   },
   {
     "type": "break_statement",
@@ -1267,15 +1208,15 @@
           "named": true
         },
         {
+          "type": "bool_literal",
+          "named": true
+        },
+        {
           "type": "compound_literal",
           "named": true
         },
         {
           "type": "enum_type",
-          "named": true
-        },
-        {
-          "type": "false",
           "named": true
         },
         {
@@ -1363,10 +1304,6 @@
           "named": true
         },
         {
-          "type": "true",
-          "named": true
-        },
-        {
           "type": "type_conversion",
           "named": true
         },
@@ -1439,10 +1376,6 @@
           },
           {
             "type": "matrix_type",
-            "named": true
-          },
-          {
-            "type": "operator",
             "named": true
           },
           {
@@ -1534,10 +1467,6 @@
             "named": true
           },
           {
-            "type": "operator",
-            "named": true
-          },
-          {
             "type": "pointer_type",
             "named": true
           },
@@ -1592,15 +1521,15 @@
             "named": true
           },
           {
+            "type": "bool_literal",
+            "named": true
+          },
+          {
             "type": "compound_literal",
             "named": true
           },
           {
             "type": "enum_type",
-            "named": true
-          },
-          {
-            "type": "false",
             "named": true
           },
           {
@@ -1644,10 +1573,6 @@
             "named": true
           },
           {
-            "type": "operator",
-            "named": true
-          },
-          {
             "type": "pointer_type",
             "named": true
           },
@@ -1685,10 +1610,6 @@
           },
           {
             "type": "ternary_expression",
-            "named": true
-          },
-          {
-            "type": "true",
             "named": true
           },
           {
@@ -1737,16 +1658,66 @@
     }
   },
   {
-    "type": "empty_statement",
+    "type": "defer_statement",
     "named": true,
-    "fields": {}
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "assignment_statement",
+          "named": true
+        },
+        {
+          "type": "block_statement",
+          "named": true
+        },
+        {
+          "type": "break_statement",
+          "named": true
+        },
+        {
+          "type": "const_declaration",
+          "named": true
+        },
+        {
+          "type": "continue_statement",
+          "named": true
+        },
+        {
+          "type": "if_statement",
+          "named": true
+        },
+        {
+          "type": "keyword",
+          "named": true
+        },
+        {
+          "type": "pragma",
+          "named": true
+        },
+        {
+          "type": "proc_call",
+          "named": true
+        },
+        {
+          "type": "return_statement",
+          "named": true
+        },
+        {
+          "type": "var_declaration",
+          "named": true
+        }
+      ]
+    }
   },
   {
     "type": "enum_type",
     "named": true,
     "fields": {
       "backing": {
-        "multiple": true,
+        "multiple": false,
         "required": false,
         "types": [
           {
@@ -1767,10 +1738,6 @@
           },
           {
             "type": "matrix_type",
-            "named": true
-          },
-          {
-            "type": "operator",
             "named": true
           },
           {
@@ -1856,10 +1823,6 @@
             "named": true
           },
           {
-            "type": "case_statement",
-            "named": true
-          },
-          {
             "type": "const_declaration",
             "named": true
           },
@@ -1868,15 +1831,11 @@
             "named": true
           },
           {
-            "type": "empty_statement",
+            "type": "defer_statement",
             "named": true
           },
           {
             "type": "for_statement",
-            "named": true
-          },
-          {
-            "type": "identifier",
             "named": true
           },
           {
@@ -1901,6 +1860,10 @@
           },
           {
             "type": "switch_statement",
+            "named": true
+          },
+          {
+            "type": "using_statement",
             "named": true
           },
           {
@@ -1942,15 +1905,15 @@
             "named": true
           },
           {
+            "type": "bool_literal",
+            "named": true
+          },
+          {
             "type": "compound_literal",
             "named": true
           },
           {
             "type": "enum_type",
-            "named": true
-          },
-          {
-            "type": "false",
             "named": true
           },
           {
@@ -1994,10 +1957,6 @@
             "named": true
           },
           {
-            "type": "operator",
-            "named": true
-          },
-          {
             "type": "pointer_type",
             "named": true
           },
@@ -2038,10 +1997,6 @@
             "named": true
           },
           {
-            "type": "true",
-            "named": true
-          },
-          {
             "type": "type_conversion",
             "named": true
           },
@@ -2056,7 +2011,7 @@
         ]
       },
       "initializer": {
-        "multiple": false,
+        "multiple": true,
         "required": false,
         "types": [
           {
@@ -2073,6 +2028,10 @@
           },
           {
             "type": "continue_statement",
+            "named": true
+          },
+          {
+            "type": "pragma",
             "named": true
           },
           {
@@ -2138,15 +2097,15 @@
             "named": true
           },
           {
+            "type": "bool_literal",
+            "named": true
+          },
+          {
             "type": "compound_literal",
             "named": true
           },
           {
             "type": "enum_type",
-            "named": true
-          },
-          {
-            "type": "false",
             "named": true
           },
           {
@@ -2190,10 +2149,6 @@
             "named": true
           },
           {
-            "type": "operator",
-            "named": true
-          },
-          {
             "type": "pointer_type",
             "named": true
           },
@@ -2234,10 +2189,6 @@
             "named": true
           },
           {
-            "type": "true",
-            "named": true
-          },
-          {
             "type": "type_conversion",
             "named": true
           },
@@ -2252,7 +2203,7 @@
         ]
       },
       "update": {
-        "multiple": false,
+        "multiple": true,
         "required": false,
         "types": [
           {
@@ -2269,6 +2220,10 @@
           },
           {
             "type": "continue_statement",
+            "named": true
+          },
+          {
+            "type": "pragma",
             "named": true
           },
           {
@@ -2303,15 +2258,15 @@
           "named": true
         },
         {
+          "type": "bool_literal",
+          "named": true
+        },
+        {
           "type": "compound_literal",
           "named": true
         },
         {
           "type": "enum_type",
-          "named": true
-        },
-        {
-          "type": "false",
           "named": true
         },
         {
@@ -2355,10 +2310,6 @@
           "named": true
         },
         {
-          "type": "operator",
-          "named": true
-        },
-        {
           "type": "pointer_type",
           "named": true
         },
@@ -2396,10 +2347,6 @@
         },
         {
           "type": "ternary_expression",
-          "named": true
-        },
-        {
-          "type": "true",
           "named": true
         },
         {
@@ -2456,15 +2403,15 @@
             "named": true
           },
           {
+            "type": "bool_literal",
+            "named": true
+          },
+          {
             "type": "compound_literal",
             "named": true
           },
           {
             "type": "enum_type",
-            "named": true
-          },
-          {
-            "type": "false",
             "named": true
           },
           {
@@ -2508,10 +2455,6 @@
             "named": true
           },
           {
-            "type": "operator",
-            "named": true
-          },
-          {
             "type": "pointer_type",
             "named": true
           },
@@ -2549,10 +2492,6 @@
           },
           {
             "type": "ternary_expression",
-            "named": true
-          },
-          {
-            "type": "true",
             "named": true
           },
           {
@@ -2594,10 +2533,6 @@
             "named": true
           },
           {
-            "type": "case_statement",
-            "named": true
-          },
-          {
             "type": "const_declaration",
             "named": true
           },
@@ -2606,15 +2541,11 @@
             "named": true
           },
           {
-            "type": "empty_statement",
+            "type": "defer_statement",
             "named": true
           },
           {
             "type": "for_statement",
-            "named": true
-          },
-          {
-            "type": "identifier",
             "named": true
           },
           {
@@ -2639,6 +2570,10 @@
           },
           {
             "type": "switch_statement",
+            "named": true
+          },
+          {
+            "type": "using_statement",
             "named": true
           },
           {
@@ -2680,10 +2615,6 @@
             "named": true
           },
           {
-            "type": "case_statement",
-            "named": true
-          },
-          {
             "type": "const_declaration",
             "named": true
           },
@@ -2692,15 +2623,11 @@
             "named": true
           },
           {
-            "type": "empty_statement",
+            "type": "defer_statement",
             "named": true
           },
           {
             "type": "for_statement",
-            "named": true
-          },
-          {
-            "type": "identifier",
             "named": true
           },
           {
@@ -2725,6 +2652,10 @@
           },
           {
             "type": "switch_statement",
+            "named": true
+          },
+          {
+            "type": "using_statement",
             "named": true
           },
           {
@@ -2746,10 +2677,6 @@
         "required": false,
         "types": [
           {
-            "type": "\n",
-            "named": false
-          },
-          {
             "type": "assignment_statement",
             "named": true
           },
@@ -2762,10 +2689,6 @@
             "named": true
           },
           {
-            "type": "case_statement",
-            "named": true
-          },
-          {
             "type": "const_declaration",
             "named": true
           },
@@ -2774,7 +2697,7 @@
             "named": true
           },
           {
-            "type": "empty_statement",
+            "type": "defer_statement",
             "named": true
           },
           {
@@ -2782,15 +2705,7 @@
             "named": true
           },
           {
-            "type": "identifier",
-            "named": true
-          },
-          {
             "type": "if_statement",
-            "named": true
-          },
-          {
-            "type": "keyword",
             "named": true
           },
           {
@@ -2807,6 +2722,10 @@
           },
           {
             "type": "switch_statement",
+            "named": true
+          },
+          {
+            "type": "using_statement",
             "named": true
           },
           {
@@ -2873,6 +2792,16 @@
           }
         ]
       }
+    },
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "keyword",
+          "named": true
+        }
+      ]
     }
   },
   {
@@ -2914,15 +2843,15 @@
             "named": true
           },
           {
+            "type": "bool_literal",
+            "named": true
+          },
+          {
             "type": "compound_literal",
             "named": true
           },
           {
             "type": "enum_type",
-            "named": true
-          },
-          {
-            "type": "false",
             "named": true
           },
           {
@@ -2966,10 +2895,6 @@
             "named": true
           },
           {
-            "type": "operator",
-            "named": true
-          },
-          {
             "type": "pointer_type",
             "named": true
           },
@@ -3007,10 +2932,6 @@
           },
           {
             "type": "ternary_expression",
-            "named": true
-          },
-          {
-            "type": "true",
             "named": true
           },
           {
@@ -3056,15 +2977,15 @@
             "named": true
           },
           {
+            "type": "bool_literal",
+            "named": true
+          },
+          {
             "type": "compound_literal",
             "named": true
           },
           {
             "type": "enum_type",
-            "named": true
-          },
-          {
-            "type": "false",
             "named": true
           },
           {
@@ -3108,10 +3029,6 @@
             "named": true
           },
           {
-            "type": "operator",
-            "named": true
-          },
-          {
             "type": "pointer_type",
             "named": true
           },
@@ -3149,10 +3066,6 @@
           },
           {
             "type": "ternary_expression",
-            "named": true
-          },
-          {
-            "type": "true",
             "named": true
           },
           {
@@ -3194,15 +3107,15 @@
             "named": true
           },
           {
+            "type": "bool_literal",
+            "named": true
+          },
+          {
             "type": "compound_literal",
             "named": true
           },
           {
             "type": "enum_type",
-            "named": true
-          },
-          {
-            "type": "false",
             "named": true
           },
           {
@@ -3246,10 +3159,6 @@
             "named": true
           },
           {
-            "type": "operator",
-            "named": true
-          },
-          {
             "type": "pointer_type",
             "named": true
           },
@@ -3287,10 +3196,6 @@
           },
           {
             "type": "ternary_expression",
-            "named": true
-          },
-          {
-            "type": "true",
             "named": true
           },
           {
@@ -3332,15 +3237,15 @@
             "named": true
           },
           {
+            "type": "bool_literal",
+            "named": true
+          },
+          {
             "type": "compound_literal",
             "named": true
           },
           {
             "type": "enum_type",
-            "named": true
-          },
-          {
-            "type": "false",
             "named": true
           },
           {
@@ -3384,10 +3289,6 @@
             "named": true
           },
           {
-            "type": "operator",
-            "named": true
-          },
-          {
             "type": "pointer_type",
             "named": true
           },
@@ -3425,10 +3326,6 @@
           },
           {
             "type": "ternary_expression",
-            "named": true
-          },
-          {
-            "type": "true",
             "named": true
           },
           {
@@ -3489,15 +3386,15 @@
           "named": true
         },
         {
+          "type": "bool_literal",
+          "named": true
+        },
+        {
           "type": "compound_literal",
           "named": true
         },
         {
           "type": "enum_type",
-          "named": true
-        },
-        {
-          "type": "false",
           "named": true
         },
         {
@@ -3534,10 +3431,6 @@
         },
         {
           "type": "nil",
-          "named": true
-        },
-        {
-          "type": "operator",
           "named": true
         },
         {
@@ -3582,10 +3475,6 @@
         },
         {
           "type": "ternary_expression",
-          "named": true
-        },
-        {
-          "type": "true",
           "named": true
         },
         {
@@ -3657,15 +3546,15 @@
             "named": true
           },
           {
+            "type": "bool_literal",
+            "named": true
+          },
+          {
             "type": "compound_literal",
             "named": true
           },
           {
             "type": "enum_type",
-            "named": true
-          },
-          {
-            "type": "false",
             "named": true
           },
           {
@@ -3709,10 +3598,6 @@
             "named": true
           },
           {
-            "type": "operator",
-            "named": true
-          },
-          {
             "type": "pointer_type",
             "named": true
           },
@@ -3750,10 +3635,6 @@
           },
           {
             "type": "ternary_expression",
-            "named": true
-          },
-          {
-            "type": "true",
             "named": true
           },
           {
@@ -3833,10 +3714,6 @@
             "named": true
           },
           {
-            "type": "operator",
-            "named": true
-          },
-          {
             "type": "pointer_type",
             "named": true
           },
@@ -3896,10 +3773,6 @@
           },
           {
             "type": "matrix_type",
-            "named": true
-          },
-          {
-            "type": "operator",
             "named": true
           },
           {
@@ -3991,10 +3864,6 @@
             "named": true
           },
           {
-            "type": "operator",
-            "named": true
-          },
-          {
             "type": "pointer_type",
             "named": true
           },
@@ -4038,15 +3907,15 @@
           "named": true
         },
         {
+          "type": "bool_literal",
+          "named": true
+        },
+        {
           "type": "compound_literal",
           "named": true
         },
         {
           "type": "enum_type",
-          "named": true
-        },
-        {
-          "type": "false",
           "named": true
         },
         {
@@ -4090,10 +3959,6 @@
           "named": true
         },
         {
-          "type": "operator",
-          "named": true
-        },
-        {
           "type": "pointer_type",
           "named": true
         },
@@ -4134,10 +3999,6 @@
           "named": true
         },
         {
-          "type": "true",
-          "named": true
-        },
-        {
           "type": "type_conversion",
           "named": true
         },
@@ -4157,9 +4018,13 @@
     "named": true,
     "fields": {},
     "children": {
-      "multiple": false,
+      "multiple": true,
       "required": true,
       "types": [
+        {
+          "type": "keyword",
+          "named": true
+        },
         {
           "type": "package_identifier",
           "named": true
@@ -4298,15 +4163,15 @@
             "named": true
           },
           {
+            "type": "bool_literal",
+            "named": true
+          },
+          {
             "type": "compound_literal",
             "named": true
           },
           {
             "type": "enum_type",
-            "named": true
-          },
-          {
-            "type": "false",
             "named": true
           },
           {
@@ -4350,10 +4215,6 @@
             "named": true
           },
           {
-            "type": "operator",
-            "named": true
-          },
-          {
             "type": "pointer_type",
             "named": true
           },
@@ -4391,10 +4252,6 @@
           },
           {
             "type": "ternary_expression",
-            "named": true
-          },
-          {
-            "type": "true",
             "named": true
           },
           {
@@ -4450,10 +4307,6 @@
         },
         {
           "type": "matrix_type",
-          "named": true
-        },
-        {
-          "type": "operator",
           "named": true
         },
         {
@@ -4538,10 +4391,6 @@
             "named": true
           },
           {
-            "type": "operator",
-            "named": true
-          },
-          {
             "type": "pointer_type",
             "named": true
           },
@@ -4611,15 +4460,15 @@
           "named": true
         },
         {
+          "type": "bool_literal",
+          "named": true
+        },
+        {
           "type": "compound_literal",
           "named": true
         },
         {
           "type": "enum_type",
-          "named": true
-        },
-        {
-          "type": "false",
           "named": true
         },
         {
@@ -4656,10 +4505,6 @@
         },
         {
           "type": "nil",
-          "named": true
-        },
-        {
-          "type": "operator",
           "named": true
         },
         {
@@ -4704,10 +4549,6 @@
         },
         {
           "type": "ternary_expression",
-          "named": true
-        },
-        {
-          "type": "true",
           "named": true
         },
         {
@@ -4764,15 +4605,15 @@
             "named": true
           },
           {
+            "type": "bool_literal",
+            "named": true
+          },
+          {
             "type": "compound_literal",
             "named": true
           },
           {
             "type": "enum_type",
-            "named": true
-          },
-          {
-            "type": "false",
             "named": true
           },
           {
@@ -4816,10 +4657,6 @@
             "named": true
           },
           {
-            "type": "operator",
-            "named": true
-          },
-          {
             "type": "pointer_type",
             "named": true
           },
@@ -4860,10 +4697,6 @@
             "named": true
           },
           {
-            "type": "true",
-            "named": true
-          },
-          {
             "type": "type_conversion",
             "named": true
           },
@@ -4890,96 +4723,6 @@
           {
             "type": "initializer_list",
             "named": true
-          }
-        ]
-      },
-      "body": {
-        "multiple": true,
-        "required": true,
-        "types": [
-          {
-            "type": "\n",
-            "named": false
-          },
-          {
-            "type": "---",
-            "named": false
-          },
-          {
-            "type": ";",
-            "named": false
-          },
-          {
-            "type": "assignment_statement",
-            "named": true
-          },
-          {
-            "type": "block_statement",
-            "named": true
-          },
-          {
-            "type": "break_statement",
-            "named": true
-          },
-          {
-            "type": "case_statement",
-            "named": true
-          },
-          {
-            "type": "const_declaration",
-            "named": true
-          },
-          {
-            "type": "continue_statement",
-            "named": true
-          },
-          {
-            "type": "empty_statement",
-            "named": true
-          },
-          {
-            "type": "for_statement",
-            "named": true
-          },
-          {
-            "type": "identifier",
-            "named": true
-          },
-          {
-            "type": "if_statement",
-            "named": true
-          },
-          {
-            "type": "keyword",
-            "named": true
-          },
-          {
-            "type": "pragma",
-            "named": true
-          },
-          {
-            "type": "proc_call",
-            "named": true
-          },
-          {
-            "type": "return_statement",
-            "named": true
-          },
-          {
-            "type": "switch_statement",
-            "named": true
-          },
-          {
-            "type": "var_declaration",
-            "named": true
-          },
-          {
-            "type": "{",
-            "named": false
-          },
-          {
-            "type": "}",
-            "named": false
           }
         ]
       },
@@ -5030,10 +4773,6 @@
             "named": true
           },
           {
-            "type": "operator",
-            "named": true
-          },
-          {
             "type": "parameter_list",
             "named": true
           },
@@ -5066,10 +4805,14 @@
     },
     "children": {
       "multiple": true,
-      "required": false,
+      "required": true,
       "types": [
         {
           "type": "array_type",
+          "named": true
+        },
+        {
+          "type": "assignment_statement",
           "named": true
         },
         {
@@ -5081,6 +4824,18 @@
           "named": true
         },
         {
+          "type": "block_statement",
+          "named": true
+        },
+        {
+          "type": "bool_literal",
+          "named": true
+        },
+        {
+          "type": "break_statement",
+          "named": true
+        },
+        {
           "type": "calling_convention",
           "named": true
         },
@@ -5089,11 +4844,19 @@
           "named": true
         },
         {
-          "type": "enum_type",
+          "type": "const_declaration",
           "named": true
         },
         {
-          "type": "false",
+          "type": "continue_statement",
+          "named": true
+        },
+        {
+          "type": "defer_statement",
+          "named": true
+        },
+        {
+          "type": "enum_type",
           "named": true
         },
         {
@@ -5101,7 +4864,15 @@
           "named": true
         },
         {
+          "type": "for_statement",
+          "named": true
+        },
+        {
           "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "if_statement",
           "named": true
         },
         {
@@ -5145,6 +4916,10 @@
           "named": true
         },
         {
+          "type": "pragma",
+          "named": true
+        },
+        {
           "type": "proc_call",
           "named": true
         },
@@ -5158,6 +4933,10 @@
         },
         {
           "type": "raw_string_literal",
+          "named": true
+        },
+        {
+          "type": "return_statement",
           "named": true
         },
         {
@@ -5177,11 +4956,11 @@
           "named": true
         },
         {
-          "type": "ternary_expression",
+          "type": "switch_statement",
           "named": true
         },
         {
-          "type": "true",
+          "type": "ternary_expression",
           "named": true
         },
         {
@@ -5194,6 +4973,14 @@
         },
         {
           "type": "union_type",
+          "named": true
+        },
+        {
+          "type": "using_statement",
+          "named": true
+        },
+        {
+          "type": "var_declaration",
           "named": true
         }
       ]
@@ -5260,10 +5047,6 @@
             "named": true
           },
           {
-            "type": "operator",
-            "named": true
-          },
-          {
             "type": "parameter_list",
             "named": true
           },
@@ -5295,11 +5078,19 @@
       }
     },
     "children": {
-      "multiple": false,
-      "required": false,
+      "multiple": true,
+      "required": true,
       "types": [
         {
           "type": "calling_convention",
+          "named": true
+        },
+        {
+          "type": "keyword",
+          "named": true
+        },
+        {
+          "type": "operator",
           "named": true
         }
       ]
@@ -5348,15 +5139,15 @@
             "named": true
           },
           {
+            "type": "bool_literal",
+            "named": true
+          },
+          {
             "type": "compound_literal",
             "named": true
           },
           {
             "type": "enum_type",
-            "named": true
-          },
-          {
-            "type": "false",
             "named": true
           },
           {
@@ -5400,10 +5191,6 @@
             "named": true
           },
           {
-            "type": "operator",
-            "named": true
-          },
-          {
             "type": "pointer_type",
             "named": true
           },
@@ -5441,10 +5228,6 @@
           },
           {
             "type": "ternary_expression",
-            "named": true
-          },
-          {
-            "type": "true",
             "named": true
           },
           {
@@ -5512,15 +5295,15 @@
             "named": true
           },
           {
+            "type": "bool_literal",
+            "named": true
+          },
+          {
             "type": "compound_literal",
             "named": true
           },
           {
             "type": "enum_type",
-            "named": true
-          },
-          {
-            "type": "false",
             "named": true
           },
           {
@@ -5564,10 +5347,6 @@
             "named": true
           },
           {
-            "type": "operator",
-            "named": true
-          },
-          {
             "type": "pointer_type",
             "named": true
           },
@@ -5605,10 +5384,6 @@
           },
           {
             "type": "ternary_expression",
-            "named": true
-          },
-          {
-            "type": "true",
             "named": true
           },
           {
@@ -5663,7 +5438,7 @@
       },
       "parent": {
         "multiple": true,
-        "required": true,
+        "required": false,
         "types": [
           {
             "type": "(",
@@ -5686,15 +5461,15 @@
             "named": true
           },
           {
+            "type": "bool_literal",
+            "named": true
+          },
+          {
             "type": "compound_literal",
             "named": true
           },
           {
             "type": "enum_type",
-            "named": true
-          },
-          {
-            "type": "false",
             "named": true
           },
           {
@@ -5738,10 +5513,6 @@
             "named": true
           },
           {
-            "type": "operator",
-            "named": true
-          },
-          {
             "type": "pointer_type",
             "named": true
           },
@@ -5779,10 +5550,6 @@
           },
           {
             "type": "ternary_expression",
-            "named": true
-          },
-          {
-            "type": "true",
             "named": true
           },
           {
@@ -5840,15 +5607,15 @@
             "named": true
           },
           {
+            "type": "bool_literal",
+            "named": true
+          },
+          {
             "type": "compound_literal",
             "named": true
           },
           {
             "type": "enum_type",
-            "named": true
-          },
-          {
-            "type": "false",
             "named": true
           },
           {
@@ -5892,10 +5659,6 @@
             "named": true
           },
           {
-            "type": "operator",
-            "named": true
-          },
-          {
             "type": "pointer_type",
             "named": true
           },
@@ -5933,10 +5696,6 @@
           },
           {
             "type": "ternary_expression",
-            "named": true
-          },
-          {
-            "type": "true",
             "named": true
           },
           {
@@ -5978,15 +5737,15 @@
             "named": true
           },
           {
+            "type": "bool_literal",
+            "named": true
+          },
+          {
             "type": "compound_literal",
             "named": true
           },
           {
             "type": "enum_type",
-            "named": true
-          },
-          {
-            "type": "false",
             "named": true
           },
           {
@@ -6030,10 +5789,6 @@
             "named": true
           },
           {
-            "type": "operator",
-            "named": true
-          },
-          {
             "type": "pointer_type",
             "named": true
           },
@@ -6071,10 +5826,6 @@
           },
           {
             "type": "ternary_expression",
-            "named": true
-          },
-          {
-            "type": "true",
             "named": true
           },
           {
@@ -6182,10 +5933,6 @@
           "named": true
         },
         {
-          "type": "operator",
-          "named": true
-        },
-        {
           "type": "pointer_type",
           "named": true
         },
@@ -6263,15 +6010,11 @@
             "named": true
           },
           {
-            "type": "empty_statement",
+            "type": "defer_statement",
             "named": true
           },
           {
             "type": "for_statement",
-            "named": true
-          },
-          {
-            "type": "identifier",
             "named": true
           },
           {
@@ -6296,6 +6039,10 @@
           },
           {
             "type": "switch_statement",
+            "named": true
+          },
+          {
+            "type": "using_statement",
             "named": true
           },
           {
@@ -6337,15 +6084,15 @@
             "named": true
           },
           {
+            "type": "bool_literal",
+            "named": true
+          },
+          {
             "type": "compound_literal",
             "named": true
           },
           {
             "type": "enum_type",
-            "named": true
-          },
-          {
-            "type": "false",
             "named": true
           },
           {
@@ -6389,10 +6136,6 @@
             "named": true
           },
           {
-            "type": "operator",
-            "named": true
-          },
-          {
             "type": "pointer_type",
             "named": true
           },
@@ -6433,10 +6176,6 @@
             "named": true
           },
           {
-            "type": "true",
-            "named": true
-          },
-          {
             "type": "type_conversion",
             "named": true
           },
@@ -6451,7 +6190,7 @@
         ]
       },
       "initializer": {
-        "multiple": false,
+        "multiple": true,
         "required": false,
         "types": [
           {
@@ -6468,6 +6207,10 @@
           },
           {
             "type": "continue_statement",
+            "named": true
+          },
+          {
+            "type": "pragma",
             "named": true
           },
           {
@@ -6549,15 +6292,15 @@
             "named": true
           },
           {
+            "type": "bool_literal",
+            "named": true
+          },
+          {
             "type": "compound_literal",
             "named": true
           },
           {
             "type": "enum_type",
-            "named": true
-          },
-          {
-            "type": "false",
             "named": true
           },
           {
@@ -6601,10 +6344,6 @@
             "named": true
           },
           {
-            "type": "operator",
-            "named": true
-          },
-          {
             "type": "pointer_type",
             "named": true
           },
@@ -6642,10 +6381,6 @@
           },
           {
             "type": "ternary_expression",
-            "named": true
-          },
-          {
-            "type": "true",
             "named": true
           },
           {
@@ -6687,15 +6422,15 @@
             "named": true
           },
           {
+            "type": "bool_literal",
+            "named": true
+          },
+          {
             "type": "compound_literal",
             "named": true
           },
           {
             "type": "enum_type",
-            "named": true
-          },
-          {
-            "type": "false",
             "named": true
           },
           {
@@ -6739,10 +6474,6 @@
             "named": true
           },
           {
-            "type": "operator",
-            "named": true
-          },
-          {
             "type": "pointer_type",
             "named": true
           },
@@ -6780,10 +6511,6 @@
           },
           {
             "type": "ternary_expression",
-            "named": true
-          },
-          {
-            "type": "true",
             "named": true
           },
           {
@@ -6825,15 +6552,15 @@
             "named": true
           },
           {
+            "type": "bool_literal",
+            "named": true
+          },
+          {
             "type": "compound_literal",
             "named": true
           },
           {
             "type": "enum_type",
-            "named": true
-          },
-          {
-            "type": "false",
             "named": true
           },
           {
@@ -6877,10 +6604,6 @@
             "named": true
           },
           {
-            "type": "operator",
-            "named": true
-          },
-          {
             "type": "pointer_type",
             "named": true
           },
@@ -6918,10 +6641,6 @@
           },
           {
             "type": "ternary_expression",
-            "named": true
-          },
-          {
-            "type": "true",
             "named": true
           },
           {
@@ -6986,15 +6705,15 @@
           "named": true
         },
         {
+          "type": "bool_literal",
+          "named": true
+        },
+        {
           "type": "compound_literal",
           "named": true
         },
         {
           "type": "enum_type",
-          "named": true
-        },
-        {
-          "type": "false",
           "named": true
         },
         {
@@ -7038,10 +6757,6 @@
           "named": true
         },
         {
-          "type": "operator",
-          "named": true
-        },
-        {
           "type": "pointer_type",
           "named": true
         },
@@ -7079,10 +6794,6 @@
         },
         {
           "type": "ternary_expression",
-          "named": true
-        },
-        {
-          "type": "true",
           "named": true
         },
         {
@@ -7144,10 +6855,6 @@
           "named": true
         },
         {
-          "type": "operator",
-          "named": true
-        },
-        {
           "type": "pointer_type",
           "named": true
         },
@@ -7169,6 +6876,25 @@
         },
         {
           "type": "union_type",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "using_statement",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "keyword",
           "named": true
         }
       ]
@@ -7239,10 +6965,6 @@
             "named": true
           },
           {
-            "type": "operator",
-            "named": true
-          },
-          {
             "type": "pointer_type",
             "named": true
           },
@@ -7297,15 +7019,15 @@
             "named": true
           },
           {
+            "type": "bool_literal",
+            "named": true
+          },
+          {
             "type": "compound_literal",
             "named": true
           },
           {
             "type": "enum_type",
-            "named": true
-          },
-          {
-            "type": "false",
             "named": true
           },
           {
@@ -7349,10 +7071,6 @@
             "named": true
           },
           {
-            "type": "operator",
-            "named": true
-          },
-          {
             "type": "pointer_type",
             "named": true
           },
@@ -7390,10 +7108,6 @@
           },
           {
             "type": "ternary_expression",
-            "named": true
-          },
-          {
-            "type": "true",
             "named": true
           },
           {
@@ -7495,10 +7209,6 @@
     "named": true
   },
   {
-    "type": "false",
-    "named": true
-  },
-  {
     "type": "field_identifier",
     "named": true
   },
@@ -7509,10 +7219,6 @@
   {
     "type": "identifier",
     "named": true
-  },
-  {
-    "type": "import",
-    "named": false
   },
   {
     "type": "int_literal",
@@ -7535,10 +7241,6 @@
     "named": true
   },
   {
-    "type": "package",
-    "named": false
-  },
-  {
     "type": "package_identifier",
     "named": true
   },
@@ -7547,19 +7249,11 @@
     "named": true
   },
   {
-    "type": "proc",
-    "named": false
-  },
-  {
     "type": "raw_string_literal",
     "named": true
   },
   {
     "type": "rune_literal",
-    "named": true
-  },
-  {
-    "type": "true",
     "named": true
   },
   {
