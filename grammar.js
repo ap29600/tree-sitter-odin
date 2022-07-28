@@ -416,12 +416,13 @@ module.exports = grammar({
     proc_literal: $ => prec.right(1, seq(
       $._proc_type,
       optional(seq(
+        optional('\n'),
         alias('where', $.keyword),
         list1(',', $._expression)
       )),
       choice(
         seq(
-            repeat('\n'),
+            optional('\n'),
             '{',
             list(terminator, optional($._statement)),
             '}'
