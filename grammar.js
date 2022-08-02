@@ -233,6 +233,10 @@ module.exports = grammar({
 
     block_statement: $ => prec(1, seq(
       optional(field('label', seq($._label_identifier, ':'))),
+      $.block,
+    )),
+
+    block: $ => prec(1, seq(
       '{',
       list(terminator, optional($._statement)),
       '}',
@@ -439,9 +443,7 @@ module.exports = grammar({
       choice(
         seq(
             optional('\n'),
-            '{',
-            list(terminator, optional($._statement)),
-            '}'
+            $.block,
         ),
         '---'
       ),
@@ -525,14 +527,14 @@ module.exports = grammar({
       field('condition', $._expression),
       field('if_true', choice(
           seq(alias('do', $.keyword), $._statement, optional(terminator)),
-          seq('{', list(terminator, optional($._statement)), '}'),
+          $.block,
       )),
       optional(seq(
         alias('else', $.keyword),
         field('if_false', choice(
           $.if_statement,
           seq(alias('do', $.keyword), $._statement, ),
-          seq('{', list(terminator, optional($._statement)), '}'),
+          $.block,
         )),
       )),
     )),
@@ -570,7 +572,7 @@ module.exports = grammar({
       )),
       field('body', choice(
           seq(alias('do', $.keyword), $._statement),
-          seq('{', list(terminator, optional($._statement)), '}'),
+          $.block,
       )),
     )),
 

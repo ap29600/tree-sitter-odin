@@ -1060,24 +1060,9 @@
     }
   },
   {
-    "type": "block_statement",
+    "type": "block",
     "named": true,
-    "fields": {
-      "label": {
-        "multiple": true,
-        "required": false,
-        "types": [
-          {
-            "type": ":",
-            "named": false
-          },
-          {
-            "type": "label_identifier",
-            "named": true
-          }
-        ]
-      }
-    },
+    "fields": {},
     "children": {
       "multiple": true,
       "required": false,
@@ -1136,6 +1121,36 @@
         },
         {
           "type": "var_declaration",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "block_statement",
+    "named": true,
+    "fields": {
+      "label": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": ":",
+            "named": false
+          },
+          {
+            "type": "label_identifier",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "block",
           "named": true
         }
       ]
@@ -1803,15 +1818,11 @@
         "required": true,
         "types": [
           {
-            "type": "\n",
-            "named": false
-          },
-          {
-            "type": ";",
-            "named": false
-          },
-          {
             "type": "assignment_statement",
+            "named": true
+          },
+          {
+            "type": "block",
             "named": true
           },
           {
@@ -1869,14 +1880,6 @@
           {
             "type": "var_declaration",
             "named": true
-          },
-          {
-            "type": "{",
-            "named": false
-          },
-          {
-            "type": "}",
-            "named": false
           }
         ]
       },
@@ -2513,15 +2516,11 @@
         "required": false,
         "types": [
           {
-            "type": "\n",
-            "named": false
-          },
-          {
-            "type": ";",
-            "named": false
-          },
-          {
             "type": "assignment_statement",
+            "named": true
+          },
+          {
+            "type": "block",
             "named": true
           },
           {
@@ -2579,14 +2578,6 @@
           {
             "type": "var_declaration",
             "named": true
-          },
-          {
-            "type": "{",
-            "named": false
-          },
-          {
-            "type": "}",
-            "named": false
           }
         ]
       },
@@ -2607,6 +2598,10 @@
             "named": true
           },
           {
+            "type": "block",
+            "named": true
+          },
+          {
             "type": "block_statement",
             "named": true
           },
@@ -2661,14 +2656,6 @@
           {
             "type": "var_declaration",
             "named": true
-          },
-          {
-            "type": "{",
-            "named": false
-          },
-          {
-            "type": "}",
-            "named": false
           }
         ]
       },
@@ -4812,10 +4799,6 @@
           "named": true
         },
         {
-          "type": "assignment_statement",
-          "named": true
-        },
-        {
           "type": "binary_expression",
           "named": true
         },
@@ -4824,15 +4807,11 @@
           "named": true
         },
         {
-          "type": "block_statement",
+          "type": "block",
           "named": true
         },
         {
           "type": "bool_literal",
-          "named": true
-        },
-        {
-          "type": "break_statement",
           "named": true
         },
         {
@@ -4844,18 +4823,6 @@
           "named": true
         },
         {
-          "type": "const_declaration",
-          "named": true
-        },
-        {
-          "type": "continue_statement",
-          "named": true
-        },
-        {
-          "type": "defer_statement",
-          "named": true
-        },
-        {
           "type": "enum_type",
           "named": true
         },
@@ -4864,15 +4831,7 @@
           "named": true
         },
         {
-          "type": "for_statement",
-          "named": true
-        },
-        {
           "type": "identifier",
-          "named": true
-        },
-        {
-          "type": "if_statement",
           "named": true
         },
         {
@@ -4916,10 +4875,6 @@
           "named": true
         },
         {
-          "type": "pragma",
-          "named": true
-        },
-        {
           "type": "proc_call",
           "named": true
         },
@@ -4933,10 +4888,6 @@
         },
         {
           "type": "raw_string_literal",
-          "named": true
-        },
-        {
-          "type": "return_statement",
           "named": true
         },
         {
@@ -4956,10 +4907,6 @@
           "named": true
         },
         {
-          "type": "switch_statement",
-          "named": true
-        },
-        {
           "type": "ternary_expression",
           "named": true
         },
@@ -4973,14 +4920,6 @@
         },
         {
           "type": "union_type",
-          "named": true
-        },
-        {
-          "type": "using_statement",
-          "named": true
-        },
-        {
-          "type": "var_declaration",
           "named": true
         }
       ]
