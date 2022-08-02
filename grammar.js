@@ -478,6 +478,7 @@ module.exports = grammar({
         ':',
       )),
       field('type', seq(
+        optional(alias('..', $.operator)),
         optional(alias('$', $.operator)),
         $._type,
         optional(seq(alias('/', $.operator), optional(alias('$', $.operator)), $._type))
@@ -596,7 +597,7 @@ module.exports = grammar({
     )),
 
     left_unary_expression: $ => prec(op_prec.l_unary, seq(
-      field('operator', alias(choice('+', '-', '~', '&', '!'), $.operator)), 
+      field('operator', alias(choice('+', '-', '~', '&', '!', '..'), $.operator)),
       field('operand', $._expression),
     )),
 

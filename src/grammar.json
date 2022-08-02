@@ -2372,6 +2372,23 @@
                       "type": "ALIAS",
                       "content": {
                         "type": "STRING",
+                        "value": ".."
+                      },
+                      "named": true,
+                      "value": "operator"
+                    },
+                    {
+                      "type": "BLANK"
+                    }
+                  ]
+                },
+                {
+                  "type": "CHOICE",
+                  "members": [
+                    {
+                      "type": "ALIAS",
+                      "content": {
+                        "type": "STRING",
                         "value": "$"
                       },
                       "named": true,
@@ -3523,6 +3540,10 @@
                   {
                     "type": "STRING",
                     "value": "!"
+                  },
+                  {
+                    "type": "STRING",
+                    "value": ".."
                   }
                 ]
               },
