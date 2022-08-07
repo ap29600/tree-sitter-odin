@@ -830,6 +830,26 @@
               },
               {
                 "type": "STRING",
+                "value": "bool"
+              },
+              {
+                "type": "STRING",
+                "value": "b8"
+              },
+              {
+                "type": "STRING",
+                "value": "b16"
+              },
+              {
+                "type": "STRING",
+                "value": "b32"
+              },
+              {
+                "type": "STRING",
+                "value": "b64"
+              },
+              {
+                "type": "STRING",
                 "value": "i16"
               },
               {
