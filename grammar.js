@@ -331,6 +331,7 @@ module.exports = grammar({
         'size',
         choice(
           $._expression,
+          alias('^', $.operator),
           alias('?', $.operator),
           alias('dynamic', $.keyword),
         )

@@ -1,0 +1,36 @@
+================================================================================
+Empty package
+================================================================================
+
+package empty
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (package_clause
+    (keyword)
+    (package_identifier)))
+
+================================================================================
+Package imports
+================================================================================
+
+package imports
+
+import foo "core:foo"
+import "core:bar"
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (package_clause
+    (keyword)
+    (package_identifier))
+  (import_declaration
+    (keyword)
+    (package_identifier)
+    (interpreted_string_literal))
+  (import_declaration
+    (keyword)
+    (interpreted_string_literal)))
+

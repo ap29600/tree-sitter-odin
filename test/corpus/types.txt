@@ -1,0 +1,107 @@
+================================================================================
+Types
+================================================================================
+
+package types
+
+builtins :: {
+    int,
+    f64,
+    string,
+    i8,
+    bool,
+}
+
+arrays :: {
+    []i64,
+    [^]i64,
+    [10]float,
+    [dynamic]^int,
+}
+
+maps :: {
+    map[string]int,
+    map[[2]int][2]float,
+}
+
+structs :: {
+    struct{},
+    struct{a, b: int},
+    struct{a: [dynamic]int, b: bool},
+}
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (package_clause
+    (keyword)
+    (package_identifier))
+  (const_declaration
+    (const_identifier)
+    (operator)
+    (operator)
+    (compound_literal
+      (initializer_list
+        (type_identifier)
+        (type_identifier)
+        (type_identifier)
+        (type_identifier)
+        (type_identifier))))
+  (const_declaration
+    (const_identifier)
+    (operator)
+    (operator)
+    (compound_literal
+      (initializer_list
+        (array_type
+          (type_identifier))
+        (array_type
+          (operator)
+          (type_identifier))
+        (array_type
+          (int_literal)
+          (type_identifier))
+        (array_type
+          (keyword)
+          (pointer_type
+            (operator)
+            (type_identifier))))))
+  (const_declaration
+    (const_identifier)
+    (operator)
+    (operator)
+    (compound_literal
+      (initializer_list
+        (map_type
+          (keyword)
+          (type_identifier)
+          (type_identifier))
+        (map_type
+          (keyword)
+          (array_type
+            (int_literal)
+            (type_identifier))
+          (array_type
+            (int_literal)
+            (type_identifier))))))
+  (const_declaration
+    (const_identifier)
+    (operator)
+    (operator)
+    (compound_literal
+      (initializer_list
+        (struct_type
+          (keyword))
+        (struct_type
+          (keyword)
+          (identifier)
+          (identifier)
+          (type_identifier))
+        (struct_type
+          (keyword)
+          (identifier)
+          (array_type
+            (keyword)
+            (type_identifier))
+          (identifier)
+          (type_identifier))))))

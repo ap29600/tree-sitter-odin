@@ -1235,6 +1235,15 @@
                       "type": "ALIAS",
                       "content": {
                         "type": "STRING",
+                        "value": "^"
+                      },
+                      "named": true,
+                      "value": "operator"
+                    },
+                    {
+                      "type": "ALIAS",
+                      "content": {
+                        "type": "STRING",
                         "value": "?"
                       },
                       "named": true,
