@@ -11,13 +11,15 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
-    # The type of runner that the job will run on
+  test:
+    name: Run tests
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+
+      - uses: actions/setup-node@v1
         with:
-          node-version: "18.x"
+          node-version: 18.x
 
       - name: install tree-sitter
         run: npm install tree-sitter-cli@0.20
