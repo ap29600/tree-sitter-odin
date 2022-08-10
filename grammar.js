@@ -460,7 +460,14 @@ module.exports = grammar({
       alias('proc', $.keyword),
       optional($._calling_convention),
       field('parameters', $.parameter_list),
-      optional(seq(alias('->', $.operator), field('result', choice($.parameter_list, $._type)))),
+      optional(seq(
+        alias('->', $.operator),
+        field('result', choice(
+          $.parameter_list,
+          $._type,
+          alias('!', $.keyword)
+        ))
+      )),
     )),
 
     parameter_list: $ => seq(

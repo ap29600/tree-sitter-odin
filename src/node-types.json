@@ -4752,6 +4752,10 @@
             "named": true
           },
           {
+            "type": "keyword",
+            "named": true
+          },
+          {
             "type": "map_type",
             "named": true
           },
@@ -4975,6 +4979,10 @@
           },
           {
             "type": "initializer_list",
+            "named": true
+          },
+          {
+            "type": "keyword",
             "named": true
           },
           {

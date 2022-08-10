@@ -2181,6 +2181,15 @@
                         {
                           "type": "SYMBOL",
                           "name": "_type"
+                        },
+                        {
+                          "type": "ALIAS",
+                          "content": {
+                            "type": "STRING",
+                            "value": "!"
+                          },
+                          "named": true,
+                          "value": "keyword"
                         }
                       ]
                     }
