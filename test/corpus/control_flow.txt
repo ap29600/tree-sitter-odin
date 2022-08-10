@@ -1,0 +1,98 @@
+================================================================================
+If statement
+================================================================================
+
+package if_statement
+
+main :: proc () {
+    if cond {
+    } else if other {
+    } else {
+    }
+}
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (package_clause
+    (keyword)
+    (package_identifier))
+  (const_declaration
+    (const_identifier)
+    (operator)
+    (operator)
+    (proc_literal
+      (keyword)
+      (parameter_list)
+      (block
+        (if_statement
+          (keyword)
+          (identifier)
+          (block)
+          (keyword)
+          (if_statement
+            (keyword)
+            (identifier)
+            (block)
+            (keyword)
+            (block)))))))
+
+================================================================================
+Ranged for loop
+================================================================================
+
+package ranged_for
+
+main :: proc () {
+    for a in b {
+    }
+}
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (package_clause
+    (keyword)
+    (package_identifier))
+  (const_declaration
+    (const_identifier)
+    (operator)
+    (operator)
+    (proc_literal
+      (keyword)
+      (parameter_list)
+      (block
+        (for_statement
+          (keyword)
+          (identifier)
+          (keyword)
+          (identifier)
+          (block))))))
+
+================================================================================
+C-style for loop
+================================================================================
+
+package c_style_for
+
+main :: proc () {
+    for ;; {
+    }
+}
+
+--------------------------------------------------------------------------------
+(source_file
+  (package_clause
+    (keyword)
+    (package_identifier))
+  (const_declaration
+    name: (const_identifier)
+    (operator)
+    (operator)
+    value: (proc_literal
+      (keyword)
+      parameters: (parameter_list)
+      (block
+        (for_statement
+          (keyword)
+          body: (block))))))
