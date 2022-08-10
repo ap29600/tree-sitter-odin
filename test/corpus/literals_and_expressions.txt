@@ -125,6 +125,7 @@ left_unary :: {
     -1.0,
     &a,
     ~0b01010101,
+    auto_cast 1,
 }
 
 right_unary :: {
@@ -179,7 +180,10 @@ binary :: {
           operand: (identifier))
         (left_unary_expression
           operator: (operator)
-          operand: (int_literal)))))
+          operand: (int_literal))
+        (type_conversion
+          (operator)
+          (int_literal)))))
   (const_declaration
     name: (const_identifier)
     (operator)

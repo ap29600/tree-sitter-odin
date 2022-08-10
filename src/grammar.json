@@ -1736,34 +1736,53 @@
         "type": "SEQ",
         "members": [
           {
-            "type": "ALIAS",
-            "content": {
-              "type": "CHOICE",
-              "members": [
-                {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SEQ",
+                "members": [
+                  {
+                    "type": "ALIAS",
+                    "content": {
+                      "type": "CHOICE",
+                      "members": [
+                        {
+                          "type": "STRING",
+                          "value": "cast"
+                        },
+                        {
+                          "type": "STRING",
+                          "value": "transmute"
+                        }
+                      ]
+                    },
+                    "named": true,
+                    "value": "keyword"
+                  },
+                  {
+                    "type": "STRING",
+                    "value": "("
+                  },
+                  {
+                    "type": "SYMBOL",
+                    "name": "_type"
+                  },
+                  {
+                    "type": "STRING",
+                    "value": ")"
+                  }
+                ]
+              },
+              {
+                "type": "ALIAS",
+                "content": {
                   "type": "STRING",
-                  "value": "cast"
+                  "value": "auto_cast"
                 },
-                {
-                  "type": "STRING",
-                  "value": "transmute"
-                }
-              ]
-            },
-            "named": true,
-            "value": "keyword"
-          },
-          {
-            "type": "STRING",
-            "value": "("
-          },
-          {
-            "type": "SYMBOL",
-            "name": "_type"
-          },
-          {
-            "type": "STRING",
-            "value": ")"
+                "named": true,
+                "value": "operator"
+              }
+            ]
           },
           {
             "type": "SYMBOL",

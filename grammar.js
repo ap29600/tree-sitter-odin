@@ -395,8 +395,13 @@ module.exports = grammar({
     )),
 
     type_conversion: $ => prec(op_prec.l_unary, seq(
-      alias(choice('cast', 'transmute'), $.keyword),
-      '(', $._type, ')',
+      choice(
+        seq(
+          alias(choice('cast', 'transmute'), $.keyword),
+          '(', $._type, ')',
+        ),
+        alias('auto_cast', $.operator),
+      ),
       $._expression,
     )),
 

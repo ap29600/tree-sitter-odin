@@ -6706,6 +6706,10 @@
           "named": true
         },
         {
+          "type": "operator",
+          "named": true
+        },
+        {
           "type": "pointer_type",
           "named": true
         },
