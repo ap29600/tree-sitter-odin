@@ -1459,8 +1459,30 @@
                       "type": "SEQ",
                       "members": [
                         {
-                          "type": "SYMBOL",
-                          "name": "identifier"
+                          "type": "SEQ",
+                          "members": [
+                            {
+                              "type": "CHOICE",
+                              "members": [
+                                {
+                                  "type": "ALIAS",
+                                  "content": {
+                                    "type": "STRING",
+                                    "value": "using"
+                                  },
+                                  "named": true,
+                                  "value": "keyword"
+                                },
+                                {
+                                  "type": "BLANK"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "SYMBOL",
+                              "name": "identifier"
+                            }
+                          ]
                         },
                         {
                           "type": "REPEAT",
@@ -1472,8 +1494,30 @@
                                 "value": ","
                               },
                               {
-                                "type": "SYMBOL",
-                                "name": "identifier"
+                                "type": "SEQ",
+                                "members": [
+                                  {
+                                    "type": "CHOICE",
+                                    "members": [
+                                      {
+                                        "type": "ALIAS",
+                                        "content": {
+                                          "type": "STRING",
+                                          "value": "using"
+                                        },
+                                        "named": true,
+                                        "value": "keyword"
+                                      },
+                                      {
+                                        "type": "BLANK"
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "type": "SYMBOL",
+                                    "name": "identifier"
+                                  }
+                                ]
                               }
                             ]
                           }
@@ -1506,8 +1550,30 @@
                             "type": "SEQ",
                             "members": [
                               {
-                                "type": "SYMBOL",
-                                "name": "identifier"
+                                "type": "SEQ",
+                                "members": [
+                                  {
+                                    "type": "CHOICE",
+                                    "members": [
+                                      {
+                                        "type": "ALIAS",
+                                        "content": {
+                                          "type": "STRING",
+                                          "value": "using"
+                                        },
+                                        "named": true,
+                                        "value": "keyword"
+                                      },
+                                      {
+                                        "type": "BLANK"
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "type": "SYMBOL",
+                                    "name": "identifier"
+                                  }
+                                ]
                               },
                               {
                                 "type": "REPEAT",
@@ -1519,8 +1585,30 @@
                                       "value": ","
                                     },
                                     {
-                                      "type": "SYMBOL",
-                                      "name": "identifier"
+                                      "type": "SEQ",
+                                      "members": [
+                                        {
+                                          "type": "CHOICE",
+                                          "members": [
+                                            {
+                                              "type": "ALIAS",
+                                              "content": {
+                                                "type": "STRING",
+                                                "value": "using"
+                                              },
+                                              "named": true,
+                                              "value": "keyword"
+                                            },
+                                            {
+                                              "type": "BLANK"
+                                            }
+                                          ]
+                                        },
+                                        {
+                                          "type": "SYMBOL",
+                                          "name": "identifier"
+                                        }
+                                      ]
                                     }
                                   ]
                                 }
@@ -2550,12 +2638,47 @@
         "type": "SEQ",
         "members": [
           {
-            "type": "FIELD",
-            "name": "procedure",
-            "content": {
-              "type": "SYMBOL",
-              "name": "_expression"
-            }
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "FIELD",
+                "name": "procedure",
+                "content": {
+                  "type": "SYMBOL",
+                  "name": "_expression"
+                }
+              },
+              {
+                "type": "SEQ",
+                "members": [
+                  {
+                    "type": "FIELD",
+                    "name": "caller",
+                    "content": {
+                      "type": "SYMBOL",
+                      "name": "_expression"
+                    }
+                  },
+                  {
+                    "type": "ALIAS",
+                    "content": {
+                      "type": "STRING",
+                      "value": "->"
+                    },
+                    "named": true,
+                    "value": "operator"
+                  },
+                  {
+                    "type": "FIELD",
+                    "name": "member_proc",
+                    "content": {
+                      "type": "SYMBOL",
+                      "name": "identifier"
+                    }
+                  }
+                ]
+              }
+            ]
           },
           {
             "type": "STRING",

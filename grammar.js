@@ -356,7 +356,7 @@ module.exports = grammar({
       alias('struct', $.keyword),
       optional(field('parameters', $.parameter_list)),
       '{',
-      list(',', seq( list1(',', $.identifier), ':', $._type )), 
+      list(',', seq(list1(',', seq(optional(alias('using', $.keyword)), $.identifier)), ':', $._type )), 
       optional(','),
       '}',
     ),
@@ -503,7 +503,14 @@ module.exports = grammar({
     _calling_convention: $ => alias($.interpreted_string_literal,$.calling_convention),
 
     proc_call: $ => prec(op_prec.r_unary, seq(
-      field('procedure', $._expression),
+      choice(
+		  field('procedure', $._expression),
+		  seq(
+			  field('caller', $._expression),
+			  alias('->', $.operator),
+			  field('member_proc', $.identifier)
+		  ),
+	  ),
       '(', optional(field('arguments', $.initializer_list)), ')',
     )),
 
