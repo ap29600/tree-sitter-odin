@@ -163,6 +163,7 @@ module.exports = grammar({
     [$.var_declaration, $.const_declaration, $._range_clause],
     [$.single_assignment, $.assignment_statement],
     [$.initializer_list, $.assignment_statement],
+    [$._for_init_and_update_clause, $._for_init_clause],
   ],
 
   rules: {
@@ -581,9 +582,13 @@ module.exports = grammar({
       optional(field('label', seq($._label_identifier, ':'))),
       alias('for', $.keyword),
       optional(choice(
-        $._expression,
-        $._for_clause,
         $._range_clause,
+        $._for_empty_clause,
+        $._for_full_clause,
+        $._for_conditional_clause,
+        $._for_conditional_and_update_clause,
+        $._for_init_clause,
+        $._for_init_and_update_clause,
       )),
       field('body', choice(
           seq(alias('do', $.keyword), $._statement),
@@ -591,13 +596,37 @@ module.exports = grammar({
       )),
     )),
 
-    _for_clause: $ => prec.right(seq(
-      optional(field('initializer', $._simple_statement)),
+    _for_full_clause: $ => seq(
+      field('initializer', $._simple_statement),
       ';',
-      optional(field('condition', $._expression)),
+      field('condition', $._expression),
       ';',
-      optional(field('update', $._simple_statement)),
-    )),
+      field('update', $._simple_statement),
+    ),
+
+    _for_empty_clause: $ => seq(';', ';'),
+
+    _for_conditional_clause: $=> seq(field('condition', $._expression)),
+
+    _for_conditional_and_update_clause: $ => seq(
+      ';',
+      field('condition', $._expression),
+      ';',
+      field('update', $._simple_statement),
+    ),
+
+    _for_init_and_update_clause: $ => seq(
+      field('initializer', $._simple_statement),
+      ';',
+      ';',
+      field('update', $._simple_statement),
+    ),
+
+    _for_init_clause: $ => seq(
+      field('initializer', $._simple_statement),
+      ';',
+      ';',
+    ),
 
     _range_clause: $ => prec.right(10, seq(
       list1(',', field('name', $.identifier)),
