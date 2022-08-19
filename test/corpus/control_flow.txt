@@ -70,7 +70,7 @@ main :: proc () {
           (block))))))
 
 ================================================================================
-C-style for loop
+C-style for loop with empty clause
 ================================================================================
 
 package c_style_for
@@ -81,6 +81,7 @@ main :: proc () {
 }
 
 --------------------------------------------------------------------------------
+
 (source_file
   (package_clause
     (keyword)
@@ -95,4 +96,191 @@ main :: proc () {
       (block
         (for_statement
           (keyword)
+          body: (block))))))
+
+================================================================================
+C-style for loop with full clause
+================================================================================
+
+package c_style_for
+
+main :: proc () {
+    for i := 0; i < 100; i += 1 {
+    }
+}
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (package_clause
+    (keyword)
+    (package_identifier))
+  (const_declaration
+    name: (const_identifier)
+    (operator)
+    (operator)
+    value: (proc_literal
+      (keyword)
+      parameters: (parameter_list)
+      (block
+        (for_statement
+          (keyword)
+          initializer: (var_declaration
+            name: (identifier)
+            (operator)
+            (operator)
+            value: (int_literal))
+          condition: (binary_expression
+            left: (identifier)
+            operator: (operator)
+            right: (int_literal))
+          update: (assignment_statement
+            lhs: (identifier)
+            (operator)
+            rhs: (int_literal))
+          body: (block))))))
+
+================================================================================
+C-style for loop with only condition
+================================================================================
+
+package c_style_for
+
+main :: proc () {
+    for 1 + i < 100 {
+    }
+}
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (package_clause
+    (keyword)
+    (package_identifier))
+  (const_declaration
+    name: (const_identifier)
+    (operator)
+    (operator)
+    value: (proc_literal
+      (keyword)
+      parameters: (parameter_list)
+      (block
+        (for_statement
+          (keyword)
+          condition: (binary_expression
+            left: (binary_expression
+              left: (int_literal)
+              operator: (operator)
+              right: (identifier))
+            operator: (operator)
+            right: (int_literal))
+          body: (block))))))
+
+================================================================================
+C-style for loop with condition and update
+================================================================================
+
+package c_style_for
+
+main :: proc () {
+    for ; i < 100; i += 2 {
+    }
+}
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (package_clause
+    (keyword)
+    (package_identifier))
+  (const_declaration
+    name: (const_identifier)
+    (operator)
+    (operator)
+    value: (proc_literal
+      (keyword)
+      parameters: (parameter_list)
+      (block
+        (for_statement
+          (keyword)
+          condition: (binary_expression
+            left: (identifier)
+            operator: (operator)
+            right: (int_literal))
+          update: (assignment_statement
+            lhs: (identifier)
+            (operator)
+            rhs: (int_literal))
+          body: (block))))))
+
+================================================================================
+C-style for loop with only initializer
+================================================================================
+
+package c_style_for
+
+main :: proc () {
+    for i := 2 ;; {
+    }
+}
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (package_clause
+    (keyword)
+    (package_identifier))
+  (const_declaration
+    name: (const_identifier)
+    (operator)
+    (operator)
+    value: (proc_literal
+      (keyword)
+      parameters: (parameter_list)
+      (block
+        (for_statement
+          (keyword)
+          initializer: (var_declaration
+            name: (identifier)
+            (operator)
+            (operator)
+            value: (int_literal))
+          body: (block))))))
+
+================================================================================
+C-style for loop with initializer and update clause
+================================================================================
+
+package c_style_for
+
+main :: proc () {
+    for  i := 1; ; i += 2 {
+    }
+}
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (package_clause
+    (keyword)
+    (package_identifier))
+  (const_declaration
+    name: (const_identifier)
+    (operator)
+    (operator)
+    value: (proc_literal
+      (keyword)
+      parameters: (parameter_list)
+      (block
+        (for_statement
+          (keyword)
+          initializer: (var_declaration
+            name: (identifier)
+            (operator)
+            (operator)
+            value: (int_literal))
+          update: (assignment_statement
+            lhs: (identifier)
+            (operator)
+            rhs: (int_literal))
           body: (block))))))
