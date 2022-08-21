@@ -387,6 +387,7 @@ module.exports = grammar({
       $.index_expression,
       $.selector_expression,
       $.proc_literal,
+      $.proc_group,
       $.proc_call,
       $._type,
     )),
@@ -456,6 +457,13 @@ module.exports = grammar({
         '---'
       ),
     )),
+
+    proc_group: $ => seq(
+        alias('proc', $.keyword),
+        '{',
+        list1(',', $.identifier),
+        '}',
+    ),
 
     _proc_type: $ => prec.right(10, seq(
       alias('proc', $.keyword),
@@ -532,13 +540,13 @@ module.exports = grammar({
 
     case_statement: $ => seq(
       alias('case', $.keyword),
-      optional($._expression),
+      list(',', $._expression),
       alias(':', $.operator),
     ),
 
-    continue_statement: $ => alias('continue', $.keyword),
+    continue_statement: $ => seq(alias('continue', $.keyword), optional($._label_identifier)),
 
-    break_statement: $ => alias('break', $.keyword),
+    break_statement: $ => seq(alias('break', $.keyword), optional($._label_identifier)),
 
     if_statement: $ => prec.right(seq(
       optional(field('label', seq($._label_identifier, ':'))),
@@ -689,6 +697,7 @@ module.exports = grammar({
       '#no_bounds_check',
       '#raw_union',
       '#packed',
+      '#partial',
       '#unroll',
       '#type',
       // FIXME: parentheses can't be matched with a grammar rule because a 'token' can't contain non-terminal symbols,
