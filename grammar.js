@@ -172,6 +172,7 @@ module.exports = grammar({
       list(
         terminator,
         optional(choice(
+          $.foreign_block,
           $._declaration,
           $.import_declaration,
         )),
@@ -191,6 +192,15 @@ module.exports = grammar({
         $._package_identifier
       ))),
       field('path', $._string_literal)
+    ),
+
+    foreign_block: $ => seq(
+      optional($.pragma),
+      alias('foreign', $.keyword),
+      optional($._package_identifier),
+      '{',
+      list(terminator, optional($._declaration)),
+      '}',
     ),
 
     blank_identifier: $ => '_',
@@ -247,7 +257,14 @@ module.exports = grammar({
     pragma: $ => seq(
       '@',
       choice(
-        seq('(', choice($._pragma_identifier, seq($._pragma_identifier, '=', $._expression)),')'),
+        seq(
+          '(',
+          list1(
+            ',',
+            choice($._pragma_identifier, seq($._pragma_identifier, '=', $._expression))
+          ),
+          ')'
+        ),
         $._pragma_identifier,
       ),
     ),
