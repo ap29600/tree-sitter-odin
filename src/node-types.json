@@ -3,16 +3,6 @@
     "type": "array_type",
     "named": true,
     "fields": {
-      "arguments": {
-        "multiple": true,
-        "required": false,
-        "types": [
-          {
-            "type": "initializer_list",
-            "named": true
-          }
-        ]
-      },
       "size": {
         "multiple": true,
         "required": false,
@@ -59,10 +49,6 @@
           },
           {
             "type": "index_expression",
-            "named": true
-          },
-          {
-            "type": "initializer_list",
             "named": true
           },
           {
@@ -160,14 +146,6 @@
         "required": true,
         "types": [
           {
-            "type": "(",
-            "named": false
-          },
-          {
-            "type": ")",
-            "named": false
-          },
-          {
             "type": "array_type",
             "named": true
           },
@@ -180,10 +158,6 @@
             "named": true
           },
           {
-            "type": "initializer_list",
-            "named": true
-          },
-          {
             "type": "map_type",
             "named": true
           },
@@ -192,7 +166,15 @@
             "named": true
           },
           {
+            "type": "operator",
+            "named": true
+          },
+          {
             "type": "pointer_type",
+            "named": true
+          },
+          {
+            "type": "proc_call",
             "named": true
           },
           {
@@ -223,16 +205,6 @@
     "type": "assignment_statement",
     "named": true,
     "fields": {
-      "arguments": {
-        "multiple": true,
-        "required": false,
-        "types": [
-          {
-            "type": "initializer_list",
-            "named": true
-          }
-        ]
-      },
       "lhs": {
         "multiple": true,
         "required": true,
@@ -286,10 +258,6 @@
             "named": true
           },
           {
-            "type": "initializer_list",
-            "named": true
-          },
-          {
             "type": "int_literal",
             "named": true
           },
@@ -311,6 +279,10 @@
           },
           {
             "type": "nil",
+            "named": true
+          },
+          {
+            "type": "operator",
             "named": true
           },
           {
@@ -424,10 +396,6 @@
             "named": true
           },
           {
-            "type": "initializer_list",
-            "named": true
-          },
-          {
             "type": "int_literal",
             "named": true
           },
@@ -449,6 +417,10 @@
           },
           {
             "type": "nil",
+            "named": true
+          },
+          {
+            "type": "operator",
             "named": true
           },
           {
@@ -525,16 +497,6 @@
     "type": "binary_expression",
     "named": true,
     "fields": {
-      "arguments": {
-        "multiple": true,
-        "required": false,
-        "types": [
-          {
-            "type": "initializer_list",
-            "named": true
-          }
-        ]
-      },
       "left": {
         "multiple": true,
         "required": true,
@@ -584,10 +546,6 @@
             "named": true
           },
           {
-            "type": "initializer_list",
-            "named": true
-          },
-          {
             "type": "int_literal",
             "named": true
           },
@@ -609,6 +567,10 @@
           },
           {
             "type": "nil",
+            "named": true
+          },
+          {
+            "type": "operator",
             "named": true
           },
           {
@@ -728,10 +690,6 @@
             "named": true
           },
           {
-            "type": "initializer_list",
-            "named": true
-          },
-          {
             "type": "int_literal",
             "named": true
           },
@@ -753,6 +711,10 @@
           },
           {
             "type": "nil",
+            "named": true
+          },
+          {
+            "type": "operator",
             "named": true
           },
           {
@@ -819,28 +781,10 @@
     "type": "bit_set_type",
     "named": true,
     "fields": {
-      "arguments": {
-        "multiple": true,
-        "required": false,
-        "types": [
-          {
-            "type": "initializer_list",
-            "named": true
-          }
-        ]
-      },
       "backing": {
         "multiple": true,
         "required": false,
         "types": [
-          {
-            "type": "(",
-            "named": false
-          },
-          {
-            "type": ")",
-            "named": false
-          },
           {
             "type": "array_type",
             "named": true
@@ -854,10 +798,6 @@
             "named": true
           },
           {
-            "type": "initializer_list",
-            "named": true
-          },
-          {
             "type": "map_type",
             "named": true
           },
@@ -866,7 +806,15 @@
             "named": true
           },
           {
+            "type": "operator",
+            "named": true
+          },
+          {
             "type": "pointer_type",
+            "named": true
+          },
+          {
+            "type": "proc_call",
             "named": true
           },
           {
@@ -940,10 +888,6 @@
             "named": true
           },
           {
-            "type": "initializer_list",
-            "named": true
-          },
-          {
             "type": "int_literal",
             "named": true
           },
@@ -965,6 +909,10 @@
           },
           {
             "type": "nil",
+            "named": true
+          },
+          {
+            "type": "operator",
             "named": true
           },
           {
@@ -1026,7 +974,7 @@
         ]
       },
       "type": {
-        "multiple": false,
+        "multiple": true,
         "required": false,
         "types": [
           {
@@ -1050,7 +998,19 @@
             "named": true
           },
           {
+            "type": "operator",
+            "named": true
+          },
+          {
             "type": "pointer_type",
+            "named": true
+          },
+          {
+            "type": "proc_call",
+            "named": true
+          },
+          {
+            "type": "proc_type",
             "named": true
           },
           {
@@ -1222,18 +1182,7 @@
   {
     "type": "case_statement",
     "named": true,
-    "fields": {
-      "arguments": {
-        "multiple": true,
-        "required": false,
-        "types": [
-          {
-            "type": "initializer_list",
-            "named": true
-          }
-        ]
-      }
-    },
+    "fields": {},
     "children": {
       "multiple": true,
       "required": true,
@@ -1369,16 +1318,6 @@
     "type": "compound_literal",
     "named": true,
     "fields": {
-      "arguments": {
-        "multiple": false,
-        "required": false,
-        "types": [
-          {
-            "type": "initializer_list",
-            "named": true
-          }
-        ]
-      },
       "contents": {
         "multiple": false,
         "required": false,
@@ -1394,14 +1333,6 @@
         "required": false,
         "types": [
           {
-            "type": "(",
-            "named": false
-          },
-          {
-            "type": ")",
-            "named": false
-          },
-          {
             "type": "array_type",
             "named": true
           },
@@ -1414,10 +1345,6 @@
             "named": true
           },
           {
-            "type": "initializer_list",
-            "named": true
-          },
-          {
             "type": "map_type",
             "named": true
           },
@@ -1426,7 +1353,19 @@
             "named": true
           },
           {
+            "type": "operator",
+            "named": true
+          },
+          {
             "type": "pointer_type",
+            "named": true
+          },
+          {
+            "type": "proc_call",
+            "named": true
+          },
+          {
+            "type": "proc_type",
             "named": true
           },
           {
@@ -1453,16 +1392,6 @@
     "type": "const_declaration",
     "named": true,
     "fields": {
-      "arguments": {
-        "multiple": true,
-        "required": false,
-        "types": [
-          {
-            "type": "initializer_list",
-            "named": true
-          }
-        ]
-      },
       "name": {
         "multiple": true,
         "required": true,
@@ -1482,14 +1411,6 @@
         "required": false,
         "types": [
           {
-            "type": "(",
-            "named": false
-          },
-          {
-            "type": ")",
-            "named": false
-          },
-          {
             "type": "array_type",
             "named": true
           },
@@ -1502,10 +1423,6 @@
             "named": true
           },
           {
-            "type": "initializer_list",
-            "named": true
-          },
-          {
             "type": "map_type",
             "named": true
           },
@@ -1514,7 +1431,15 @@
             "named": true
           },
           {
+            "type": "operator",
+            "named": true
+          },
+          {
             "type": "pointer_type",
+            "named": true
+          },
+          {
+            "type": "proc_call",
             "named": true
           },
           {
@@ -1592,10 +1517,6 @@
             "named": true
           },
           {
-            "type": "initializer_list",
-            "named": true
-          },
-          {
             "type": "int_literal",
             "named": true
           },
@@ -1617,6 +1538,10 @@
           },
           {
             "type": "nil",
+            "named": true
+          },
+          {
+            "type": "operator",
             "named": true
           },
           {
@@ -1772,7 +1697,7 @@
     "named": true,
     "fields": {
       "backing": {
-        "multiple": false,
+        "multiple": true,
         "required": false,
         "types": [
           {
@@ -1796,7 +1721,19 @@
             "named": true
           },
           {
+            "type": "operator",
+            "named": true
+          },
+          {
             "type": "pointer_type",
+            "named": true
+          },
+          {
+            "type": "proc_call",
+            "named": true
+          },
+          {
+            "type": "proc_type",
             "named": true
           },
           {
@@ -1843,16 +1780,6 @@
     "type": "for_statement",
     "named": true,
     "fields": {
-      "arguments": {
-        "multiple": false,
-        "required": false,
-        "types": [
-          {
-            "type": "initializer_list",
-            "named": true
-          }
-        ]
-      },
       "body": {
         "multiple": true,
         "required": true,
@@ -1972,10 +1899,6 @@
             "named": true
           },
           {
-            "type": "initializer_list",
-            "named": true
-          },
-          {
             "type": "int_literal",
             "named": true
           },
@@ -1997,6 +1920,10 @@
           },
           {
             "type": "nil",
+            "named": true
+          },
+          {
+            "type": "operator",
             "named": true
           },
           {
@@ -2168,10 +2095,6 @@
             "named": true
           },
           {
-            "type": "initializer_list",
-            "named": true
-          },
-          {
             "type": "int_literal",
             "named": true
           },
@@ -2193,6 +2116,10 @@
           },
           {
             "type": "nil",
+            "named": true
+          },
+          {
+            "type": "operator",
             "named": true
           },
           {
@@ -2338,16 +2265,6 @@
     "type": "if_statement",
     "named": true,
     "fields": {
-      "arguments": {
-        "multiple": false,
-        "required": false,
-        "types": [
-          {
-            "type": "initializer_list",
-            "named": true
-          }
-        ]
-      },
       "condition": {
         "multiple": true,
         "required": true,
@@ -2397,10 +2314,6 @@
             "named": true
           },
           {
-            "type": "initializer_list",
-            "named": true
-          },
-          {
             "type": "int_literal",
             "named": true
           },
@@ -2422,6 +2335,10 @@
           },
           {
             "type": "nil",
+            "named": true
+          },
+          {
+            "type": "operator",
             "named": true
           },
           {
@@ -2766,16 +2683,6 @@
     "type": "index_expression",
     "named": true,
     "fields": {
-      "arguments": {
-        "multiple": true,
-        "required": false,
-        "types": [
-          {
-            "type": "initializer_list",
-            "named": true
-          }
-        ]
-      },
       "end": {
         "multiple": true,
         "required": false,
@@ -2825,10 +2732,6 @@
             "named": true
           },
           {
-            "type": "initializer_list",
-            "named": true
-          },
-          {
             "type": "int_literal",
             "named": true
           },
@@ -2850,6 +2753,10 @@
           },
           {
             "type": "nil",
+            "named": true
+          },
+          {
+            "type": "operator",
             "named": true
           },
           {
@@ -2963,10 +2870,6 @@
             "named": true
           },
           {
-            "type": "initializer_list",
-            "named": true
-          },
-          {
             "type": "int_literal",
             "named": true
           },
@@ -2988,6 +2891,10 @@
           },
           {
             "type": "nil",
+            "named": true
+          },
+          {
+            "type": "operator",
             "named": true
           },
           {
@@ -3097,10 +3004,6 @@
             "named": true
           },
           {
-            "type": "initializer_list",
-            "named": true
-          },
-          {
             "type": "int_literal",
             "named": true
           },
@@ -3122,6 +3025,10 @@
           },
           {
             "type": "nil",
+            "named": true
+          },
+          {
+            "type": "operator",
             "named": true
           },
           {
@@ -3231,10 +3138,6 @@
             "named": true
           },
           {
-            "type": "initializer_list",
-            "named": true
-          },
-          {
             "type": "int_literal",
             "named": true
           },
@@ -3256,6 +3159,10 @@
           },
           {
             "type": "nil",
+            "named": true
+          },
+          {
+            "type": "operator",
             "named": true
           },
           {
@@ -3331,21 +3238,10 @@
   {
     "type": "initializer_list",
     "named": true,
-    "fields": {
-      "arguments": {
-        "multiple": true,
-        "required": false,
-        "types": [
-          {
-            "type": "initializer_list",
-            "named": true
-          }
-        ]
-      }
-    },
+    "fields": {},
     "children": {
       "multiple": true,
-      "required": false,
+      "required": true,
       "types": [
         {
           "type": "array_type",
@@ -3405,6 +3301,10 @@
         },
         {
           "type": "nil",
+          "named": true
+        },
+        {
+          "type": "operator",
           "named": true
         },
         {
@@ -3489,16 +3389,6 @@
     "type": "left_unary_expression",
     "named": true,
     "fields": {
-      "arguments": {
-        "multiple": false,
-        "required": false,
-        "types": [
-          {
-            "type": "initializer_list",
-            "named": true
-          }
-        ]
-      },
       "operand": {
         "multiple": true,
         "required": true,
@@ -3548,10 +3438,6 @@
             "named": true
           },
           {
-            "type": "initializer_list",
-            "named": true
-          },
-          {
             "type": "int_literal",
             "named": true
           },
@@ -3573,6 +3459,10 @@
           },
           {
             "type": "nil",
+            "named": true
+          },
+          {
+            "type": "operator",
             "named": true
           },
           {
@@ -3649,28 +3539,10 @@
     "type": "map_type",
     "named": true,
     "fields": {
-      "arguments": {
-        "multiple": true,
-        "required": false,
-        "types": [
-          {
-            "type": "initializer_list",
-            "named": true
-          }
-        ]
-      },
       "key": {
         "multiple": true,
         "required": true,
         "types": [
-          {
-            "type": "(",
-            "named": false
-          },
-          {
-            "type": ")",
-            "named": false
-          },
           {
             "type": "array_type",
             "named": true
@@ -3684,10 +3556,6 @@
             "named": true
           },
           {
-            "type": "initializer_list",
-            "named": true
-          },
-          {
             "type": "map_type",
             "named": true
           },
@@ -3696,7 +3564,15 @@
             "named": true
           },
           {
+            "type": "operator",
+            "named": true
+          },
+          {
             "type": "pointer_type",
+            "named": true
+          },
+          {
+            "type": "proc_call",
             "named": true
           },
           {
@@ -3726,14 +3602,6 @@
         "required": true,
         "types": [
           {
-            "type": "(",
-            "named": false
-          },
-          {
-            "type": ")",
-            "named": false
-          },
-          {
             "type": "array_type",
             "named": true
           },
@@ -3746,10 +3614,6 @@
             "named": true
           },
           {
-            "type": "initializer_list",
-            "named": true
-          },
-          {
             "type": "map_type",
             "named": true
           },
@@ -3758,7 +3622,15 @@
             "named": true
           },
           {
+            "type": "operator",
+            "named": true
+          },
+          {
             "type": "pointer_type",
+            "named": true
+          },
+          {
+            "type": "proc_call",
             "named": true
           },
           {
@@ -3799,28 +3671,10 @@
     "type": "matrix_type",
     "named": true,
     "fields": {
-      "arguments": {
-        "multiple": true,
-        "required": false,
-        "types": [
-          {
-            "type": "initializer_list",
-            "named": true
-          }
-        ]
-      },
       "type": {
         "multiple": true,
         "required": true,
         "types": [
-          {
-            "type": "(",
-            "named": false
-          },
-          {
-            "type": ")",
-            "named": false
-          },
           {
             "type": "array_type",
             "named": true
@@ -3834,10 +3688,6 @@
             "named": true
           },
           {
-            "type": "initializer_list",
-            "named": true
-          },
-          {
             "type": "map_type",
             "named": true
           },
@@ -3846,7 +3696,15 @@
             "named": true
           },
           {
+            "type": "operator",
+            "named": true
+          },
+          {
             "type": "pointer_type",
+            "named": true
+          },
+          {
+            "type": "proc_call",
             "named": true
           },
           {
@@ -3938,6 +3796,10 @@
         },
         {
           "type": "nil",
+          "named": true
+        },
+        {
+          "type": "operator",
           "named": true
         },
         {
@@ -4022,26 +3884,12 @@
     "type": "parameter_declaration",
     "named": true,
     "fields": {
-      "arguments": {
-        "multiple": true,
-        "required": false,
-        "types": [
-          {
-            "type": "initializer_list",
-            "named": true
-          }
-        ]
-      },
       "name": {
         "multiple": true,
         "required": true,
         "types": [
           {
             "type": ",",
-            "named": false
-          },
-          {
-            "type": ":",
             "named": false
           },
           {
@@ -4060,16 +3908,8 @@
       },
       "type": {
         "multiple": true,
-        "required": true,
+        "required": false,
         "types": [
-          {
-            "type": "(",
-            "named": false
-          },
-          {
-            "type": ")",
-            "named": false
-          },
           {
             "type": "array_type",
             "named": true
@@ -4080,10 +3920,6 @@
           },
           {
             "type": "enum_type",
-            "named": true
-          },
-          {
-            "type": "initializer_list",
             "named": true
           },
           {
@@ -4100,6 +3936,10 @@
           },
           {
             "type": "pointer_type",
+            "named": true
+          },
+          {
+            "type": "proc_call",
             "named": true
           },
           {
@@ -4173,10 +4013,6 @@
             "named": true
           },
           {
-            "type": "initializer_list",
-            "named": true
-          },
-          {
             "type": "int_literal",
             "named": true
           },
@@ -4198,6 +4034,10 @@
           },
           {
             "type": "nil",
+            "named": true
+          },
+          {
+            "type": "operator",
             "named": true
           },
           {
@@ -4258,23 +4098,22 @@
           }
         ]
       }
+    },
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "operator",
+          "named": true
+        }
+      ]
     }
   },
   {
     "type": "parameter_list",
     "named": true,
-    "fields": {
-      "arguments": {
-        "multiple": true,
-        "required": false,
-        "types": [
-          {
-            "type": "initializer_list",
-            "named": true
-          }
-        ]
-      }
-    },
+    "fields": {},
     "children": {
       "multiple": true,
       "required": false,
@@ -4300,11 +4139,19 @@
           "named": true
         },
         {
+          "type": "operator",
+          "named": true
+        },
+        {
           "type": "parameter_declaration",
           "named": true
         },
         {
           "type": "pointer_type",
+          "named": true
+        },
+        {
+          "type": "proc_call",
           "named": true
         },
         {
@@ -4334,28 +4181,10 @@
     "type": "pointer_type",
     "named": true,
     "fields": {
-      "arguments": {
-        "multiple": false,
-        "required": false,
-        "types": [
-          {
-            "type": "initializer_list",
-            "named": true
-          }
-        ]
-      },
       "type": {
         "multiple": true,
         "required": true,
         "types": [
-          {
-            "type": "(",
-            "named": false
-          },
-          {
-            "type": ")",
-            "named": false
-          },
           {
             "type": "array_type",
             "named": true
@@ -4369,10 +4198,6 @@
             "named": true
           },
           {
-            "type": "initializer_list",
-            "named": true
-          },
-          {
             "type": "map_type",
             "named": true
           },
@@ -4381,7 +4206,15 @@
             "named": true
           },
           {
+            "type": "operator",
+            "named": true
+          },
+          {
             "type": "pointer_type",
+            "named": true
+          },
+          {
+            "type": "proc_call",
             "named": true
           },
           {
@@ -4421,18 +4254,7 @@
   {
     "type": "pragma",
     "named": true,
-    "fields": {
-      "arguments": {
-        "multiple": true,
-        "required": false,
-        "types": [
-          {
-            "type": "initializer_list",
-            "named": true
-          }
-        ]
-      }
-    },
+    "fields": {},
     "children": {
       "multiple": true,
       "required": true,
@@ -4495,6 +4317,10 @@
         },
         {
           "type": "nil",
+          "named": true
+        },
+        {
+          "type": "operator",
           "named": true
         },
         {
@@ -4565,7 +4391,7 @@
     "named": true,
     "fields": {
       "arguments": {
-        "multiple": true,
+        "multiple": false,
         "required": false,
         "types": [
           {
@@ -4623,10 +4449,6 @@
             "named": true
           },
           {
-            "type": "initializer_list",
-            "named": true
-          },
-          {
             "type": "int_literal",
             "named": true
           },
@@ -4648,6 +4470,10 @@
           },
           {
             "type": "nil",
+            "named": true
+          },
+          {
+            "type": "operator",
             "named": true
           },
           {
@@ -4767,10 +4593,6 @@
             "named": true
           },
           {
-            "type": "initializer_list",
-            "named": true
-          },
-          {
             "type": "int_literal",
             "named": true
           },
@@ -4792,6 +4614,10 @@
           },
           {
             "type": "nil",
+            "named": true
+          },
+          {
+            "type": "operator",
             "named": true
           },
           {
@@ -4887,16 +4713,6 @@
     "type": "proc_literal",
     "named": true,
     "fields": {
-      "arguments": {
-        "multiple": true,
-        "required": false,
-        "types": [
-          {
-            "type": "initializer_list",
-            "named": true
-          }
-        ]
-      },
       "parameters": {
         "multiple": false,
         "required": true,
@@ -4912,14 +4728,6 @@
         "required": false,
         "types": [
           {
-            "type": "(",
-            "named": false
-          },
-          {
-            "type": ")",
-            "named": false
-          },
-          {
             "type": "array_type",
             "named": true
           },
@@ -4929,10 +4737,6 @@
           },
           {
             "type": "enum_type",
-            "named": true
-          },
-          {
-            "type": "initializer_list",
             "named": true
           },
           {
@@ -4948,11 +4752,19 @@
             "named": true
           },
           {
+            "type": "operator",
+            "named": true
+          },
+          {
             "type": "parameter_list",
             "named": true
           },
           {
             "type": "pointer_type",
+            "named": true
+          },
+          {
+            "type": "proc_call",
             "named": true
           },
           {
@@ -5121,16 +4933,6 @@
     "type": "proc_type",
     "named": true,
     "fields": {
-      "arguments": {
-        "multiple": false,
-        "required": false,
-        "types": [
-          {
-            "type": "initializer_list",
-            "named": true
-          }
-        ]
-      },
       "parameters": {
         "multiple": false,
         "required": true,
@@ -5146,14 +4948,6 @@
         "required": false,
         "types": [
           {
-            "type": "(",
-            "named": false
-          },
-          {
-            "type": ")",
-            "named": false
-          },
-          {
             "type": "array_type",
             "named": true
           },
@@ -5163,10 +4957,6 @@
           },
           {
             "type": "enum_type",
-            "named": true
-          },
-          {
-            "type": "initializer_list",
             "named": true
           },
           {
@@ -5182,11 +4972,19 @@
             "named": true
           },
           {
+            "type": "operator",
+            "named": true
+          },
+          {
             "type": "parameter_list",
             "named": true
           },
           {
             "type": "pointer_type",
+            "named": true
+          },
+          {
+            "type": "proc_call",
             "named": true
           },
           {
@@ -5235,16 +5033,6 @@
     "type": "return_statement",
     "named": true,
     "fields": {
-      "arguments": {
-        "multiple": true,
-        "required": false,
-        "types": [
-          {
-            "type": "initializer_list",
-            "named": true
-          }
-        ]
-      },
       "value": {
         "multiple": true,
         "required": false,
@@ -5298,10 +5086,6 @@
             "named": true
           },
           {
-            "type": "initializer_list",
-            "named": true
-          },
-          {
             "type": "int_literal",
             "named": true
           },
@@ -5323,6 +5107,10 @@
           },
           {
             "type": "nil",
+            "named": true
+          },
+          {
+            "type": "operator",
             "named": true
           },
           {
@@ -5399,16 +5187,6 @@
     "type": "right_unary_expression",
     "named": true,
     "fields": {
-      "arguments": {
-        "multiple": false,
-        "required": false,
-        "types": [
-          {
-            "type": "initializer_list",
-            "named": true
-          }
-        ]
-      },
       "operand": {
         "multiple": true,
         "required": true,
@@ -5458,10 +5236,6 @@
             "named": true
           },
           {
-            "type": "initializer_list",
-            "named": true
-          },
-          {
             "type": "int_literal",
             "named": true
           },
@@ -5483,6 +5257,10 @@
           },
           {
             "type": "nil",
+            "named": true
+          },
+          {
+            "type": "operator",
             "named": true
           },
           {
@@ -5559,16 +5337,6 @@
     "type": "selector_expression",
     "named": true,
     "fields": {
-      "arguments": {
-        "multiple": false,
-        "required": false,
-        "types": [
-          {
-            "type": "initializer_list",
-            "named": true
-          }
-        ]
-      },
       "field": {
         "multiple": false,
         "required": true,
@@ -5628,10 +5396,6 @@
             "named": true
           },
           {
-            "type": "initializer_list",
-            "named": true
-          },
-          {
             "type": "int_literal",
             "named": true
           },
@@ -5653,6 +5417,10 @@
           },
           {
             "type": "nil",
+            "named": true
+          },
+          {
+            "type": "operator",
             "named": true
           },
           {
@@ -5719,16 +5487,6 @@
     "type": "single_assignment",
     "named": true,
     "fields": {
-      "arguments": {
-        "multiple": true,
-        "required": false,
-        "types": [
-          {
-            "type": "initializer_list",
-            "named": true
-          }
-        ]
-      },
       "lhs": {
         "multiple": true,
         "required": true,
@@ -5778,10 +5536,6 @@
             "named": true
           },
           {
-            "type": "initializer_list",
-            "named": true
-          },
-          {
             "type": "int_literal",
             "named": true
           },
@@ -5803,6 +5557,10 @@
           },
           {
             "type": "nil",
+            "named": true
+          },
+          {
+            "type": "operator",
             "named": true
           },
           {
@@ -5912,10 +5670,6 @@
             "named": true
           },
           {
-            "type": "initializer_list",
-            "named": true
-          },
-          {
             "type": "int_literal",
             "named": true
           },
@@ -5937,6 +5691,10 @@
           },
           {
             "type": "nil",
+            "named": true
+          },
+          {
+            "type": "operator",
             "named": true
           },
           {
@@ -6038,16 +5796,6 @@
     "type": "struct_type",
     "named": true,
     "fields": {
-      "arguments": {
-        "multiple": true,
-        "required": false,
-        "types": [
-          {
-            "type": "initializer_list",
-            "named": true
-          }
-        ]
-      },
       "parameters": {
         "multiple": false,
         "required": false,
@@ -6092,7 +5840,15 @@
           "named": true
         },
         {
+          "type": "operator",
+          "named": true
+        },
+        {
           "type": "pointer_type",
+          "named": true
+        },
+        {
+          "type": "proc_call",
           "named": true
         },
         {
@@ -6122,16 +5878,6 @@
     "type": "switch_statement",
     "named": true,
     "fields": {
-      "arguments": {
-        "multiple": false,
-        "required": false,
-        "types": [
-          {
-            "type": "initializer_list",
-            "named": true
-          }
-        ]
-      },
       "bind": {
         "multiple": false,
         "required": false,
@@ -6277,10 +6023,6 @@
             "named": true
           },
           {
-            "type": "initializer_list",
-            "named": true
-          },
-          {
             "type": "int_literal",
             "named": true
           },
@@ -6302,6 +6044,10 @@
           },
           {
             "type": "nil",
+            "named": true
+          },
+          {
+            "type": "operator",
             "named": true
           },
           {
@@ -6430,16 +6176,6 @@
     "type": "ternary_expression",
     "named": true,
     "fields": {
-      "arguments": {
-        "multiple": true,
-        "required": false,
-        "types": [
-          {
-            "type": "initializer_list",
-            "named": true
-          }
-        ]
-      },
       "condition": {
         "multiple": true,
         "required": true,
@@ -6489,10 +6225,6 @@
             "named": true
           },
           {
-            "type": "initializer_list",
-            "named": true
-          },
-          {
             "type": "int_literal",
             "named": true
           },
@@ -6514,6 +6246,10 @@
           },
           {
             "type": "nil",
+            "named": true
+          },
+          {
+            "type": "operator",
             "named": true
           },
           {
@@ -6623,10 +6359,6 @@
             "named": true
           },
           {
-            "type": "initializer_list",
-            "named": true
-          },
-          {
             "type": "int_literal",
             "named": true
           },
@@ -6648,6 +6380,10 @@
           },
           {
             "type": "nil",
+            "named": true
+          },
+          {
+            "type": "operator",
             "named": true
           },
           {
@@ -6757,10 +6493,6 @@
             "named": true
           },
           {
-            "type": "initializer_list",
-            "named": true
-          },
-          {
             "type": "int_literal",
             "named": true
           },
@@ -6782,6 +6514,10 @@
           },
           {
             "type": "nil",
+            "named": true
+          },
+          {
+            "type": "operator",
             "named": true
           },
           {
@@ -6861,18 +6597,7 @@
   {
     "type": "type_conversion",
     "named": true,
-    "fields": {
-      "arguments": {
-        "multiple": true,
-        "required": false,
-        "types": [
-          {
-            "type": "initializer_list",
-            "named": true
-          }
-        ]
-      }
-    },
+    "fields": {},
     "children": {
       "multiple": true,
       "required": true,
@@ -7007,18 +6732,7 @@
   {
     "type": "union_type",
     "named": true,
-    "fields": {
-      "arguments": {
-        "multiple": true,
-        "required": false,
-        "types": [
-          {
-            "type": "initializer_list",
-            "named": true
-          }
-        ]
-      }
-    },
+    "fields": {},
     "children": {
       "multiple": true,
       "required": true,
@@ -7048,7 +6762,15 @@
           "named": true
         },
         {
+          "type": "operator",
+          "named": true
+        },
+        {
           "type": "pointer_type",
+          "named": true
+        },
+        {
+          "type": "proc_call",
           "named": true
         },
         {
@@ -7097,16 +6819,6 @@
     "type": "var_declaration",
     "named": true,
     "fields": {
-      "arguments": {
-        "multiple": true,
-        "required": false,
-        "types": [
-          {
-            "type": "initializer_list",
-            "named": true
-          }
-        ]
-      },
       "name": {
         "multiple": true,
         "required": true,
@@ -7126,14 +6838,6 @@
         "required": false,
         "types": [
           {
-            "type": "(",
-            "named": false
-          },
-          {
-            "type": ")",
-            "named": false
-          },
-          {
             "type": "array_type",
             "named": true
           },
@@ -7146,10 +6850,6 @@
             "named": true
           },
           {
-            "type": "initializer_list",
-            "named": true
-          },
-          {
             "type": "map_type",
             "named": true
           },
@@ -7158,7 +6858,15 @@
             "named": true
           },
           {
+            "type": "operator",
+            "named": true
+          },
+          {
             "type": "pointer_type",
+            "named": true
+          },
+          {
+            "type": "proc_call",
             "named": true
           },
           {
@@ -7236,10 +6944,6 @@
             "named": true
           },
           {
-            "type": "initializer_list",
-            "named": true
-          },
-          {
             "type": "int_literal",
             "named": true
           },
@@ -7261,6 +6965,10 @@
           },
           {
             "type": "nil",
+            "named": true
+          },
+          {
+            "type": "operator",
             "named": true
           },
           {

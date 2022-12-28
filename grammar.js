@@ -298,18 +298,23 @@ module.exports = grammar({
       field('value', list1(',', $._expression)),
     )),
 
-    _type: $ => seq(
-      choice(
-        alias($._proc_type, $.proc_type),
-        $._simple_type,
-        $._generic_type,
-      ),
+    _type: $ => choice(
+      alias($._proc_type, $.proc_type),
+      $._simple_type,
     ),
 
-    _simple_type: $ => choice(
+    _simple_type: $ => prec.right(choice(
       alias(choice(...builtin_types), $.type_identifier),
       $.selector_expression,
       $._type_identifier,
+      seq(
+        alias('$', $.operator),
+        $._type_identifier,
+        optional(seq(
+          alias('/', $.operator),
+          $._type,
+        )),
+      ),
       $.map_type,
       $.pointer_type,
       $.bit_set_type,
@@ -318,24 +323,20 @@ module.exports = grammar({
       $.struct_type,
       $.enum_type,
       $.union_type,
-    ),
-
-    _generic_type: $ => seq(
-      $._type_identifier,
-      '(', optional(field('arguments', $.initializer_list)), ')',
-    ),
+      prec(-1, $.proc_call),
+    )),
 
     pointer_type: $ => prec(op_prec.l_unary, seq(
       alias('^', $.operator), field('type', $._type),
     )),
-	
+
     bit_set_type: $ => prec(op_prec.l_unary, seq(
       alias('bit_set', $.keyword),
-	  '[',
+       '[',
         choice(
           field('type', $._simple_type),
           field('range', $._expression),
-	    ),
+        ),
         optional(seq(';', field('backing', $._type))),
       ']'
     )),
@@ -374,7 +375,11 @@ module.exports = grammar({
       alias('struct', $.keyword),
       optional(field('parameters', $.parameter_list)),
       '{',
-      list(',', seq(list1(',', seq(optional(alias('using', $.keyword)), $.identifier)), ':', $._type )), 
+      list(',', seq(
+        list1(',', seq(optional(alias('using', $.keyword)), $.identifier)),
+        ':',
+        $._type
+      )),
       optional(','),
       '}',
     ),
@@ -501,42 +506,38 @@ module.exports = grammar({
       list(',', seq(
         choice(
           prec.dynamic(1, $.parameter_declaration),
-          prec.dynamic(-1, $._type),
+          prec.dynamic(0, $._type),
         ),
       )),
       ')'
     ),
 
-    parameter_declaration: $ => prec(1, seq(
-      field('name', seq(
-        list1(',', seq(
-          optional(alias('using', $.keyword)),
-          // FIXME: the '$' operator should be allowed internally in the types, not just in front of the outermost type.
-          optional(alias('$', $.operator)),
-          $.identifier,
-        )),
-        ':',
-      )),
-      field('type', seq(
-        optional(alias('..', $.operator)),
+    parameter_declaration: $ => prec.right(1, seq(
+      field('name', list1(',', seq(
+        optional(alias('using', $.keyword)),
         optional(alias('$', $.operator)),
-        $._type,
-        optional(seq(alias('/', $.operator), optional(alias('$', $.operator)), $._type))
-      )),
-      optional(seq('=', field('value', $._expression))),
+        $.identifier))),
+      alias(':', $.operator),
+      choice(
+        field('type', seq(optional(alias('..', $.operator)), $._type)),
+        seq(
+          optional(field('type', $._type)),
+          alias('=', $.operator),
+          field('value', $._expression)),
+      ),
     )),
 
     _calling_convention: $ => alias($.interpreted_string_literal,$.calling_convention),
 
-    proc_call: $ => prec(op_prec.r_unary, seq(
+    proc_call: $ => prec.dynamic(op_prec.r_unary, seq(
       choice(
-		  field('procedure', $._expression),
-		  seq(
-			  field('caller', $._expression),
-			  alias('->', $.operator),
-			  field('member_proc', $.identifier)
-		  ),
-	  ),
+        field('procedure', $._expression),
+        seq(
+          field('caller', $._expression),
+          alias('->', $.operator),
+          field('member_proc', $.identifier)
+        ),
+      ),
       '(', optional(field('arguments', $.initializer_list)), ')',
     )),
 
@@ -697,7 +698,7 @@ module.exports = grammar({
     },
 
     compound_literal: $ => prec.dynamic(1, seq(
-      optional(field('type', choice($._simple_type, $._generic_type))),
+      optional(field('type', $._simple_type)),
       '{', optional(field('contents', $.initializer_list)), '}',
     )),
 
@@ -707,6 +708,7 @@ module.exports = grammar({
     )),
 
     compiler_directive: $ => token(choice(
+      '#any_int',
       '#force_inline',
       '#soa',
       '#no_nil',

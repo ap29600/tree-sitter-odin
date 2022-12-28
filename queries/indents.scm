@@ -1,4 +1,5 @@
 [
+ (foreign_block)
  (block)
  (compound_literal)
  (proc_call)
