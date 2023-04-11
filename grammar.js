@@ -142,7 +142,7 @@ module.exports = grammar({
 
   extras: $ => [
     $.comment,
-    $.compiler_directive,
+    // $.compiler_directive,
     /\s/
   ],
 
@@ -164,6 +164,7 @@ module.exports = grammar({
     [$.single_assignment, $.assignment_statement],
     [$.initializer_list, $.assignment_statement],
     [$._for_init_and_update_clause, $._for_init_clause],
+    [$._expression],
   ],
 
   rules: {
@@ -249,10 +250,16 @@ module.exports = grammar({
     )),
 
     block: $ => prec(1, seq(
+      repeat(alias($._block_directive, $.compiler_directive)),
       '{',
       list(terminator, optional($._statement)),
       '}',
     )),
+
+    _block_directive: $ => choice(
+        '#no_bounds_check',
+        '#bounds_check',
+    ),
 
     pragma: $ => seq(
       '@',
@@ -299,8 +306,8 @@ module.exports = grammar({
     )),
 
     _type: $ => choice(
-      alias($._proc_type, $.proc_type),
-      $._simple_type,
+        alias($._proc_type, $.proc_type),
+        $._simple_type,
     ),
 
     _simple_type: $ => prec.right(choice(
@@ -327,8 +334,13 @@ module.exports = grammar({
     )),
 
     pointer_type: $ => prec(op_prec.l_unary, seq(
+      repeat(alias($._pointer_directive, $.compiler_directive)),
       alias('^', $.operator), field('type', $._type),
     )),
+
+    _pointer_directive: $ => choice(
+        seq('#relative', '(', $._type, ')'),
+    ),
 
     bit_set_type: $ => prec(op_prec.l_unary, seq(
       alias('bit_set', $.keyword),
@@ -346,6 +358,7 @@ module.exports = grammar({
     )),
 
     array_type: $ => prec(op_prec.l_unary, seq(
+      repeat(alias($._array_directive, $.compiler_directive)),
       '[',
 	  optional(field(
         'size',
@@ -359,9 +372,21 @@ module.exports = grammar({
 	  ']', field('type', $._type),
     )),
 
+    _array_directive: $ => choice(
+        '#soa',
+        '#simd',
+    ),
+
     union_type: $ => seq(
       alias('union', $.keyword),
+      repeat(alias($._union_directive, $.compiler_directive)),
       '{', list(',', $._type), '}',
+    ),
+
+    _union_directive: $ => choice(
+        '#no_nil',
+        '#shared_nil',
+        seq('#align', $._expression),
     ),
 
     enum_type: $ => prec(1, seq(
@@ -374,6 +399,7 @@ module.exports = grammar({
     struct_type: $ => seq(
       alias('struct', $.keyword),
       optional(field('parameters', $.parameter_list)),
+      repeat(alias($._struct_directive, $.compiler_directive)),
       '{',
       list(',', seq(
         list1(',', seq(optional(alias('using', $.keyword)), $.identifier)),
@@ -384,6 +410,12 @@ module.exports = grammar({
       '}',
     ),
 
+    _struct_directive: $ => choice(
+        '#packed',
+        '#raw_union',
+        seq('#align', $._expression),
+    ),
+
     map_type: $ => prec(op_prec.l_unary, seq(
       alias('map', $.keyword),
       '[', field('key', $._type), ']',
@@ -391,28 +423,34 @@ module.exports = grammar({
     )),
 
     _expression: $ => prec.right(1, choice(
-      $._string_literal,
-      $.nil,
-      $.bool_literal,
-      $.int_literal,
-      $.rune_literal,
-      $.float_literal,
-      // prec.dynamic(1, $.compound_literal),
-      $.compound_literal,
-      $.identifier,
-      $.left_unary_expression,
-      $.right_unary_expression,
-      $.binary_expression,
-      $.ternary_expression,
-      $.type_conversion,
-      $._parenthesized_expression,
-      $.index_expression,
-      $.selector_expression,
-      $.proc_literal,
-      $.proc_group,
-      $.proc_call,
-      $._type,
+        $._string_literal,
+        $.nil,
+        $.bool_literal,
+        $.int_literal,
+        $.rune_literal,
+        $.float_literal,
+        $.compound_literal,
+        $.identifier,
+        $.left_unary_expression,
+        $.right_unary_expression,
+        $.binary_expression,
+        $.ternary_expression,
+        $.type_conversion,
+        $._parenthesized_expression,
+        $.index_expression,
+        $.selector_expression,
+        $.proc_literal,
+        $.proc_group,
+        $.proc_call,
+        seq(
+            optional(alias($._type_directive, $.compiler_directive)),
+            $._type,
+        )
     )),
+
+    _type_directive: $ => choice(
+        '#type',
+    ),
 
     selector_expression: $ => prec.left(op_prec.r_unary, seq(
       optional(field('parent', $._expression)), '.', field('field', $.identifier),
@@ -465,6 +503,7 @@ module.exports = grammar({
     ),
 
     proc_literal: $ => prec.right(1, seq(
+      repeat(alias($._proc_directive, $.compiler_directive)),
       $._proc_type,
       optional(seq(
         optional('\n'),
@@ -479,6 +518,10 @@ module.exports = grammar({
         '---'
       ),
     )),
+
+    _proc_directive: $ => choice(
+        '#force_inline',
+    ),
 
     proc_group: $ => seq(
         alias('proc', $.keyword),
@@ -513,25 +556,35 @@ module.exports = grammar({
     ),
 
     parameter_declaration: $ => prec.right(1, seq(
-      field('name', list1(',', seq(
-        optional(alias('using', $.keyword)),
-        optional(alias('$', $.operator)),
-        $.identifier))),
-      alias(':', $.operator),
-      choice(
-        field('type', seq(optional(alias('..', $.operator)), $._type)),
-        seq(
-          optional(field('type', $._type)),
-          alias('=', $.operator),
-          field('value', $._expression)),
-      ),
+        field('name', list1(',', seq(
+            repeat(choice(
+                alias('using', $.keyword),
+                alias($._parameter_directive, $.compiler_directive),
+            )),
+            optional(alias('$', $.operator)),
+            $.identifier))),
+        alias(':', $.operator),
+        choice(
+            field('type', seq(optional(alias('..', $.operator)), $._type)),
+            seq(
+                optional(field('type', $._type)),
+                alias('=', $.operator),
+                field('value', $._expression)),
+        ),
     )),
+
+    _parameter_directive: $ => choice(
+        '#no_alias',
+        '#by_ptr',
+        '#any_int',
+        '#c_vararg',
+    ),
 
     _calling_convention: $ => alias($.interpreted_string_literal,$.calling_convention),
 
     proc_call: $ => prec.dynamic(op_prec.r_unary, seq(
       choice(
-        field('procedure', $._expression),
+        field('procedure', choice($._expression, alias($.builtin_procedure, $.compiler_directive))),
         seq(
           field('caller', $._expression),
           alias('->', $.operator),
@@ -590,6 +643,7 @@ module.exports = grammar({
 
     switch_statement: $ => prec.right(1, seq(
       optional(field('label', seq($._label_identifier, ':'))),
+      repeat(alias($._switch_directive, $.compiler_directive)),
       alias('switch', $.keyword),
       choice(
           seq(
@@ -611,8 +665,13 @@ module.exports = grammar({
       )),
     )),
 
+    _switch_directive: $ => choice(
+        '#partial',
+    ),
+
     for_statement: $ => prec.right(1, seq(
       optional(field('label', seq($._label_identifier, ':'))),
+      repeat(alias($._for_directive, $.compiler_directive)),
       alias('for', $.keyword),
       optional(choice(
         $._range_clause,
@@ -628,6 +687,10 @@ module.exports = grammar({
           $.block,
       )),
     )),
+
+    _for_directive: $ => choice(
+        '#unroll',
+    ),
 
     _for_full_clause: $ => seq(
       field('initializer', $._simple_statement),
@@ -707,21 +770,15 @@ module.exports = grammar({
       repeat(choice(letter, unicodeDigit))
     )),
 
-    compiler_directive: $ => token(choice(
-      '#any_int',
-      '#force_inline',
-      '#soa',
-      '#no_nil',
-      '#bounds_check',
-      '#no_bounds_check',
-      '#raw_union',
-      '#packed',
-      '#partial',
-      '#unroll',
-      '#type',
-      // FIXME: parentheses can't be matched with a grammar rule because a 'token' can't contain non-terminal symbols,
-      // although a regex won't be able to correctly match nested parentheses.
-      /#relative\s*\([^)]*\)/,
+    builtin_procedure: $ => token(choice(
+        '#assert',
+        '#error',
+        '#panic',
+        '#config',
+        '#location',
+        '#load',
+        '#load_or',
+        '#load_hash',
     )),
 
     _label_identifier: $ => alias($.identifier, $.label_identifier),

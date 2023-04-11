@@ -32,6 +32,10 @@
             "named": true
           },
           {
+            "type": "compiler_directive",
+            "named": true
+          },
+          {
             "type": "compound_literal",
             "named": true
           },
@@ -199,6 +203,16 @@
           }
         ]
       }
+    },
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "compiler_directive",
+          "named": true
+        }
+      ]
     }
   },
   {
@@ -235,6 +249,10 @@
           },
           {
             "type": "bool_literal",
+            "named": true
+          },
+          {
+            "type": "compiler_directive",
             "named": true
           },
           {
@@ -373,6 +391,10 @@
           },
           {
             "type": "bool_literal",
+            "named": true
+          },
+          {
+            "type": "compiler_directive",
             "named": true
           },
           {
@@ -526,6 +548,10 @@
             "named": true
           },
           {
+            "type": "compiler_directive",
+            "named": true
+          },
+          {
             "type": "compound_literal",
             "named": true
           },
@@ -667,6 +693,10 @@
           },
           {
             "type": "bool_literal",
+            "named": true
+          },
+          {
+            "type": "compiler_directive",
             "named": true
           },
           {
@@ -868,6 +898,10 @@
             "named": true
           },
           {
+            "type": "compiler_directive",
+            "named": true
+          },
+          {
             "type": "compound_literal",
             "named": true
           },
@@ -1064,6 +1098,10 @@
           "named": true
         },
         {
+          "type": "compiler_directive",
+          "named": true
+        },
+        {
           "type": "const_declaration",
           "named": true
         },
@@ -1204,6 +1242,10 @@
           "named": true
         },
         {
+          "type": "compiler_directive",
+          "named": true
+        },
+        {
           "type": "compound_literal",
           "named": true
         },
@@ -1233,6 +1275,141 @@
         },
         {
           "type": "keyword",
+          "named": true
+        },
+        {
+          "type": "left_unary_expression",
+          "named": true
+        },
+        {
+          "type": "map_type",
+          "named": true
+        },
+        {
+          "type": "matrix_type",
+          "named": true
+        },
+        {
+          "type": "nil",
+          "named": true
+        },
+        {
+          "type": "operator",
+          "named": true
+        },
+        {
+          "type": "pointer_type",
+          "named": true
+        },
+        {
+          "type": "proc_call",
+          "named": true
+        },
+        {
+          "type": "proc_group",
+          "named": true
+        },
+        {
+          "type": "proc_literal",
+          "named": true
+        },
+        {
+          "type": "proc_type",
+          "named": true
+        },
+        {
+          "type": "raw_string_literal",
+          "named": true
+        },
+        {
+          "type": "right_unary_expression",
+          "named": true
+        },
+        {
+          "type": "rune_literal",
+          "named": true
+        },
+        {
+          "type": "selector_expression",
+          "named": true
+        },
+        {
+          "type": "struct_type",
+          "named": true
+        },
+        {
+          "type": "ternary_expression",
+          "named": true
+        },
+        {
+          "type": "type_conversion",
+          "named": true
+        },
+        {
+          "type": "type_identifier",
+          "named": true
+        },
+        {
+          "type": "union_type",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "compiler_directive",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "array_type",
+          "named": true
+        },
+        {
+          "type": "binary_expression",
+          "named": true
+        },
+        {
+          "type": "bit_set_type",
+          "named": true
+        },
+        {
+          "type": "bool_literal",
+          "named": true
+        },
+        {
+          "type": "compiler_directive",
+          "named": true
+        },
+        {
+          "type": "compound_literal",
+          "named": true
+        },
+        {
+          "type": "enum_type",
+          "named": true
+        },
+        {
+          "type": "float_literal",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "index_expression",
+          "named": true
+        },
+        {
+          "type": "int_literal",
+          "named": true
+        },
+        {
+          "type": "interpreted_string_literal",
           "named": true
         },
         {
@@ -1494,6 +1671,10 @@
           },
           {
             "type": "bool_literal",
+            "named": true
+          },
+          {
+            "type": "compiler_directive",
             "named": true
           },
           {
@@ -1879,6 +2060,10 @@
             "named": true
           },
           {
+            "type": "compiler_directive",
+            "named": true
+          },
+          {
             "type": "compound_literal",
             "named": true
           },
@@ -2075,6 +2260,10 @@
             "named": true
           },
           {
+            "type": "compiler_directive",
+            "named": true
+          },
+          {
             "type": "compound_literal",
             "named": true
           },
@@ -2224,6 +2413,10 @@
       "required": true,
       "types": [
         {
+          "type": "compiler_directive",
+          "named": true
+        },
+        {
           "type": "keyword",
           "named": true
         }
@@ -2291,6 +2484,10 @@
           },
           {
             "type": "bool_literal",
+            "named": true
+          },
+          {
+            "type": "compiler_directive",
             "named": true
           },
           {
@@ -2712,6 +2909,10 @@
             "named": true
           },
           {
+            "type": "compiler_directive",
+            "named": true
+          },
+          {
             "type": "compound_literal",
             "named": true
           },
@@ -2850,6 +3051,10 @@
             "named": true
           },
           {
+            "type": "compiler_directive",
+            "named": true
+          },
+          {
             "type": "compound_literal",
             "named": true
           },
@@ -2984,6 +3189,10 @@
             "named": true
           },
           {
+            "type": "compiler_directive",
+            "named": true
+          },
+          {
             "type": "compound_literal",
             "named": true
           },
@@ -3115,6 +3324,10 @@
           },
           {
             "type": "bool_literal",
+            "named": true
+          },
+          {
+            "type": "compiler_directive",
             "named": true
           },
           {
@@ -3257,6 +3470,10 @@
         },
         {
           "type": "bool_literal",
+          "named": true
+        },
+        {
+          "type": "compiler_directive",
           "named": true
         },
         {
@@ -3415,6 +3632,10 @@
           },
           {
             "type": "bool_literal",
+            "named": true
+          },
+          {
+            "type": "compiler_directive",
             "named": true
           },
           {
@@ -3751,6 +3972,10 @@
           "named": true
         },
         {
+          "type": "compiler_directive",
+          "named": true
+        },
+        {
           "type": "compound_literal",
           "named": true
         },
@@ -3893,6 +4118,10 @@
             "named": false
           },
           {
+            "type": "compiler_directive",
+            "named": true
+          },
+          {
             "type": "identifier",
             "named": true
           },
@@ -3990,6 +4219,10 @@
           },
           {
             "type": "bool_literal",
+            "named": true
+          },
+          {
+            "type": "compiler_directive",
             "named": true
           },
           {
@@ -4241,9 +4474,13 @@
       }
     },
     "children": {
-      "multiple": false,
+      "multiple": true,
       "required": true,
       "types": [
+        {
+          "type": "compiler_directive",
+          "named": true
+        },
         {
           "type": "operator",
           "named": true
@@ -4273,6 +4510,10 @@
         },
         {
           "type": "bool_literal",
+          "named": true
+        },
+        {
+          "type": "compiler_directive",
           "named": true
         },
         {
@@ -4429,6 +4670,10 @@
             "named": true
           },
           {
+            "type": "compiler_directive",
+            "named": true
+          },
+          {
             "type": "compound_literal",
             "named": true
           },
@@ -4570,6 +4815,10 @@
           },
           {
             "type": "bool_literal",
+            "named": true
+          },
+          {
+            "type": "compiler_directive",
             "named": true
           },
           {
@@ -4816,6 +5065,10 @@
         },
         {
           "type": "calling_convention",
+          "named": true
+        },
+        {
+          "type": "compiler_directive",
           "named": true
         },
         {
@@ -5066,6 +5319,10 @@
             "named": true
           },
           {
+            "type": "compiler_directive",
+            "named": true
+          },
+          {
             "type": "compound_literal",
             "named": true
           },
@@ -5213,6 +5470,10 @@
           },
           {
             "type": "bool_literal",
+            "named": true
+          },
+          {
+            "type": "compiler_directive",
             "named": true
           },
           {
@@ -5376,6 +5637,10 @@
             "named": true
           },
           {
+            "type": "compiler_directive",
+            "named": true
+          },
+          {
             "type": "compound_literal",
             "named": true
           },
@@ -5516,6 +5781,10 @@
             "named": true
           },
           {
+            "type": "compiler_directive",
+            "named": true
+          },
+          {
             "type": "compound_literal",
             "named": true
           },
@@ -5647,6 +5916,10 @@
           },
           {
             "type": "bool_literal",
+            "named": true
+          },
+          {
+            "type": "compiler_directive",
             "named": true
           },
           {
@@ -5817,6 +6090,10 @@
         },
         {
           "type": "bit_set_type",
+          "named": true
+        },
+        {
+          "type": "compiler_directive",
           "named": true
         },
         {
@@ -6003,6 +6280,10 @@
             "named": true
           },
           {
+            "type": "compiler_directive",
+            "named": true
+          },
+          {
             "type": "compound_literal",
             "named": true
           },
@@ -6166,6 +6447,10 @@
       "required": true,
       "types": [
         {
+          "type": "compiler_directive",
+          "named": true
+        },
+        {
           "type": "keyword",
           "named": true
         }
@@ -6202,6 +6487,10 @@
           },
           {
             "type": "bool_literal",
+            "named": true
+          },
+          {
+            "type": "compiler_directive",
             "named": true
           },
           {
@@ -6339,6 +6628,10 @@
             "named": true
           },
           {
+            "type": "compiler_directive",
+            "named": true
+          },
+          {
             "type": "compound_literal",
             "named": true
           },
@@ -6470,6 +6763,10 @@
           },
           {
             "type": "bool_literal",
+            "named": true
+          },
+          {
+            "type": "compiler_directive",
             "named": true
           },
           {
@@ -6619,6 +6916,10 @@
           "named": true
         },
         {
+          "type": "compiler_directive",
+          "named": true
+        },
+        {
           "type": "compound_literal",
           "named": true
         },
@@ -6743,6 +7044,10 @@
         },
         {
           "type": "bit_set_type",
+          "named": true
+        },
+        {
+          "type": "compiler_directive",
           "named": true
         },
         {
@@ -6924,6 +7229,10 @@
             "named": true
           },
           {
+            "type": "compiler_directive",
+            "named": true
+          },
+          {
             "type": "compound_literal",
             "named": true
           },
@@ -7050,6 +7359,78 @@
     "named": false
   },
   {
+    "type": "#align",
+    "named": false
+  },
+  {
+    "type": "#any_int",
+    "named": false
+  },
+  {
+    "type": "#bounds_check",
+    "named": false
+  },
+  {
+    "type": "#by_ptr",
+    "named": false
+  },
+  {
+    "type": "#c_vararg",
+    "named": false
+  },
+  {
+    "type": "#force_inline",
+    "named": false
+  },
+  {
+    "type": "#no_alias",
+    "named": false
+  },
+  {
+    "type": "#no_bounds_check",
+    "named": false
+  },
+  {
+    "type": "#no_nil",
+    "named": false
+  },
+  {
+    "type": "#packed",
+    "named": false
+  },
+  {
+    "type": "#partial",
+    "named": false
+  },
+  {
+    "type": "#raw_union",
+    "named": false
+  },
+  {
+    "type": "#relative",
+    "named": false
+  },
+  {
+    "type": "#shared_nil",
+    "named": false
+  },
+  {
+    "type": "#simd",
+    "named": false
+  },
+  {
+    "type": "#soa",
+    "named": false
+  },
+  {
+    "type": "#type",
+    "named": false
+  },
+  {
+    "type": "#unroll",
+    "named": false
+  },
+  {
     "type": "(",
     "named": false
   },
@@ -7099,10 +7480,6 @@
   },
   {
     "type": "comment",
-    "named": true
-  },
-  {
-    "type": "compiler_directive",
     "named": true
   },
   {
