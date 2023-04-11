@@ -552,7 +552,12 @@ module.exports = grammar({
           prec.dynamic(0, $._type),
         ),
       )),
-      ')'
+      ')',
+      optional(alias($._parameter_list_directive, $.compiler_directive)),
+    ),
+
+    _parameter_list_directive: $ => choice(
+        '#optional_ok',
     ),
 
     parameter_declaration: $ => prec.right(1, seq(

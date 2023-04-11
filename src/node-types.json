@@ -4360,6 +4360,10 @@
           "named": true
         },
         {
+          "type": "compiler_directive",
+          "named": true
+        },
+        {
           "type": "enum_type",
           "named": true
         },
@@ -7392,6 +7396,10 @@
   },
   {
     "type": "#no_nil",
+    "named": false
+  },
+  {
+    "type": "#optional_ok",
     "named": false
   },
   {
