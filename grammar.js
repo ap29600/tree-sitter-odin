@@ -54,7 +54,7 @@
 
 
 const
-  multiplicative_operators = ['*', '/', '%', '<<', '>>', '&', '&~'],
+  multiplicative_operators = ['*', '/', '%', '%%', '<<', '>>', '&', '&~'],
   additive_operators = ['+', '-', '~', '|'],
   comparison_operators = ['>', '<', '<=', '>=', '==', '!='],
   assignment_operators = multiplicative_operators
@@ -67,6 +67,9 @@ const
   builtin_types = [
       'int',
       'uint',
+      'uintptr',
+      'typeid',
+      'rawptr',
       'string',
       'cstring',
       'i8',
@@ -312,6 +315,11 @@ module.exports = grammar({
 
     _simple_type: $ => prec.right(choice(
       alias(choice(...builtin_types), $.type_identifier),
+      seq(
+          alias('typeid', $.type_identifier),
+          alias('/', $.operator),
+          $._type,
+      ),
       $.selector_expression,
       $._type_identifier,
       seq(
@@ -411,6 +419,7 @@ module.exports = grammar({
     ),
 
     _struct_directive: $ => choice(
+        '#no_copy',
         '#packed',
         '#raw_union',
         seq('#align', $._expression),
@@ -503,21 +512,23 @@ module.exports = grammar({
     ),
 
     proc_literal: $ => prec.right(1, seq(
-      repeat(alias($._proc_directive, $.compiler_directive)),
-      $._proc_type,
-      optional(seq(
+        repeat(alias($._proc_directive, $.compiler_directive)),
+        $._proc_type,
+        optional($.where_clause),
+        choice(
+            seq(
+                optional('\n'),
+                $.block,
+            ),
+            '---',
+        ),
+    )),
+
+    where_clause: $ => seq(
         optional('\n'),
         alias('where', $.keyword),
         list1(',', $._expression)
-      )),
-      choice(
-        seq(
-            optional('\n'),
-            $.block,
-        ),
-        '---'
-      ),
-    )),
+    ),
 
     _proc_directive: $ => choice(
         '#force_inline',
