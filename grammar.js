@@ -199,7 +199,7 @@ module.exports = grammar({
     ),
 
     foreign_block: $ => seq(
-      optional($.pragma),
+      repeat($.pragma),
       alias('foreign', $.keyword),
       optional($._package_identifier),
       '{',
@@ -280,7 +280,7 @@ module.exports = grammar({
     ),
 
     _declaration: $ => seq(
-        optional($.pragma),
+        repeat($.pragma),
         choice(
           $.var_declaration,
           $.const_declaration,
@@ -658,29 +658,41 @@ module.exports = grammar({
     )),
 
     switch_statement: $ => prec.right(1, seq(
-      optional(field('label', seq($._label_identifier, ':'))),
-      repeat(alias($._switch_directive, $.compiler_directive)),
-      alias('switch', $.keyword),
-      choice(
-          seq(
-              optional(seq(
-                field('initializer', $._simple_statement),
-                ';',
-              )),
-              optional(field('expression', $._expression)),
-          ),
-          seq(
-              field('bind', $.identifier),
-              alias('in', $.keyword),
-              field('expression',$._expression),
-          ),
-      ),
-      field('body', choice(
-          seq(alias('do', $.keyword), $._statement, optional(terminator)),
-          seq('{', list(terminator, optional(choice($._statement, $.case_statement))), '}'),
-      )),
+        optional(field('label', seq($._label_identifier, ':'))),
+        repeat(alias($._switch_directive, $.compiler_directive)),
+        alias('switch', $.keyword),
+        choice(
+            seq(
+                optional(seq(
+                  field('initializer', $._simple_statement),
+                  ';',
+                )),
+                optional(field('expression', $._expression)),
+            ),
+            seq(
+                field('bind', $.identifier),
+                alias('in', $.keyword),
+                field('expression',$._expression),
+            ),
+        ),
+        field('body', alias( $._switch_block, $.block, )),
     )),
 
+    _switch_block: $ => seq(
+        '{',
+        list(
+            terminator,
+            optional(choice(
+                $._statement,
+                seq(
+                    $.case_statement,
+                    optional($._statement),
+                ),
+            )),
+        ),
+        '}',
+    ),
+    
     _switch_directive: $ => choice(
         '#partial',
     ),

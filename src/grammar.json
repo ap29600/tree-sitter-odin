@@ -164,16 +164,11 @@
       "type": "SEQ",
       "members": [
         {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "pragma"
-            },
-            {
-              "type": "BLANK"
-            }
-          ]
+          "type": "REPEAT",
+          "content": {
+            "type": "SYMBOL",
+            "name": "pragma"
+          }
         },
         {
           "type": "ALIAS",
@@ -676,16 +671,11 @@
       "type": "SEQ",
       "members": [
         {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "pragma"
-            },
-            {
-              "type": "BLANK"
-            }
-          ]
+          "type": "REPEAT",
+          "content": {
+            "type": "SYMBOL",
+            "name": "pragma"
+          }
         },
         {
           "type": "CHOICE",
@@ -3880,114 +3870,110 @@
             "type": "FIELD",
             "name": "body",
             "content": {
-              "type": "CHOICE",
+              "type": "ALIAS",
+              "content": {
+                "type": "SYMBOL",
+                "name": "_switch_block"
+              },
+              "named": true,
+              "value": "block"
+            }
+          }
+        ]
+      }
+    },
+    "_switch_block": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "{"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SEQ",
               "members": [
                 {
-                  "type": "SEQ",
+                  "type": "CHOICE",
                   "members": [
-                    {
-                      "type": "ALIAS",
-                      "content": {
-                        "type": "STRING",
-                        "value": "do"
-                      },
-                      "named": true,
-                      "value": "keyword"
-                    },
-                    {
-                      "type": "SYMBOL",
-                      "name": "_statement"
-                    },
                     {
                       "type": "CHOICE",
                       "members": [
                         {
-                          "type": "CHOICE",
-                          "members": [
-                            {
-                              "type": "STRING",
-                              "value": "\n"
-                            },
-                            {
-                              "type": "STRING",
-                              "value": ";"
-                            }
-                          ]
+                          "type": "SYMBOL",
+                          "name": "_statement"
                         },
-                        {
-                          "type": "BLANK"
-                        }
-                      ]
-                    }
-                  ]
-                },
-                {
-                  "type": "SEQ",
-                  "members": [
-                    {
-                      "type": "STRING",
-                      "value": "{"
-                    },
-                    {
-                      "type": "CHOICE",
-                      "members": [
                         {
                           "type": "SEQ",
                           "members": [
                             {
+                              "type": "SYMBOL",
+                              "name": "case_statement"
+                            },
+                            {
                               "type": "CHOICE",
                               "members": [
                                 {
-                                  "type": "CHOICE",
-                                  "members": [
-                                    {
-                                      "type": "SYMBOL",
-                                      "name": "_statement"
-                                    },
-                                    {
-                                      "type": "SYMBOL",
-                                      "name": "case_statement"
-                                    }
-                                  ]
+                                  "type": "SYMBOL",
+                                  "name": "_statement"
                                 },
                                 {
                                   "type": "BLANK"
                                 }
                               ]
-                            },
-                            {
-                              "type": "REPEAT",
-                              "content": {
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "BLANK"
+                    }
+                  ]
+                },
+                {
+                  "type": "REPEAT",
+                  "content": {
+                    "type": "SEQ",
+                    "members": [
+                      {
+                        "type": "CHOICE",
+                        "members": [
+                          {
+                            "type": "STRING",
+                            "value": "\n"
+                          },
+                          {
+                            "type": "STRING",
+                            "value": ";"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "CHOICE",
+                        "members": [
+                          {
+                            "type": "CHOICE",
+                            "members": [
+                              {
+                                "type": "SYMBOL",
+                                "name": "_statement"
+                              },
+                              {
                                 "type": "SEQ",
                                 "members": [
                                   {
-                                    "type": "CHOICE",
-                                    "members": [
-                                      {
-                                        "type": "STRING",
-                                        "value": "\n"
-                                      },
-                                      {
-                                        "type": "STRING",
-                                        "value": ";"
-                                      }
-                                    ]
+                                    "type": "SYMBOL",
+                                    "name": "case_statement"
                                   },
                                   {
                                     "type": "CHOICE",
                                     "members": [
                                       {
-                                        "type": "CHOICE",
-                                        "members": [
-                                          {
-                                            "type": "SYMBOL",
-                                            "name": "_statement"
-                                          },
-                                          {
-                                            "type": "SYMBOL",
-                                            "name": "case_statement"
-                                          }
-                                        ]
+                                        "type": "SYMBOL",
+                                        "name": "_statement"
                                       },
                                       {
                                         "type": "BLANK"
@@ -3996,25 +3982,28 @@
                                   }
                                 ]
                               }
-                            }
-                          ]
-                        },
-                        {
-                          "type": "BLANK"
-                        }
-                      ]
-                    },
-                    {
-                      "type": "STRING",
-                      "value": "}"
-                    }
-                  ]
+                            ]
+                          },
+                          {
+                            "type": "BLANK"
+                          }
+                        ]
+                      }
+                    ]
+                  }
                 }
               ]
+            },
+            {
+              "type": "BLANK"
             }
-          }
-        ]
-      }
+          ]
+        },
+        {
+          "type": "STRING",
+          "value": "}"
+        }
+      ]
     },
     "_switch_directive": {
       "type": "CHOICE",
