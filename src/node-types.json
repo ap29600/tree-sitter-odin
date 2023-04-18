@@ -48,6 +48,10 @@
             "named": true
           },
           {
+            "type": "generic_type",
+            "named": true
+          },
+          {
             "type": "identifier",
             "named": true
           },
@@ -146,7 +150,7 @@
         ]
       },
       "type": {
-        "multiple": true,
+        "multiple": false,
         "required": true,
         "types": [
           {
@@ -162,15 +166,15 @@
             "named": true
           },
           {
+            "type": "generic_type",
+            "named": true
+          },
+          {
             "type": "map_type",
             "named": true
           },
           {
             "type": "matrix_type",
-            "named": true
-          },
-          {
-            "type": "operator",
             "named": true
           },
           {
@@ -268,6 +272,10 @@
             "named": true
           },
           {
+            "type": "generic_type",
+            "named": true
+          },
+          {
             "type": "identifier",
             "named": true
           },
@@ -297,10 +305,6 @@
           },
           {
             "type": "nil",
-            "named": true
-          },
-          {
-            "type": "operator",
             "named": true
           },
           {
@@ -410,6 +414,10 @@
             "named": true
           },
           {
+            "type": "generic_type",
+            "named": true
+          },
+          {
             "type": "identifier",
             "named": true
           },
@@ -439,10 +447,6 @@
           },
           {
             "type": "nil",
-            "named": true
-          },
-          {
-            "type": "operator",
             "named": true
           },
           {
@@ -564,6 +568,10 @@
             "named": true
           },
           {
+            "type": "generic_type",
+            "named": true
+          },
+          {
             "type": "identifier",
             "named": true
           },
@@ -593,10 +601,6 @@
           },
           {
             "type": "nil",
-            "named": true
-          },
-          {
-            "type": "operator",
             "named": true
           },
           {
@@ -712,6 +716,10 @@
             "named": true
           },
           {
+            "type": "generic_type",
+            "named": true
+          },
+          {
             "type": "identifier",
             "named": true
           },
@@ -741,10 +749,6 @@
           },
           {
             "type": "nil",
-            "named": true
-          },
-          {
-            "type": "operator",
             "named": true
           },
           {
@@ -812,7 +816,7 @@
     "named": true,
     "fields": {
       "backing": {
-        "multiple": true,
+        "multiple": false,
         "required": false,
         "types": [
           {
@@ -828,15 +832,15 @@
             "named": true
           },
           {
+            "type": "generic_type",
+            "named": true
+          },
+          {
             "type": "map_type",
             "named": true
           },
           {
             "type": "matrix_type",
-            "named": true
-          },
-          {
-            "type": "operator",
             "named": true
           },
           {
@@ -914,6 +918,10 @@
             "named": true
           },
           {
+            "type": "generic_type",
+            "named": true
+          },
+          {
             "type": "identifier",
             "named": true
           },
@@ -943,10 +951,6 @@
           },
           {
             "type": "nil",
-            "named": true
-          },
-          {
-            "type": "operator",
             "named": true
           },
           {
@@ -1008,7 +1012,7 @@
         ]
       },
       "type": {
-        "multiple": true,
+        "multiple": false,
         "required": false,
         "types": [
           {
@@ -1024,6 +1028,10 @@
             "named": true
           },
           {
+            "type": "generic_type",
+            "named": true
+          },
+          {
             "type": "map_type",
             "named": true
           },
@@ -1032,19 +1040,11 @@
             "named": true
           },
           {
-            "type": "operator",
-            "named": true
-          },
-          {
             "type": "pointer_type",
             "named": true
           },
           {
             "type": "proc_call",
-            "named": true
-          },
-          {
-            "type": "proc_type",
             "named": true
           },
           {
@@ -1262,6 +1262,10 @@
           "named": true
         },
         {
+          "type": "generic_type",
+          "named": true
+        },
+        {
           "type": "identifier",
           "named": true
         },
@@ -1401,6 +1405,10 @@
           "named": true
         },
         {
+          "type": "generic_type",
+          "named": true
+        },
+        {
           "type": "identifier",
           "named": true
         },
@@ -1430,10 +1438,6 @@
         },
         {
           "type": "nil",
-          "named": true
-        },
-        {
-          "type": "operator",
           "named": true
         },
         {
@@ -1510,7 +1514,7 @@
         ]
       },
       "type": {
-        "multiple": true,
+        "multiple": false,
         "required": false,
         "types": [
           {
@@ -1526,6 +1530,10 @@
             "named": true
           },
           {
+            "type": "generic_type",
+            "named": true
+          },
+          {
             "type": "map_type",
             "named": true
           },
@@ -1534,19 +1542,11 @@
             "named": true
           },
           {
-            "type": "operator",
-            "named": true
-          },
-          {
             "type": "pointer_type",
             "named": true
           },
           {
             "type": "proc_call",
-            "named": true
-          },
-          {
-            "type": "proc_type",
             "named": true
           },
           {
@@ -1588,7 +1588,7 @@
         ]
       },
       "type": {
-        "multiple": true,
+        "multiple": false,
         "required": false,
         "types": [
           {
@@ -1604,15 +1604,15 @@
             "named": true
           },
           {
+            "type": "generic_type",
+            "named": true
+          },
+          {
             "type": "map_type",
             "named": true
           },
           {
             "type": "matrix_type",
-            "named": true
-          },
-          {
-            "type": "operator",
             "named": true
           },
           {
@@ -1694,6 +1694,10 @@
             "named": true
           },
           {
+            "type": "generic_type",
+            "named": true
+          },
+          {
             "type": "identifier",
             "named": true
           },
@@ -1723,10 +1727,6 @@
           },
           {
             "type": "nil",
-            "named": true
-          },
-          {
-            "type": "operator",
             "named": true
           },
           {
@@ -1882,7 +1882,7 @@
     "named": true,
     "fields": {
       "backing": {
-        "multiple": true,
+        "multiple": false,
         "required": false,
         "types": [
           {
@@ -1898,6 +1898,10 @@
             "named": true
           },
           {
+            "type": "generic_type",
+            "named": true
+          },
+          {
             "type": "map_type",
             "named": true
           },
@@ -1906,19 +1910,11 @@
             "named": true
           },
           {
-            "type": "operator",
-            "named": true
-          },
-          {
             "type": "pointer_type",
             "named": true
           },
           {
             "type": "proc_call",
-            "named": true
-          },
-          {
-            "type": "proc_type",
             "named": true
           },
           {
@@ -2080,6 +2076,10 @@
             "named": true
           },
           {
+            "type": "generic_type",
+            "named": true
+          },
+          {
             "type": "identifier",
             "named": true
           },
@@ -2109,10 +2109,6 @@
           },
           {
             "type": "nil",
-            "named": true
-          },
-          {
-            "type": "operator",
             "named": true
           },
           {
@@ -2280,6 +2276,10 @@
             "named": true
           },
           {
+            "type": "generic_type",
+            "named": true
+          },
+          {
             "type": "identifier",
             "named": true
           },
@@ -2309,10 +2309,6 @@
           },
           {
             "type": "nil",
-            "named": true
-          },
-          {
-            "type": "operator",
             "named": true
           },
           {
@@ -2459,6 +2455,73 @@
     }
   },
   {
+    "type": "generic_type",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "array_type",
+          "named": true
+        },
+        {
+          "type": "bit_set_type",
+          "named": true
+        },
+        {
+          "type": "enum_type",
+          "named": true
+        },
+        {
+          "type": "generic_type",
+          "named": true
+        },
+        {
+          "type": "map_type",
+          "named": true
+        },
+        {
+          "type": "matrix_type",
+          "named": true
+        },
+        {
+          "type": "operator",
+          "named": true
+        },
+        {
+          "type": "pointer_type",
+          "named": true
+        },
+        {
+          "type": "proc_call",
+          "named": true
+        },
+        {
+          "type": "proc_type",
+          "named": true
+        },
+        {
+          "type": "selector_expression",
+          "named": true
+        },
+        {
+          "type": "struct_type",
+          "named": true
+        },
+        {
+          "type": "type_identifier",
+          "named": true
+        },
+        {
+          "type": "union_type",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "if_statement",
     "named": true,
     "fields": {
@@ -2507,6 +2570,10 @@
             "named": true
           },
           {
+            "type": "generic_type",
+            "named": true
+          },
+          {
             "type": "identifier",
             "named": true
           },
@@ -2536,10 +2603,6 @@
           },
           {
             "type": "nil",
-            "named": true
-          },
-          {
-            "type": "operator",
             "named": true
           },
           {
@@ -2929,6 +2992,10 @@
             "named": true
           },
           {
+            "type": "generic_type",
+            "named": true
+          },
+          {
             "type": "identifier",
             "named": true
           },
@@ -2958,10 +3025,6 @@
           },
           {
             "type": "nil",
-            "named": true
-          },
-          {
-            "type": "operator",
             "named": true
           },
           {
@@ -3071,6 +3134,10 @@
             "named": true
           },
           {
+            "type": "generic_type",
+            "named": true
+          },
+          {
             "type": "identifier",
             "named": true
           },
@@ -3100,10 +3167,6 @@
           },
           {
             "type": "nil",
-            "named": true
-          },
-          {
-            "type": "operator",
             "named": true
           },
           {
@@ -3209,6 +3272,10 @@
             "named": true
           },
           {
+            "type": "generic_type",
+            "named": true
+          },
+          {
             "type": "identifier",
             "named": true
           },
@@ -3238,10 +3305,6 @@
           },
           {
             "type": "nil",
-            "named": true
-          },
-          {
-            "type": "operator",
             "named": true
           },
           {
@@ -3347,6 +3410,10 @@
             "named": true
           },
           {
+            "type": "generic_type",
+            "named": true
+          },
+          {
             "type": "identifier",
             "named": true
           },
@@ -3376,10 +3443,6 @@
           },
           {
             "type": "nil",
-            "named": true
-          },
-          {
-            "type": "operator",
             "named": true
           },
           {
@@ -3493,6 +3556,10 @@
           "named": true
         },
         {
+          "type": "generic_type",
+          "named": true
+        },
+        {
           "type": "identifier",
           "named": true
         },
@@ -3522,10 +3589,6 @@
         },
         {
           "type": "nil",
-          "named": true
-        },
-        {
-          "type": "operator",
           "named": true
         },
         {
@@ -3655,6 +3718,10 @@
             "named": true
           },
           {
+            "type": "generic_type",
+            "named": true
+          },
+          {
             "type": "identifier",
             "named": true
           },
@@ -3684,10 +3751,6 @@
           },
           {
             "type": "nil",
-            "named": true
-          },
-          {
-            "type": "operator",
             "named": true
           },
           {
@@ -3765,7 +3828,7 @@
     "named": true,
     "fields": {
       "key": {
-        "multiple": true,
+        "multiple": false,
         "required": true,
         "types": [
           {
@@ -3781,15 +3844,15 @@
             "named": true
           },
           {
+            "type": "generic_type",
+            "named": true
+          },
+          {
             "type": "map_type",
             "named": true
           },
           {
             "type": "matrix_type",
-            "named": true
-          },
-          {
-            "type": "operator",
             "named": true
           },
           {
@@ -3823,7 +3886,7 @@
         ]
       },
       "value": {
-        "multiple": true,
+        "multiple": false,
         "required": true,
         "types": [
           {
@@ -3839,15 +3902,15 @@
             "named": true
           },
           {
+            "type": "generic_type",
+            "named": true
+          },
+          {
             "type": "map_type",
             "named": true
           },
           {
             "type": "matrix_type",
-            "named": true
-          },
-          {
-            "type": "operator",
             "named": true
           },
           {
@@ -3897,7 +3960,7 @@
     "named": true,
     "fields": {
       "type": {
-        "multiple": true,
+        "multiple": false,
         "required": true,
         "types": [
           {
@@ -3913,15 +3976,15 @@
             "named": true
           },
           {
+            "type": "generic_type",
+            "named": true
+          },
+          {
             "type": "map_type",
             "named": true
           },
           {
             "type": "matrix_type",
-            "named": true
-          },
-          {
-            "type": "operator",
             "named": true
           },
           {
@@ -3992,6 +4055,10 @@
           "named": true
         },
         {
+          "type": "generic_type",
+          "named": true
+        },
+        {
           "type": "identifier",
           "named": true
         },
@@ -4025,10 +4092,6 @@
         },
         {
           "type": "nil",
-          "named": true
-        },
-        {
-          "type": "operator",
           "named": true
         },
         {
@@ -4118,23 +4181,7 @@
         "required": true,
         "types": [
           {
-            "type": ",",
-            "named": false
-          },
-          {
-            "type": "compiler_directive",
-            "named": true
-          },
-          {
             "type": "identifier",
-            "named": true
-          },
-          {
-            "type": "keyword",
-            "named": true
-          },
-          {
-            "type": "operator",
             "named": true
           }
         ]
@@ -4153,6 +4200,10 @@
           },
           {
             "type": "enum_type",
+            "named": true
+          },
+          {
+            "type": "generic_type",
             "named": true
           },
           {
@@ -4242,6 +4293,10 @@
             "named": true
           },
           {
+            "type": "generic_type",
+            "named": true
+          },
+          {
             "type": "identifier",
             "named": true
           },
@@ -4271,10 +4326,6 @@
           },
           {
             "type": "nil",
-            "named": true
-          },
-          {
-            "type": "operator",
             "named": true
           },
           {
@@ -4341,6 +4392,14 @@
       "required": true,
       "types": [
         {
+          "type": "compiler_directive",
+          "named": true
+        },
+        {
+          "type": "keyword",
+          "named": true
+        },
+        {
           "type": "operator",
           "named": true
         }
@@ -4372,15 +4431,15 @@
           "named": true
         },
         {
+          "type": "generic_type",
+          "named": true
+        },
+        {
           "type": "map_type",
           "named": true
         },
         {
           "type": "matrix_type",
-          "named": true
-        },
-        {
-          "type": "operator",
           "named": true
         },
         {
@@ -4423,7 +4482,7 @@
     "named": true,
     "fields": {
       "type": {
-        "multiple": true,
+        "multiple": false,
         "required": true,
         "types": [
           {
@@ -4439,15 +4498,15 @@
             "named": true
           },
           {
+            "type": "generic_type",
+            "named": true
+          },
+          {
             "type": "map_type",
             "named": true
           },
           {
             "type": "matrix_type",
-            "named": true
-          },
-          {
-            "type": "operator",
             "named": true
           },
           {
@@ -4537,6 +4596,10 @@
           "named": true
         },
         {
+          "type": "generic_type",
+          "named": true
+        },
+        {
           "type": "identifier",
           "named": true
         },
@@ -4566,10 +4629,6 @@
         },
         {
           "type": "nil",
-          "named": true
-        },
-        {
-          "type": "operator",
           "named": true
         },
         {
@@ -4694,6 +4753,10 @@
             "named": true
           },
           {
+            "type": "generic_type",
+            "named": true
+          },
+          {
             "type": "identifier",
             "named": true
           },
@@ -4723,10 +4786,6 @@
           },
           {
             "type": "nil",
-            "named": true
-          },
-          {
-            "type": "operator",
             "named": true
           },
           {
@@ -4842,6 +4901,10 @@
             "named": true
           },
           {
+            "type": "generic_type",
+            "named": true
+          },
+          {
             "type": "identifier",
             "named": true
           },
@@ -4871,10 +4934,6 @@
           },
           {
             "type": "nil",
-            "named": true
-          },
-          {
-            "type": "operator",
             "named": true
           },
           {
@@ -4981,7 +5040,7 @@
         ]
       },
       "result": {
-        "multiple": true,
+        "multiple": false,
         "required": false,
         "types": [
           {
@@ -4997,6 +5056,10 @@
             "named": true
           },
           {
+            "type": "generic_type",
+            "named": true
+          },
+          {
             "type": "keyword",
             "named": true
           },
@@ -5006,10 +5069,6 @@
           },
           {
             "type": "matrix_type",
-            "named": true
-          },
-          {
-            "type": "operator",
             "named": true
           },
           {
@@ -5093,7 +5152,7 @@
         ]
       },
       "result": {
-        "multiple": true,
+        "multiple": false,
         "required": false,
         "types": [
           {
@@ -5109,6 +5168,10 @@
             "named": true
           },
           {
+            "type": "generic_type",
+            "named": true
+          },
+          {
             "type": "keyword",
             "named": true
           },
@@ -5118,10 +5181,6 @@
           },
           {
             "type": "matrix_type",
-            "named": true
-          },
-          {
-            "type": "operator",
             "named": true
           },
           {
@@ -5184,7 +5243,7 @@
     "fields": {
       "value": {
         "multiple": true,
-        "required": false,
+        "required": true,
         "types": [
           {
             "type": "(",
@@ -5231,6 +5290,10 @@
             "named": true
           },
           {
+            "type": "generic_type",
+            "named": true
+          },
+          {
             "type": "identifier",
             "named": true
           },
@@ -5260,10 +5323,6 @@
           },
           {
             "type": "nil",
-            "named": true
-          },
-          {
-            "type": "operator",
             "named": true
           },
           {
@@ -5385,6 +5444,10 @@
             "named": true
           },
           {
+            "type": "generic_type",
+            "named": true
+          },
+          {
             "type": "identifier",
             "named": true
           },
@@ -5414,10 +5477,6 @@
           },
           {
             "type": "nil",
-            "named": true
-          },
-          {
-            "type": "operator",
             "named": true
           },
           {
@@ -5549,6 +5608,10 @@
             "named": true
           },
           {
+            "type": "generic_type",
+            "named": true
+          },
+          {
             "type": "identifier",
             "named": true
           },
@@ -5578,10 +5641,6 @@
           },
           {
             "type": "nil",
-            "named": true
-          },
-          {
-            "type": "operator",
             "named": true
           },
           {
@@ -5693,6 +5752,10 @@
             "named": true
           },
           {
+            "type": "generic_type",
+            "named": true
+          },
+          {
             "type": "identifier",
             "named": true
           },
@@ -5722,10 +5785,6 @@
           },
           {
             "type": "nil",
-            "named": true
-          },
-          {
-            "type": "operator",
             "named": true
           },
           {
@@ -5831,6 +5890,10 @@
             "named": true
           },
           {
+            "type": "generic_type",
+            "named": true
+          },
+          {
             "type": "identifier",
             "named": true
           },
@@ -5860,10 +5923,6 @@
           },
           {
             "type": "nil",
-            "named": true
-          },
-          {
-            "type": "operator",
             "named": true
           },
           {
@@ -5962,6 +6021,104 @@
     }
   },
   {
+    "type": "struct_field_declaration",
+    "named": true,
+    "fields": {
+      "name": {
+        "multiple": true,
+        "required": true,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      },
+      "tag": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "raw_string_literal",
+            "named": true
+          }
+        ]
+      },
+      "type": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "array_type",
+            "named": true
+          },
+          {
+            "type": "bit_set_type",
+            "named": true
+          },
+          {
+            "type": "enum_type",
+            "named": true
+          },
+          {
+            "type": "generic_type",
+            "named": true
+          },
+          {
+            "type": "map_type",
+            "named": true
+          },
+          {
+            "type": "matrix_type",
+            "named": true
+          },
+          {
+            "type": "pointer_type",
+            "named": true
+          },
+          {
+            "type": "proc_call",
+            "named": true
+          },
+          {
+            "type": "proc_type",
+            "named": true
+          },
+          {
+            "type": "selector_expression",
+            "named": true
+          },
+          {
+            "type": "struct_type",
+            "named": true
+          },
+          {
+            "type": "type_identifier",
+            "named": true
+          },
+          {
+            "type": "union_type",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "keyword",
+          "named": true
+        },
+        {
+          "type": "operator",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "struct_type",
     "named": true,
     "fields": {
@@ -5981,23 +6138,7 @@
       "required": true,
       "types": [
         {
-          "type": "array_type",
-          "named": true
-        },
-        {
-          "type": "bit_set_type",
-          "named": true
-        },
-        {
           "type": "compiler_directive",
-          "named": true
-        },
-        {
-          "type": "enum_type",
-          "named": true
-        },
-        {
-          "type": "identifier",
           "named": true
         },
         {
@@ -6005,43 +6146,7 @@
           "named": true
         },
         {
-          "type": "map_type",
-          "named": true
-        },
-        {
-          "type": "matrix_type",
-          "named": true
-        },
-        {
-          "type": "operator",
-          "named": true
-        },
-        {
-          "type": "pointer_type",
-          "named": true
-        },
-        {
-          "type": "proc_call",
-          "named": true
-        },
-        {
-          "type": "proc_type",
-          "named": true
-        },
-        {
-          "type": "selector_expression",
-          "named": true
-        },
-        {
-          "type": "struct_type",
-          "named": true
-        },
-        {
-          "type": "type_identifier",
-          "named": true
-        },
-        {
-          "type": "union_type",
+          "type": "struct_field_declaration",
           "named": true
         }
       ]
@@ -6116,6 +6221,10 @@
             "named": true
           },
           {
+            "type": "generic_type",
+            "named": true
+          },
+          {
             "type": "identifier",
             "named": true
           },
@@ -6145,10 +6254,6 @@
           },
           {
             "type": "nil",
-            "named": true
-          },
-          {
-            "type": "operator",
             "named": true
           },
           {
@@ -6326,6 +6431,10 @@
             "named": true
           },
           {
+            "type": "generic_type",
+            "named": true
+          },
+          {
             "type": "identifier",
             "named": true
           },
@@ -6355,10 +6464,6 @@
           },
           {
             "type": "nil",
-            "named": true
-          },
-          {
-            "type": "operator",
             "named": true
           },
           {
@@ -6464,6 +6569,10 @@
             "named": true
           },
           {
+            "type": "generic_type",
+            "named": true
+          },
+          {
             "type": "identifier",
             "named": true
           },
@@ -6493,10 +6602,6 @@
           },
           {
             "type": "nil",
-            "named": true
-          },
-          {
-            "type": "operator",
             "named": true
           },
           {
@@ -6602,6 +6707,10 @@
             "named": true
           },
           {
+            "type": "generic_type",
+            "named": true
+          },
+          {
             "type": "identifier",
             "named": true
           },
@@ -6631,10 +6740,6 @@
           },
           {
             "type": "nil",
-            "named": true
-          },
-          {
-            "type": "operator",
             "named": true
           },
           {
@@ -6749,6 +6854,10 @@
         },
         {
           "type": "float_literal",
+          "named": true
+        },
+        {
+          "type": "generic_type",
           "named": true
         },
         {
@@ -6875,6 +6984,10 @@
           "named": true
         },
         {
+          "type": "generic_type",
+          "named": true
+        },
+        {
           "type": "keyword",
           "named": true
         },
@@ -6884,10 +6997,6 @@
         },
         {
           "type": "matrix_type",
-          "named": true
-        },
-        {
-          "type": "operator",
           "named": true
         },
         {
@@ -6959,7 +7068,7 @@
         ]
       },
       "type": {
-        "multiple": true,
+        "multiple": false,
         "required": false,
         "types": [
           {
@@ -6975,15 +7084,15 @@
             "named": true
           },
           {
+            "type": "generic_type",
+            "named": true
+          },
+          {
             "type": "map_type",
             "named": true
           },
           {
             "type": "matrix_type",
-            "named": true
-          },
-          {
-            "type": "operator",
             "named": true
           },
           {
@@ -7065,6 +7174,10 @@
             "named": true
           },
           {
+            "type": "generic_type",
+            "named": true
+          },
+          {
             "type": "identifier",
             "named": true
           },
@@ -7094,10 +7207,6 @@
           },
           {
             "type": "nil",
-            "named": true
-          },
-          {
-            "type": "operator",
             "named": true
           },
           {
@@ -7211,6 +7320,10 @@
           "named": true
         },
         {
+          "type": "generic_type",
+          "named": true
+        },
+        {
           "type": "identifier",
           "named": true
         },
@@ -7244,10 +7357,6 @@
         },
         {
           "type": "nil",
-          "named": true
-        },
-        {
-          "type": "operator",
           "named": true
         },
         {
@@ -7339,6 +7448,10 @@
   },
   {
     "type": "#force_inline",
+    "named": false
+  },
+  {
+    "type": "#force_no_inline",
     "named": false
   },
   {

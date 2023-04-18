@@ -145,7 +145,6 @@ module.exports = grammar({
 
   extras: $ => [
     $.comment,
-    // $.compiler_directive,
     /\s/
   ],
 
@@ -164,8 +163,8 @@ module.exports = grammar({
   conflicts: $ => [
     [$.var_declaration, $.const_declaration],
     [$.var_declaration, $.const_declaration, $._range_clause],
-    [$.single_assignment, $.assignment_statement],
-    [$.initializer_list, $.assignment_statement],
+    [$.single_assignment, $._expression_pack],
+    [$.initializer_list, $._expression_pack],
     [$._for_init_and_update_clause, $._for_init_clause],
     [$._expression],
   ],
@@ -243,20 +242,23 @@ module.exports = grammar({
     ),
 
     return_statement: $ => prec.right(seq(
-      alias('return', $.keyword),
-      field('value', list(',', $._expression)),
+        alias('return', $.keyword),
+        field('value', $._expression_pack),
     )),
 
     block_statement: $ => prec(1, seq(
-      optional(field('label', seq($._label_identifier, ':'))),
-      $.block,
+        optional(field('label', seq($._label_identifier, ':'))),
+        $.block,
     )),
 
     block: $ => prec(1, seq(
-      repeat(alias($._block_directive, $.compiler_directive)),
-      '{',
-      list(terminator, optional($._statement)),
-      '}',
+        repeat(alias(
+            $._block_directive,
+            $.compiler_directive
+        )),
+        '{',
+        list(terminator, optional($._statement)),
+        '}',
     )),
 
     _block_directive: $ => choice(
@@ -265,47 +267,52 @@ module.exports = grammar({
     ),
 
     pragma: $ => seq(
-      '@',
-      choice(
-        seq(
-          '(',
-          list1(
-            ',',
-            choice($._pragma_identifier, seq($._pragma_identifier, '=', $._expression))
-          ),
-          ')'
+        '@',
+        choice(
+            seq(
+                '(',
+                list1(',', choice(
+                    $._pragma_identifier,
+                    seq(
+                        $._pragma_identifier,
+                        '=',
+                        $._expression,
+                    ),
+                )),
+                ')'
+            ),
+            $._pragma_identifier,
         ),
-        $._pragma_identifier,
-      ),
     ),
 
     _declaration: $ => seq(
         repeat($.pragma),
         choice(
-          $.var_declaration,
-          $.const_declaration,
+            $.var_declaration,
+            $.const_declaration,
         )
     ),
 
     var_declaration: $ => prec.right(1, seq(
-      field('name', list1(',', $.identifier)),
-      alias(':', $.operator),
-      choice(
-        field('type', $._type),
-        seq(
-          optional(field('type', $._type)),
-          alias('=', $.operator),
-          field('value', list1(',', $._expression))),
-      ),
+        field('name', list1(',', $.identifier)),
+        alias(':', $.operator),
+        choice(
+            field('type', $._type),
+            seq(
+                optional(field('type', $._type)),
+                alias('=', $.operator),
+                field('value', $._expression_pack),
+            ),
+        ),
     )),
 
     const_declaration: $ => prec.right(1, seq(
-      field('name', list1(',', alias($.identifier, $.const_identifier))),
-      alias(':', $.operator),
-      optional(field('type', $._type)),
-      alias(':', $.operator),
-      optional(alias('distinct', $.keyword)),
-      field('value', list1(',', $._expression)),
+        field('name', list1(',', alias($.identifier, $.const_identifier))),
+        alias(':', $.operator),
+        optional(field('type', $._type)),
+        alias(':', $.operator),
+        optional(alias('distinct', $.keyword)),
+        field('value', $._expression_pack),
     )),
 
     _type: $ => choice(
@@ -314,22 +321,10 @@ module.exports = grammar({
     ),
 
     _simple_type: $ => prec.right(choice(
-      alias(choice(...builtin_types), $.type_identifier),
-      seq(
-          alias('typeid', $.type_identifier),
-          alias('/', $.operator),
-          $._type,
-      ),
       $.selector_expression,
+      alias(choice(...builtin_types), $.type_identifier),
       $._type_identifier,
-      seq(
-        alias('$', $.operator),
-        $._type_identifier,
-        optional(seq(
-          alias('/', $.operator),
-          $._type,
-        )),
-      ),
+      $.generic_type,
       $.map_type,
       $.pointer_type,
       $.bit_set_type,
@@ -339,6 +334,22 @@ module.exports = grammar({
       $.enum_type,
       $.union_type,
       prec(-1, $.proc_call),
+    )),
+
+    generic_type: $ => prec.right(choice(
+        seq(
+            alias('typeid', $.type_identifier),
+            alias('/', $.operator),
+            $._type,
+        ),
+        seq(
+            alias('$', $.operator),
+            $._type_identifier,
+            optional(seq(
+              alias('/', $.operator),
+              $._type,
+            )),
+        ),
     )),
 
     pointer_type: $ => prec(op_prec.l_unary, seq(
@@ -405,18 +416,24 @@ module.exports = grammar({
     )),
 
     struct_type: $ => seq(
-      alias('struct', $.keyword),
-      optional(field('parameters', $.parameter_list)),
-      repeat(alias($._struct_directive, $.compiler_directive)),
-      '{',
-      list(',', seq(
-        list1(',', seq(optional(alias('using', $.keyword)), $.identifier)),
-        ':',
-        $._type
-      )),
-      optional(','),
-      '}',
+        alias('struct', $.keyword),
+        optional(field('parameters', $.parameter_list)),
+        repeat(alias($._struct_directive, $.compiler_directive)),
+        '{',
+        list(',', $.struct_field_declaration),
+        optional(','),
+        '}',
     ),
+
+    struct_field_declaration: $ => seq(
+        list1(',', seq(
+            optional(alias('using', $.keyword)),
+            field('name', $.identifier),
+        )),
+        alias(':', $.operator),
+        field('type', $._type),
+        optional(field('tag', $.raw_string_literal)),
+    ), 
 
     _struct_directive: $ => choice(
         '#no_copy',
@@ -497,7 +514,7 @@ module.exports = grammar({
       field('operand', $._expression),
       '[',
       choice(
-        field('index', list1(',', $._expression)),
+        field('index', $._expression_pack),
         seq(
           optional(field('start', $._expression)),
           alias(':', $.operator),
@@ -527,11 +544,12 @@ module.exports = grammar({
     where_clause: $ => seq(
         optional('\n'),
         alias('where', $.keyword),
-        list1(',', $._expression)
+        $._expression_pack,
     ),
 
     _proc_directive: $ => choice(
         '#force_inline',
+        '#force_no_inline',
     ),
 
     proc_group: $ => seq(
@@ -572,20 +590,22 @@ module.exports = grammar({
     ),
 
     parameter_declaration: $ => prec.right(1, seq(
-        field('name', list1(',', seq(
+        list1(',', seq(
             repeat(choice(
                 alias('using', $.keyword),
                 alias($._parameter_directive, $.compiler_directive),
             )),
             optional(alias('$', $.operator)),
-            $.identifier))),
+            field('name', $.identifier),
+        )),
         alias(':', $.operator),
         choice(
             field('type', seq(optional(alias('..', $.operator)), $._type)),
             seq(
                 optional(field('type', $._type)),
                 alias('=', $.operator),
-                field('value', $._expression)),
+                field('value', $._expression),
+            ),
         ),
     )),
 
@@ -620,10 +640,12 @@ module.exports = grammar({
     ),
 
     assignment_statement: $ => prec.right(seq(
-      field('lhs', list1(',', $._expression)),
+      field('lhs', $._expression_pack),
       alias(choice(...assignment_operators), $.operator),
-      field('rhs', list1(',', $._expression)),
+      field('rhs', $._expression_pack),
     )),
+
+    _expression_pack: $ => prec.left(list1(',', $._expression)),
 
     case_statement: $ => seq(
       alias('case', $.keyword),

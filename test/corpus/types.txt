@@ -94,14 +94,20 @@ structs :: {
           (keyword))
         (struct_type
           (keyword)
-          (identifier)
-          (identifier)
-          (type_identifier))
+          (struct_field_declaration
+            (identifier)
+            (identifier)
+            (operator)
+            (type_identifier)))
         (struct_type
           (keyword)
-          (identifier)
-          (array_type
-            (keyword)
-            (type_identifier))
-          (identifier)
-          (type_identifier))))))
+          (struct_field_declaration
+            (identifier)
+            (operator)
+            (array_type
+              (keyword)
+              (type_identifier)))
+          (struct_field_declaration
+            (identifier)
+            (operator)
+            (type_identifier)))))))
