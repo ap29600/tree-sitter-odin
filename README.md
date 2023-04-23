@@ -33,6 +33,7 @@ local parser_config = require "nvim-treesitter.parsers".get_parser_configs()
 parser_config.odin = {
   install_info = {
     url = "path/to/tree-sitter-odin",
+    branch = 'main',
     files = {"src/parser.c"}
   },
   filetype = "odin",
