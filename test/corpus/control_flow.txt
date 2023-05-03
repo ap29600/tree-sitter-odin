@@ -284,3 +284,37 @@ main :: proc () {
             (operator)
             rhs: (int_literal))
           body: (block))))))
+
+================================================================================
+Using statement
+================================================================================
+
+package using_stmt
+
+main :: proc () {
+    using foo.bar
+    return bar
+}
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (package_clause
+    (keyword)
+    (package_identifier))
+  (const_declaration
+    name: (const_identifier)
+    (operator)
+    (operator)
+    value: (proc_literal
+      (keyword)
+      parameters: (parameter_list)
+      (block
+        (using_statement
+          (keyword)
+          (selector_expression
+            parent: (identifier)
+            field: (identifier)))
+        (return_statement
+          (keyword)
+          value: (identifier))))))
