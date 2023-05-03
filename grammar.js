@@ -174,14 +174,16 @@ module.exports = grammar({
       $.package_clause,
       list(
         terminator,
-        optional(choice(
-          $.foreign_block,
-          $._declaration,
-          $.import_declaration,
-        )),
+        optional($._top),
       )
     ),
 
+    _top: $ => choice(
+        $.foreign_block,
+        $._declaration,
+        $.import_declaration,
+        $.top_when_statement,
+    ),
 
     package_clause: $ => seq(
       alias('package', $.keyword),
@@ -220,6 +222,7 @@ module.exports = grammar({
     _statement: $ => choice(
       $._simple_statement,
       $.if_statement,
+      $.when_statement,
       $.switch_statement,
       $.for_statement,
       $.block_statement,
@@ -232,6 +235,7 @@ module.exports = grammar({
       choice(
         $._simple_statement,
         $.if_statement,
+        $.when_statement,
         $.block_statement,
       ),
     ),
@@ -258,6 +262,16 @@ module.exports = grammar({
         )),
         '{',
         list(terminator, optional($._statement)),
+        '}',
+    )),
+
+    top_block: $ => prec(1, seq(
+        repeat(alias(
+            $._block_directive,
+            $._compiler_directive,
+        )),
+        '{',
+        list(terminator, optional($._top)),
         '}',
     )),
 
@@ -657,9 +671,45 @@ module.exports = grammar({
 
     break_statement: $ => seq(alias('break', $.keyword), optional($._label_identifier)),
 
+    when_statement: $ => prec.right(seq(
+      optional(field('label', seq($._label_identifier, ':'))),
+      alias('when', $.keyword),
+      field('condition', $._expression),
+      field('when_true', choice(
+        seq(alias('do', $.keyword), $._statement, optional(terminator)),
+        $.block,
+      )),
+      optional(seq(
+        alias('else', $.keyword),
+        field('when_false', choice(
+          $.when_statement,
+          seq(alias('do', $.keyword), $._statement),
+          $.block,
+        )),
+      )),
+    )),
+
+    top_when_statement: $ => prec.right(seq(
+      optional(field('label', seq($._label_identifier, ':'))),
+      alias('when', $.keyword),
+      field('condition', $._expression),
+      field('when_true', choice(
+        seq(alias('do', $.keyword), $._top, optional(terminator)),
+        $.top_block,
+      )),
+      optional(seq(
+        alias('else', $.keyword),
+        field('when_false', choice(
+          $.when_statement,
+          seq(alias('do', $.keyword), $._top),
+          $.top_block,
+        )),
+      )),
+    )),
+
     if_statement: $ => prec.right(seq(
       optional(field('label', seq($._label_identifier, ':'))),
-      alias(choice('if', 'when'), $.keyword),
+      alias('if', $.keyword),
       optional(seq(
         field('initializer', $._statement),
         ';',
@@ -673,7 +723,7 @@ module.exports = grammar({
         alias('else', $.keyword),
         field('if_false', choice(
           $.if_statement,
-          seq(alias('do', $.keyword), $._statement, ),
+          seq(alias('do', $.keyword), $._statement),
           $.block,
         )),
       )),
