@@ -8,6 +8,7 @@ main :: proc () {
     if cond {
     } else if other {
     } else {
+        return
     }
 }
 
@@ -35,7 +36,9 @@ main :: proc () {
             (identifier)
             (block)
             (keyword)
-            (block)))))))
+            (block
+              (return_statement
+                (keyword)))))))))
 
 ================================================================================
 When statement

@@ -247,7 +247,7 @@ module.exports = grammar({
 
     return_statement: $ => prec.right(seq(
         alias('return', $.keyword),
-        field('value', $._expression_pack),
+        optional(field('value', $._expression_pack)),
     )),
 
     block_statement: $ => prec(1, seq(
