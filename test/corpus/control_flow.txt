@@ -38,6 +38,56 @@ main :: proc () {
             (block)))))))
 
 ================================================================================
+When statement
+================================================================================
+
+package when_statement
+
+when cond {
+    import "fmt"
+}
+
+main :: proc () {
+    when cond {
+    } else when other {
+    } else {
+    }
+}
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (package_clause
+    (keyword)
+    (package_identifier))
+  (top_when_statement
+    (keyword)
+    (identifier)
+    (top_block
+      (import_declaration
+        (keyword)
+        (interpreted_string_literal))))
+  (const_declaration
+    (const_identifier)
+    (operator)
+    (operator)
+    (proc_literal
+      (keyword)
+      (parameter_list)
+      (block
+        (when_statement
+          (keyword)
+          (identifier)
+          (block)
+          (keyword)
+          (when_statement
+            (keyword)
+            (identifier)
+            (block)
+            (keyword)
+            (block)))))))
+
+================================================================================
 Ranged for loop
 ================================================================================
 
