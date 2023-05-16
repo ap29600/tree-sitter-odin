@@ -832,7 +832,7 @@ module.exports = grammar({
 
     right_unary_expression: $ => prec(op_prec.r_unary, seq(
       field('operand', $._expression),
-      field('operator', alias(choice('^', 'or_return'), $.operator)),
+      field('operator', alias(choice('^', 'or_return', '.?'), $.operator)),
     )),
 
     left_unary_expression: $ => prec(op_prec.l_unary, seq(

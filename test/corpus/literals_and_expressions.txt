@@ -131,6 +131,7 @@ left_unary :: {
 right_unary :: {
     a^,
     a or_return,
+    a.?,
 }
 
 proc_call :: {
@@ -190,6 +191,9 @@ binary :: {
     (operator)
     value: (compound_literal
       contents: (initializer_list
+        (right_unary_expression
+          operand: (identifier)
+          operator: (operator))
         (right_unary_expression
           operand: (identifier)
           operator: (operator))
