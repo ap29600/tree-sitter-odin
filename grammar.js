@@ -242,7 +242,7 @@ module.exports = grammar({
 
     using_statement: $ => seq(
         alias('using', $.keyword),
-        $.identifier,
+        $._expression,
     ),
 
     return_statement: $ => prec.right(seq(
